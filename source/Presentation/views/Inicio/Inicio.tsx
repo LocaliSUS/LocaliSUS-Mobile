@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
+import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { Color } from "../../theme/AppTheme";
 
 export const Inicio = () => {
@@ -8,14 +8,15 @@ export const Inicio = () => {
       
       
       <View style={styles.header}>
-        <Image style={imageLogo}
-        source = { require()}/>
+        <Image style={styles.imageLogo}
+        source={require("../../../../assets/img/LocaliSUS-Logo-Fundo.png")}/>
         <Text style={styles.logo}>LOCALISUS</Text>
       </View>
 
       
       <View style={styles.content}>
-        <Text style={styles.placeholder}>💊</Text>
+        <Image style={styles.imageFundo}
+        source={require("../../../../assets/img/tela-fundo.png")}/>
       </View>
 
       
@@ -40,6 +41,17 @@ export const Inicio = () => {
 };
 
 const styles = StyleSheet.create({
+    imageLogo: {
+        width: 120,
+        height: 120,
+        resizeMode: "contain",
+    },
+    imageFundo:{
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 420,
+        height: 390,
+    },
   container: {
     flex: 1,
     backgroundColor: Color.darkBlue,
