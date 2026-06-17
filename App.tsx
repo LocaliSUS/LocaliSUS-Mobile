@@ -1,22 +1,34 @@
-import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { CadastroSusScreen } from './src/cadastro/CadastroSus';
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Inicio } from "./source/Presentation/views/Inicio/Inicio";
+import { LoginScreen } from "./source/Presentation/views/login/Login";
 
 export type RootStackParamList = {
-    CadastroSusScreen: undefined;
+  Inicio: undefined;
+  LoginScreen: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-const App = () => {
-    return (
-        <NavigationContainer>
-            <Stack.Navigator id="root" screenOptions={{ headerShown: false }}>
-                <Stack.Screen name="CadastroSusScreen" component={CadastroSusScreen} />
-            </Stack.Navigator>
-        </NavigationContainer>
-    );
-};
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        id={undefined}
+        screenOptions={{ headerShown: false }}
+      >
 
-export default App;
+        <Stack.Screen
+          name="LoginScreen"
+          component={LoginScreen}
+        />
+
+        <Stack.Screen
+          name="Inicio"
+          component={Inicio}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
