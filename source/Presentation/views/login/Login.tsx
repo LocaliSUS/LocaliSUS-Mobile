@@ -6,6 +6,10 @@ export const LoginScreen = () => {
     return (
         <View style={styles.container}>
 
+            <View style={styles.content}>
+                <Image style={styles.imageFundo}
+                    source={require("../../../../assets/img/tela-fundo.png")} />
+            </View>
 
             <View style={styles.header}>
                 <Image style={styles.imageLogo}
@@ -14,21 +18,14 @@ export const LoginScreen = () => {
             </View>
 
 
-            <View style={styles.content}>
-                <Image style={styles.imageFundo}
-                    source={require("../../../../assets/img/tela-fundo.png")} />
-            </View>
+
 
 
             <View style={styles.footer}>
-                <Text style={styles.title}>Login</Text>
+                <Text style={styles.title}>Entrar</Text>
 
                 <TouchableOpacity style={styles.loginButton}>
                     <Text style={styles.loginText}>Já tem uma conta?</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.registerButton}>
-                    <Text style={styles.registerText}>Cadastre-se!</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity>
@@ -47,14 +44,20 @@ const styles = StyleSheet.create({
         resizeMode: "contain",
     },
     imageFundo: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: 420,
-        height: 390,
+        width: 42,
+        height: 92,
+        opacity: 0.5,
+        backgroundColor: Color.darkBlue,
+        left: '5%',
+        bottom: '30%',
     },
     container: {
         flex: 1,
+        position: 'relative',
+        width: '100%',
+        height: '100%',
         backgroundColor: Color.darkBlue,
+
     },
 
     header: {
