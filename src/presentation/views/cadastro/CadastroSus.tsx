@@ -1,11 +1,11 @@
 import { StyleSheet, View, Text, Image, TextInput, Button, ToastAndroid, Alert, Platform, Touchable, TouchableOpacity } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "../../App";
+import { RootStackParamList } from "../../../../App";
 import { useNavigation } from "@react-navigation/native";
 
 //componentes
-import { COLORS } from "../theme/AppTheme";
-import { RoundedButton } from "../components/RoudedButton";
+import { COLORS } from "../../theme/AppTheme";
+import { RoundedButton } from "../../components/RoudedButton";
 //views models
 import cadastroViewModel from './ViewModel';
 
@@ -112,14 +112,14 @@ export const CadastroSusScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: COLORS.segunda,
+        backgroundColor: COLORS.coralRed,
         alignItems: 'center',
         justifyContent: 'center',
     },
     containerTop: {
         width: '100%',
         height: '35%',
-        backgroundColor: COLORS.primeira,
+        backgroundColor: COLORS.darkBlue,
         position: 'absolute',
         bottom: 0,
         borderTopLeftRadius: 40,
@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
     frm: {
         width: '100%',
         height: '45%',
-        backgroundColor: COLORS.segunda,
+        backgroundColor: COLORS.darkBlue,
         position: 'absolute',
         bottom: 0,
         borderTopLeftRadius: 40,
@@ -183,10 +183,10 @@ const styles = StyleSheet.create({
     txtRegister: {
         fontStyle: 'italic',
         fontWeight: 'bold',
-        borderBottomColor: COLORS.segunda,
+        borderBottomColor: COLORS.darkBlue,
         borderBottomWidth: 1,
         marginLeft: 5,
-        color: COLORS.segunda,
+        color: COLORS.darkBlue,
         fontSize: 17,
     },
 })
