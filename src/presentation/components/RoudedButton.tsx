@@ -2,7 +2,7 @@
 //local: src/components/RoundedButton.tsx
 import React from "react";
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
-import { COLORS } from "../../theme/AppTheme";
+import { COLORS } from "../theme/AppTheme";
 
 interface Props{
     text: string;
@@ -27,13 +27,13 @@ const styles = StyleSheet.create({
     btn:{
         width: '100%',
         height: 50,
-        backgroundColor: COLORS.primeira,
+        backgroundColor: COLORS.darkBlue,
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 15,
     },
     txtBnt:{
-        color: COLORS.segunda,
+        color: COLORS.lightBlue,
         fontWeight: 'bold',
         fontSize: 16,
     },

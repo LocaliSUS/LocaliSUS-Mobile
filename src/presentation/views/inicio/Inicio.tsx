@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../../../App";
-import { Color } from "../../theme/AppTheme";
+import { COLORS } from "../../theme/AppTheme";
 
 export const Inicio = () => {
   const navigation =
@@ -49,7 +49,9 @@ export const Inicio = () => {
           <Text style={styles.loginText}>Já tem uma conta?</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.registerButton}>
+        <TouchableOpacity style={styles.registerButton}
+        onPress={() => navigation.navigate("CadastroSusScreen")}
+        >
           <Text style={styles.registerText}>Cadastre-se!</Text>
         </TouchableOpacity>
 
@@ -65,7 +67,7 @@ export const Inicio = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Color.darkBlue,
+    backgroundColor: COLORS.darkBlue,
   },
 
   topDetail: {
@@ -136,7 +138,7 @@ const styles = StyleSheet.create({
   },
 
   loginButton: {
-    backgroundColor: Color.mintGreen,
+    backgroundColor: COLORS.mintGreen,
     width: 150,
     height: 25,
     borderRadius: 22,
@@ -152,13 +154,13 @@ const styles = StyleSheet.create({
   },
 
   loginText: {
-    color: Color.darkBlue,
+    color: COLORS.darkBlue,
     fontWeight: "bold",
     fontSize: 15,
   },
 
   registerButton: {
-    backgroundColor: Color.goldenYellow,
+    backgroundColor: COLORS.goldenYellow,
     width: 110,
     height: 30,
     fontWeight: "bold",
@@ -174,7 +176,7 @@ const styles = StyleSheet.create({
   },
 
   registerText: {
-    color: Color.darkBlue,
+    color: COLORS.darkBlue,
     fontWeight: "bold",
     fontSize: 15,
   },

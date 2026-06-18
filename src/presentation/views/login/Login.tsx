@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
-import { Color } from "../../theme/AppTheme";
+import { COLORS } from "../../theme/AppTheme";
 import { CustomTextInput } from "../../components/CustomTextInput"; // ajuste o caminho conforme sua estrutura
 
 export const LoginScreen = () => {
@@ -90,7 +90,7 @@ export const LoginScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: Color.darkBlue,
+        backgroundColor: COLORS.darkBlue,
     },
 
     backgroundImage: {
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
     },
 
     loginButton: {
-        backgroundColor: Color.mintGreen,
+        backgroundColor: COLORS.mintGreen,
         width: 150,
         height: 25,
         borderRadius: 22,
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
     },
 
     loginText: {
-        color: Color.darkBlue,
+        color: COLORS.darkBlue,
         fontWeight: "bold",
         fontSize: 15,
     },
@@ -178,5 +178,11 @@ const styles = StyleSheet.create({
         color: "#FFFFFF",
         fontSize: 18,
         marginTop: 5,
+    },
+    forgotPassword:{
+
+    },
+    bottomIcons:{
+        
     },
 });
