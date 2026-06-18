@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
-import { Color } from "../../theme/AppTheme";
+import { COLORS } from "../../theme/AppTheme";
 import { CustomTextInput } from "../../components/CustomTextInput"; // ajuste o caminho conforme sua estrutura
 
 export const LoginScreen = () => {
@@ -43,23 +43,23 @@ export const LoginScreen = () => {
             <View style={styles.footer}>
                 <Text style={styles.title}>Entrar</Text>
 
-                {/* <CustomTextInput
-          image={require("../../../../assets/img/icon-cpf.png")}
-          placeholder="Insira seu CPF..."
-          value={form.cpf}
-          keyboardType="numeric"
-          property="cpf"
-          onChangeText={handleChange}
-        />
+                <CustomTextInput
+                    image={require("../../../../assets/img/icon-cpf.png")}
+                    placeholder="Insira seu CPF..."
+                    value={form.cpf}
+                    keyboardType="numeric"
+                    property="cpf"
+                    onChangeText={handleChange}
+                />
 
-        <CustomTextInput
-          image={require("../../../../assets/img/icon-senha.png")}
-          placeholder="Insira sua Senha..."
-          value={form.senha}
-          secureTextEntry
-          property="senha"
-          onChangeText={handleChange}
-        /> */}
+                <CustomTextInput
+                    image={require("../../../../assets/img/icon-senha.png")}
+                    placeholder="Insira sua Senha..."
+                    value={form.senha}
+                    secureTextEntry
+                    property="senha"
+                    onChangeText={handleChange}
+                />
 
                 <TouchableOpacity>
                     <Text style={styles.forgotPassword}>Esqueci minha senha</Text>
@@ -90,7 +90,7 @@ export const LoginScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: Color.darkBlue,
+        backgroundColor: COLORS.darkBlue,
     },
 
     backgroundImage: {
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     bottomDetail: {
         position: "absolute",
         width: 750,
-        height: 500,
+        height: 590,
         bottom: -200,
         left: -172,
         resizeMode: "contain",
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        paddingTop: 70,
+        paddingBottom: 120,
         gap: 12,
     },
 
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
     },
 
     loginButton: {
-        backgroundColor: Color.mintGreen,
+        backgroundColor: COLORS.mintGreen,
         width: 150,
         height: 25,
         borderRadius: 22,
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
     },
 
     loginText: {
-        color: Color.darkBlue,
+        color: COLORS.darkBlue,
         fontWeight: "bold",
         fontSize: 15,
     },
@@ -179,4 +179,16 @@ const styles = StyleSheet.create({
         fontSize: 18,
         marginTop: 5,
     },
+
+    // bottomIcons: {
+    //     /* Botão Voltar */
+
+    //     position: "absolute",
+
+    //     justifyContent: "center",
+    //     alignItems: "center",
+
+
+
+    // }
 });
