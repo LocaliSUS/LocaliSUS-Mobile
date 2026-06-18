@@ -49,7 +49,9 @@ export const Inicio = () => {
           <Text style={styles.loginText}>Já tem uma conta?</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.registerButton}>
+        <TouchableOpacity style={styles.registerButton}
+        onPress={() => navigation.navigate("CadastroSusScreen")}
+        >
           <Text style={styles.registerText}>Cadastre-se!</Text>
         </TouchableOpacity>
 

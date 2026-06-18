@@ -1,4 +1,5 @@
-import { StyleSheet, View, Text, Image, TextInput, Button, ToastAndroid, Alert, Platform, Touchable, TouchableOpacity } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, View, Text, Image, TouchableOpacity, Button} from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../../../App";
 import { useNavigation } from "@react-navigation/native";
@@ -6,187 +7,231 @@ import { useNavigation } from "@react-navigation/native";
 //componentes
 import { COLORS } from "../../theme/AppTheme";
 import { RoundedButton } from "../../components/RoudedButton";
+import { CustomTextInput } from "../../components/CustomTextInput";
 //views models
 import cadastroViewModel from './ViewModel';
 
+
 export const CadastroSusScreen = () => {
+    const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
-    const navigation = useNavigation<StackNavigationProp<RootStackParamList>>()
+    const { userPassword, userEmail, userPhone, onChange,} = cadastroViewModel();
 
-    const { login } = cadastroViewModel();
-
-    return (
-
-        <View style={styles.container}>
-
-            <View style={styles.containerTop}>
+       const [form, setForm] = useState({ cpf: "", senha: "" });
+    
+        const handleChange = (property: string | undefined, value: any) => {
+            if (!property) return;
+            setForm({ ...form, [property]: value });
+        };
+    
+        return (
+            <View style={styles.container}>
+    
+                 {/* FUNDO PRINCIPAL */}
                 <Image
-                    style={styles.imageFundo}
-                    source={require('../../assets/imags/imagem.png')}
+                    source={require("../../../../assets/img/tela-fundo.png")}
+                    style={styles.FundoImage}
                 />
-                <Text style={styles.logoTxt}>LOCALISUS</Text>
-
-            </View>
-
-            <Image
-                style={styles.imageFundo}
-                source={require('../../assets/imags/hal-gatewood-nhG5gix93es-unsplash-dithered.png')}
-            />
-
-            <View style={styles.frm}>
-
-                <View style={styles.frmInput}>
-
+    
+                 {/* Card/image */}
+                <Image
+                    source={require("../../../../assets/img/curva-superior.png")}
+                    style={styles.Cardtop}
+                />
+                <Image
+                    source={require("../../../../assets/img/curva-inferior.png")}
+                    style={styles.cardDow}
+                />
+    
+                {/* Header */}
+                <View style={styles.header}>
                     <Image
-                        style={styles.frmicon}
-                        source={require('../../assets/imags/imagem.png')} />
-
-                    <TextInput
-                        style={styles.txtInput}
-                        placeholder="Digite seu email / Usuário"
-                        keyboardType='email-address'
+                        style={styles.imageLogo}
+                        source={require("../../../../assets/img/LocaliSUS-Logo-Fundo.png")}
                     />
+                    <Text style={styles.textlogo}>LOCALISUS</Text>
                 </View>
+    
+                {/* Escrita */}
+                <View style={styles.footer}>
+                    <Text style={styles.title}>cadastro</Text>
 
-                <View style={styles.frmInput}>
+                    <CustomTextInput
 
-                    <Image
-                        style={styles.frmicon}
-                        source={require('../../assets/imags/imagem.png')} />
+                        image={require('../../../../assets/img/icon-cpf.png')}
+                        placeholder="Insira seu CPF..."
+                        keyboardType="default"
+                        secureTextEntry={false}
+                        property="userEmail"
+                        onChangeText={onChange}
+                        value={userEmail}
+                    
+                    />
+                    <CustomTextInput
 
-                    <TextInput
-                        style={styles.txtInput}
-                        placeholder="Digite sua senha..."
+                        image={require('../../../../assets/img/icone-numero.png')}
+                        placeholder="Insira seu Numero de Telefone..."
+                        keyboardType="default"
+                        secureTextEntry={false}
+                        property="userPhone"
+                        onChangeText={onChange}
+                        value={userPhone}
+                    
+                    />
+                    <CustomTextInput
+
+                        image={require('../../../../assets/img/icon-senha.png')}
+                        placeholder="Insira seu Senha..."
                         keyboardType="default"
                         secureTextEntry={true}
+                        property="userPassword"
+                        onChangeText={onChange}
+                        value={userPassword}
+                    
                     />
+    
+                    <TouchableOpacity style={styles.cadastroButton}>
+                        <Text style={styles.cadastroText}>Cadastrar</Text>
+                    </TouchableOpacity>
+    
+                    <View style={styles.bottomIcons}>
+                        
+                        <TouchableOpacity onPress={() => navigation.navigate('Inicio') } style={styles.voltarButton}>
+                            <Image 
+                                style={styles.voltarLogo}
+                                source={require("../../../../assets/img/icon-voltar.png")}
+                            />
+                        </TouchableOpacity>
 
+                        <TouchableOpacity>
+                            <Text style={styles.help}>ⓘ Ajuda</Text>
+                        </TouchableOpacity>
+
+                        
+
+                    </View>
                 </View>
-
-                <View style={styles.frmInput}>
-
-                    <Image
-                        style={styles.frmicon}
-                        source={require('../../assets/imags/imagem.png')} />
-
-                    <TextInput
-                        style={styles.txtInput}
-                        placeholder="Digite sua senha..."
-                        keyboardType="default"
-                        secureTextEntry={true}
-                    />
-
-                </View>
-
-                <View style={styles.btnEntrar}>
-                    <RoundedButton
-                        text="Cadastrar"
-                        onPress={() => login()}
-                    />
-                </View>
-
-                <View style={styles.frmRecuperar}>
-
-                    {/* <TouchableOpacity onPress={() => navigation.navigate('RecuperarScreen')}>
-            <Image
-            style={ styles.frmicon} 
-        source = { require('../../../../assets/img/user.png') }/>
-
-            <Text style={styles.txtRegister}> 
-              Ajuda
-            </Text>
-
-          </TouchableOpacity> */}
-
-                </View>
-
-
             </View>
-
-        </View>
-
-    );
-
-};
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: COLORS.coralRed,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    containerTop: {
-        width: '100%',
-        height: '35%',
-        backgroundColor: COLORS.darkBlue,
-        position: 'absolute',
-        bottom: 0,
-        borderTopLeftRadius: 40,
-        borderTopRightRadius: 40,
-        padding: 20,
-    },
-    imageFundo: {
-        width: '100%',
-        height: '100%',
-        opacity: 0.6,
-        bottom: '30%',
-    },
-    logoTxt: {
-        width: 150,
-        height: 150,
-        alignSelf: 'center',
-    },
-    frm: {
-        width: '100%',
-        height: '45%',
-        backgroundColor: COLORS.darkBlue,
-        position: 'absolute',
-        bottom: 0,
-        borderTopLeftRadius: 40,
-        borderTopRightRadius: 40,
-        padding: 20,
-    },
-    frmTitle: {
-        textAlign: 'center',
-        fontSize: 26,
-        fontWeight: 'bold',
-    },
-    btnEntrar: {
-        alignSelf: 'center',
-        width: 300,
-        marginTop: 30,
-        cursor: 'pointer',
-    },
-    frmRecuperar: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-    },
-    frmText: {
-        fontSize: 17
-    },
-    frmInput: {
-        flexDirection: 'row',
-        marginTop: 30,
-    },
-    frmicon: {
-        width: 25,
-        height: 25,
-        marginTop: 10,
-    },
-    txtInput: {
-        flex: 1,
-        borderBottomWidth: 2,
-        borderBottomColor: '#d40b0bff',
-        marginLeft: 15,
-    },
-    txtRegister: {
-        fontStyle: 'italic',
-        fontWeight: 'bold',
-        borderBottomColor: COLORS.darkBlue,
-        borderBottomWidth: 1,
-        marginLeft: 5,
-        color: COLORS.darkBlue,
-        fontSize: 17,
-    },
-})
+        );
+    };
+    
+    
+    const styles = StyleSheet.create({
+        container: {
+            flex: 1,
+            backgroundColor: COLORS.darkBlue,
+        },
+    
+        FundoImage: {
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            resizeMode: "cover",
+        },
+    
+        Cardtop: {
+            position: "absolute",
+            width: 500,
+            height: 300,
+            top: 0,
+            left: -49,
+            resizeMode: "contain",
+        },
+    
+        cardDow: {
+            position: "absolute",
+            width: 750,
+            height: 610,
+            bottom: -200,
+            left: -172,
+            resizeMode: "contain",
+        },
+    
+        header: {
+            flex: 1.4,
+            justifyContent: "center",
+            alignItems: "center",
+            paddingBottom: 240,
+        },
+    
+        imageLogo: {
+            width: 110,
+            height: 110,
+            resizeMode: "contain",
+        },
+    
+        textlogo: {
+            color: "#FFFFFF",
+            fontSize: 26,
+            fontWeight: "bold",
+            marginTop: 10,
+        },
+    
+        footer: {
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+            paddingTop: -10,
+            gap: 12,
+        },
+    
+        title: {
+            marginTop:-120,
+            height: 45,
+            color: "#FFFFFF",
+            fontSize: 38,
+            fontWeight: "bold",
+            
+        },
+    
+        cadastroButton: {
+            backgroundColor: COLORS.goldenYellow,
+            width: 150,
+            height: 25,
+            borderRadius: 22,
+            justifyContent: "center",
+            alignItems: "center",
+            marginBottom: 10,
+            shadowColor: "#000",
+            shadowOffset: { width: 0, height: 3 },
+            shadowOpacity: 0.3,
+            shadowRadius: 4,
+            elevation: 5,
+            marginTop:20,
+        },
+    
+        cadastroText: {
+            color: COLORS.darkBlue,
+            fontWeight: "bold",
+            fontSize: 15,
+            
+        },
+    
+        help: {
+            color: "#FFFFFF",
+            fontSize: 25,
+            marginTop: 5,
+            marginRight: 8,
+        },
+        forgotPassword:{
+    
+        },
+        bottomIcons:{
+            marginTop:5,
+            flexDirection: 'row',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: 8,
+            paddingRight:125,
+        },
+        voltarLogo:{
+            width:43,
+            height:47,
+            
+        },
+        voltarButton: {
+            marginLeft: 6,
+            paddingRight:70,
+        },
+    });
+    

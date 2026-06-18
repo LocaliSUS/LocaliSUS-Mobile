@@ -59,8 +59,8 @@ const styles = StyleSheet.create({
     },
 
     image: {
-        width: 43,           // tamanho real do ícone
-        height: 43,
+        width: 200,
+        height: 42,
         resizeMode: 'contain',
     },
 
