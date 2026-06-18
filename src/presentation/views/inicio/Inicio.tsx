@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     flex: 1.4,
     justifyContent: "center",
     alignItems: "center",
-    paddingBottom: 240
+    paddingBottom: 320
   },
 
   imageLogo: {
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     fontSize: 26,
     fontWeight: "bold",
-    marginTop: 8,
+    marginTop: 10,
   },
 
   content: {

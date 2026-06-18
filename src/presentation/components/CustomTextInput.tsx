@@ -21,18 +21,22 @@ export const CustomTextInput = ({ image,
 
     return (
         <View style={styles.container}>
-            <Image
-                source={source}
-                style={styles.image}
-            />
-            <TextInput
-                placeholder={placeholder}
-                keyboardType={keyboardType}
-                value={value}
-                secureTextEntry={secureTextEntry}
-                onChangeText={text => onChangeText && onChangeText(property, text)}
-                style={styles.TxtInput}
-            />
+            <View style={styles.iconContainer}>
+                <Image
+                    source={source}
+                    style={styles.image}
+                />
+            </View>
+            <View style={styles.inputContainer} >
+                <TextInput
+                    placeholder={placeholder}
+                    keyboardType={keyboardType}
+                    value={value}
+                    secureTextEntry={secureTextEntry}
+                    onChangeText={text => onChangeText && onChangeText(property, text)}
+                    style={styles.TxtInput}
+                />
+            </View>
         </View>
     )
 }
@@ -40,17 +44,45 @@ export const CustomTextInput = ({ image,
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        marginTop: 30,
-    },
-    image: {
-        width: 25,
-        height: 25,
+        alignItems: 'center',
         marginTop: 10,
+        width: 310,
+
+
     },
-    TxtInput: {
+
+    iconContainer: {
+        width: 40,
+        height: 40,
+        justifyContent: "center",
+        alignItems: "center",
+        marginRight: 10,
+
+    },
+
+    image: {
+        width: 200,
+        height: 42,
+        resizeMode: 'contain',
+    },
+
+    inputContainer: {
         flex: 1,
-        borderBottomWidth: 2,
-        marginLeft: 15,
+        backgroundColor: '#fff',
+        borderRadius: 22,
+        height: 40,
+        width: 100,
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingHorizontal: 15,
+
+
+
+    },
+
+    TxtInput: {
+        fontSize: 16,
+        color: '#333',
     }
 });
 
