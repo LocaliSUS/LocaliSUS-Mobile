@@ -25,16 +25,16 @@ export const RoundedButton = ({text, onPress}: Props) => {
 
 const styles = StyleSheet.create({
     btn:{
-        width: '100%',
-        height: 50,
-        backgroundColor: COLORS.darkBlue,
+        width: '40%',
+        height: 40,
+        backgroundColor: COLORS.goldenYellow,
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 15,
+        borderRadius: 25,
     },
     txtBnt:{
-        color: COLORS.lightBlue,
+        color: COLORS.darkIndigo,
         fontWeight: 'bold',
-        fontSize: 16,
+        fontSize: 26,
     },
 });
