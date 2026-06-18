@@ -4,37 +4,45 @@ import React from "react";
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
 import { COLORS } from "../theme/AppTheme";
 
-interface Props{
-    text: string;
-
-    //1. adiciona a tipagem do onpress com retorno Void (vazil)
+interface Props {
+    children: React.ReactNode;
     onPress?: () => void;
+    backgroundColor?: string;
+    textColor?: string;
+    width?: number;
+    height?: number;
 }
 
-//2. Extraimos o onPress das propriedades (Props)
-export const RoundedButton = ({text, onPress}: Props) => {
-    return(
+export const RoundedButton = ({
+    children,
+    onPress,
+    backgroundColor = COLORS.darkBlue,
+    textColor = COLORS.lightBlue,
+    width = 200,
+    height = 50,
+}: Props) => {
+    return (
         <TouchableOpacity
-        //3. Passamos a função recebida para o botão nativo
-        onPress={onPress}
-        style={styles.btn}>
-            <Text style={ styles.txtBnt }>{text}</Text>
+            onPress={onPress}
+            style={[styles.btn, { backgroundColor, width, height }]}
+        >
+            {children}
         </TouchableOpacity>
     );
 };
 
+
 const styles = StyleSheet.create({
-    btn:{
-        width: '100%',
-        height: 50,
-        backgroundColor: COLORS.darkBlue,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 15,
+    btn: {
+        borderRadius: 25,
+        alignItems: "center",
+        fontWeight: "bold",
+        justifyContent: "center",
+
     },
-    txtBnt:{
-        color: COLORS.lightBlue,
-        fontWeight: 'bold',
-        fontSize: 16,
-    },
+    // txtBnt: {
+    //     color: COLORS.lightBlue,
+    //     fontWeight: 'bold',
+    //     fontSize: 16,
+    // },
 });

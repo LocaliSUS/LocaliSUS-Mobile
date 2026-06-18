@@ -1,10 +1,15 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Text, Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { RootStackParamList } from "../../../../App";
 import { COLORS } from "../../theme/AppTheme";
-import { CustomTextInput } from "../../components/CustomTextInput"; // ajuste o caminho conforme sua estrutura
+import { CustomTextInput } from "../../components/CustomTextInput";
+import { RoundedButton } from "../../components/RoudedButton";
 
 export const LoginScreen = () => {
     const [form, setForm] = useState({ cpf: "", senha: "" });
+    const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
     const handleChange = (property: string | undefined, value: any) => {
         if (!property) return;
@@ -13,14 +18,13 @@ export const LoginScreen = () => {
 
     return (
         <View style={styles.container}>
-
-            {/* FUNDO PRINCIPAL */}
+            {/* Fundo */}
             <Image
                 source={require("../../../../assets/img/tela-fundo.png")}
                 style={styles.backgroundImage}
             />
 
-            {/* CURVAS */}
+            {/* Curvas */}
             <Image
                 source={require("../../../../assets/img/curva-superior.png")}
                 style={styles.topDetail}
@@ -30,7 +34,7 @@ export const LoginScreen = () => {
                 style={styles.bottomDetail}
             />
 
-            {/* HEADER */}
+            {/* Header */}
             <View style={styles.header}>
                 <Image
                     style={styles.imageLogo}
@@ -39,7 +43,7 @@ export const LoginScreen = () => {
                 <Text style={styles.logo}>LOCALISUS</Text>
             </View>
 
-            {/* FORMULÁRIO */}
+            {/* Formulário */}
             <View style={styles.footer}>
                 <Text style={styles.title}>Entrar</Text>
 
@@ -61,52 +65,63 @@ export const LoginScreen = () => {
                     onChangeText={handleChange}
                 />
 
-                <TouchableOpacity>
+                {/* Esqueci minha senha */}
+                <RoundedButton
+                    onPress={() => console.log("Recuperar senha")}
+                    backgroundColor="transparent" width={200} height={30}>
                     <Text style={styles.forgotPassword}>Esqueci minha senha</Text>
-                </TouchableOpacity>
+                </RoundedButton>
 
-                <TouchableOpacity style={styles.loginButton}>
+                {/* Entrar */}
+                <RoundedButton
+                    onPress={() => navigation.navigate("Inicio")}
+                    backgroundColor={COLORS.mintGreen} width={90} height={25}>
                     <Text style={styles.loginText}>Entrar</Text>
-                </TouchableOpacity>
+                </RoundedButton>
 
+                {/* Voltar + Ajuda */}
                 <View style={styles.bottomIcons}>
-                    <TouchableOpacity>
+                    <RoundedButton
+                        onPress={() => navigation.goBack()}
+                        backgroundColor="COLORS.darkBlue" width={90} height={60}>
                         <Image
                             source={require("../../../../assets/img/icon-voltar.png")}
                             style={styles.bottomBack}
                         />
-                    </TouchableOpacity>
+                    </RoundedButton>
 
-                    <TouchableOpacity>
+                    <RoundedButton onPress={() => console.log("Ajuda")}
+                        backgroundColor="transparent"
+                        width={100} height={50}>
                         <Text style={styles.help}>ⓘ Ajuda</Text>
-                    </TouchableOpacity>
+                    </RoundedButton>
                 </View>
             </View>
         </View>
     );
 };
 
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: COLORS.darkBlue,
+        backgroundColor: COLORS.darkBlue
     },
 
     backgroundImage: {
         position: "absolute",
         width: "100%",
         height: "100%",
-        resizeMode: "cover",
+        resizeMode: "cover"
     },
 
     topDetail: {
         position: "absolute",
         width: 500,
         height: 279,
-        top: -5,
-        left: -49,
+        top: -5, left: -49,
         resizeMode: "contain",
+
+
     },
 
     bottomDetail: {
@@ -115,89 +130,66 @@ const styles = StyleSheet.create({
         height: 590,
         bottom: -200,
         left: -172,
-        resizeMode: "contain",
+        resizeMode: "contain"
     },
-
     header: {
         flex: 1.4,
         justifyContent: "center",
         alignItems: "center",
-        paddingBottom: 240,
+        paddingBottom: 300
     },
-
-    imageLogo: {
+    imageLogo:
+    {
         width: 110,
         height: 110,
-        resizeMode: "contain",
+        resizeMode: "contain"
     },
-
     logo: {
-        color: "#FFFFFF",
+        color: "#FFF",
         fontSize: 26,
         fontWeight: "bold",
-        marginTop: 8,
+        marginTop: 8
     },
-
-    footer: {
+    footer:
+    {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        paddingBottom: 50,
-        gap: 10,
+        paddingBottom: 90,
+        gap: 5
     },
-
     title: {
-        color: "#FFFFFF",
+        color: "#FFF",
         fontSize: 28,
         fontWeight: "bold",
-        marginBottom: 29,
+        marginBottom: 29
     },
-
-    loginButton: {
-        backgroundColor: COLORS.mintGreen,
-        width: 150,
-        height: 25,
-        borderRadius: 22,
-        justifyContent: "center",
-        alignItems: "center",
-        marginBottom: 10,
-        shadowColor: "#000",
-        shadowOffset: { width: 0, height: 3 },
-        shadowOpacity: 0.3,
-        shadowRadius: 4,
-        elevation: 5,
-    },
-
     loginText: {
         color: COLORS.darkBlue,
         fontWeight: "bold",
-        fontSize: 15,
+        fontSize: 15
     },
-
-    help: {
-        color: "#FFFFFF",
-        fontSize: 18,
-        marginTop: 5,
-    },
-
-
     forgotPassword: {
-        color: "#FFFFFF",
+        color: "#FFF",
         fontSize: 14,
-        borderBottomColor: "#FFFFFF",
-        borderBottomWidth: 1,
+        borderBottomColor: "#FFF",
+        borderBottomWidth: 1
+    },
+    help: {
+        color: "#FFF",
+        fontSize: 18,
+        marginTop: 5
     },
     bottomIcons: {
         flexDirection: "row",
         justifyContent: "space-between",
-        paddingRight: 140,
+        paddingRight: 155,
         alignItems: "center",
-        width: "100%",
+        width: "100%"
     },
-
     bottomBack: {
-        width: 110,
-        height: 50,
-        resizeMode: "contain",
+        height: 55,
+        paddingTop: 30,
+        resizeMode: "contain"
     },
 });
