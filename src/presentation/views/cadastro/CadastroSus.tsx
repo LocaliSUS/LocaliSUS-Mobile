@@ -134,7 +134,7 @@ export const CadastroSusScreen = () => {
             position: "absolute",
             width: 500,
             height: 300,
-            top: 0,
+            top: -20,
             left: -49,
             resizeMode: "contain",
         },

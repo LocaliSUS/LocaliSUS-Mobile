@@ -25,6 +25,7 @@ export const RoundedButton = ({text, onPress}: Props) => {
 
 const styles = StyleSheet.create({
     btn:{
+        marginTop:20,
         width: '40%',
         height: 40,
         backgroundColor: COLORS.goldenYellow,
