@@ -40,9 +40,9 @@ const styles = StyleSheet.create({
         justifyContent: "center",
 
     },
-    // txtBnt: {
-    //     color: COLORS.lightBlue,
-    //     fontWeight: 'bold',
-    //     fontSize: 16,
-    // },
+    txtBnt:{
+        color: COLORS.lightBlue,
+        fontWeight: 'bold',
+        fontSize: 16,
+    },
 });

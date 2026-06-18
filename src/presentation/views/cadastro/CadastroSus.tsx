@@ -89,11 +89,12 @@ export const CadastroSusScreen = () => {
                         value={userPassword}
                     
                     />
-    
-                    <TouchableOpacity style={styles.cadastroButton}>
-                        <Text style={styles.cadastroText}>Cadastrar</Text>
-                    </TouchableOpacity>
-    
+
+                    
+
+                    <RoundedButton
+                        text="cadastrar"
+                    />
                     <View style={styles.bottomIcons}>
                         
                         <TouchableOpacity onPress={() => navigation.navigate('Inicio') } style={styles.voltarButton}>
@@ -133,7 +134,7 @@ export const CadastroSusScreen = () => {
             position: "absolute",
             width: 500,
             height: 300,
-            top: 0,
+            top: -20,
             left: -49,
             resizeMode: "contain",
         },
@@ -198,13 +199,6 @@ export const CadastroSusScreen = () => {
             shadowRadius: 4,
             elevation: 5,
             marginTop:20,
-        },
-    
-        cadastroText: {
-            color: COLORS.darkBlue,
-            fontWeight: "bold",
-            fontSize: 15,
-            
         },
     
         help: {

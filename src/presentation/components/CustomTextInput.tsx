@@ -47,12 +47,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: 310,
         height: 45,          // altura fixa
-        marginBottom: 15,    // controla espaçamento entre inputs
+        marginBottom: 5,    // controla espaçamento entre inputs
     },
 
     iconContainer: {
-        width: 40,
-        height: 40,
+        width: 35,
+        height:40,
         justifyContent: "center",
         alignItems: "center",
         marginRight: 10,
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
 
     image: {
         width: 200,
-        height: 42,
+        height: 45,
         resizeMode: 'contain',
     },
 
