@@ -18,16 +18,16 @@ export default function App() {
         id={undefined}
         screenOptions={{ headerShown: false }}
       >
+        <Stack.Screen
+          name="Inicio"
+          component={Inicio}
+        />
 
         <Stack.Screen
           name="LoginScreen"
           component={LoginScreen}
         />
 
-        <Stack.Screen
-          name="Inicio"
-          component={Inicio}
-        />
       </Stack.Navigator>
     </NavigationContainer>
   );
