@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Text, Image, TextInput, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Text, Image, TouchableOpacity, Button} from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../../../App";
 import { useNavigation } from "@react-navigation/native";
@@ -11,9 +11,11 @@ import { CustomTextInput } from "../../components/CustomTextInput";
 //views models
 import cadastroViewModel from './ViewModel';
 
-export const CadastroSusScreen = () => {
 
-    const { userPassword, userEmail, onChange,} = cadastroViewModel();
+export const CadastroSusScreen = () => {
+    const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+
+    const { userPassword, userEmail, userPhone, onChange,} = cadastroViewModel();
 
        const [form, setForm] = useState({ cpf: "", senha: "" });
     
@@ -57,29 +59,29 @@ export const CadastroSusScreen = () => {
                     <CustomTextInput
 
                         image={require('../../../../assets/img/icon-cpf.png')}
-                        placeholder="Digite sua senha..."
+                        placeholder="Insira seu CPF..."
                         keyboardType="default"
-                        secureTextEntry={true}
-                        property="userPassword"
+                        secureTextEntry={false}
+                        property="userEmail"
                         onChangeText={onChange}
-                        value={userPassword}
+                        value={userEmail}
                     
                     />
                     <CustomTextInput
 
                         image={require('../../../../assets/img/icone-numero.png')}
-                        placeholder="Digite sua senha..."
+                        placeholder="Insira seu Numero de Telefone..."
                         keyboardType="default"
-                        secureTextEntry={true}
-                        property="userPassword"
+                        secureTextEntry={false}
+                        property="userPhone"
                         onChangeText={onChange}
-                        value={userPassword}
+                        value={userPhone}
                     
                     />
                     <CustomTextInput
 
                         image={require('../../../../assets/img/icon-senha.png')}
-                        placeholder="Digite sua senha..."
+                        placeholder="Insira seu Senha..."
                         keyboardType="default"
                         secureTextEntry={true}
                         property="userPassword"
@@ -93,10 +95,19 @@ export const CadastroSusScreen = () => {
                     </TouchableOpacity>
     
                     <View style={styles.bottomIcons}>
-    
+                        
+                        <TouchableOpacity onPress={() => navigation.navigate('Inicio') } style={styles.voltarButton}>
+                            <Image 
+                                style={styles.voltarLogo}
+                                source={require("../../../../assets/img/icon-voltar.png")}
+                            />
+                        </TouchableOpacity>
+
                         <TouchableOpacity>
                             <Text style={styles.help}>ⓘ Ajuda</Text>
                         </TouchableOpacity>
+
+                        
 
                     </View>
                 </View>
@@ -130,7 +141,7 @@ export const CadastroSusScreen = () => {
         cardDow: {
             position: "absolute",
             width: 750,
-            height: 630,
+            height: 610,
             bottom: -200,
             left: -172,
             resizeMode: "contain",
@@ -153,7 +164,7 @@ export const CadastroSusScreen = () => {
             color: "#FFFFFF",
             fontSize: 26,
             fontWeight: "bold",
-            marginTop: 8,
+            marginTop: 10,
         },
     
         footer: {
@@ -165,7 +176,7 @@ export const CadastroSusScreen = () => {
         },
     
         title: {
-            marginTop:-175,
+            marginTop:-120,
             height: 45,
             color: "#FFFFFF",
             fontSize: 38,
@@ -186,24 +197,41 @@ export const CadastroSusScreen = () => {
             shadowOpacity: 0.3,
             shadowRadius: 4,
             elevation: 5,
+            marginTop:20,
         },
     
         cadastroText: {
             color: COLORS.darkBlue,
             fontWeight: "bold",
             fontSize: 15,
+            
         },
     
         help: {
             color: "#FFFFFF",
-            fontSize: 18,
+            fontSize: 25,
             marginTop: 5,
+            marginRight: 8,
         },
         forgotPassword:{
     
         },
         bottomIcons:{
+            marginTop:5,
+            flexDirection: 'row',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: 8,
+            paddingRight:125,
+        },
+        voltarLogo:{
+            width:43,
+            height:47,
             
+        },
+        voltarButton: {
+            marginLeft: 6,
+            paddingRight:70,
         },
     });
     

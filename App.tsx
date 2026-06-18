@@ -8,6 +8,7 @@ import {CadastroSusScreen} from "./src/presentation/views/cadastro/CadastroSus";
 export type RootStackParamList = {
   Inicio: undefined;
   LoginScreen: undefined;
+  CadastroSusScreen: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();

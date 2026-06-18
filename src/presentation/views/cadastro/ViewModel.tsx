@@ -5,6 +5,7 @@ const cadastroViewModel = () => {
         const [ values, setValues] = useState({
             userEmail: '',
             userPassword:'',
+            userPhone:'',
         });
 
         const onChange = ( property: string, value: any) => { 
