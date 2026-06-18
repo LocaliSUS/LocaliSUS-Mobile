@@ -45,10 +45,9 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginTop: 10,
         width: 310,
-
-
+        height: 45,          // altura fixa
+        marginBottom: 15,    // controla espaçamento entre inputs
     },
 
     iconContainer: {
@@ -57,12 +56,11 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         marginRight: 10,
-
     },
 
     image: {
-        width: 200,
-        height: 42,
+        width: 43,           // tamanho real do ícone
+        height: 43,
         resizeMode: 'contain',
     },
 
@@ -71,18 +69,14 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         borderRadius: 22,
         height: 40,
-        width: 100,
         alignItems: 'center',
         justifyContent: 'center',
         paddingHorizontal: 15,
-
-
-
     },
 
     TxtInput: {
         fontSize: 16,
         color: '#333',
-    }
-});
+    },
 
+});
