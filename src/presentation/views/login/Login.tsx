@@ -70,12 +70,12 @@ export const LoginScreen = () => {
                 </TouchableOpacity>
 
                 <View style={styles.bottomIcons}>
-                    {/* <TouchableOpacity>
+                    <TouchableOpacity>
                         <Image
                             source={require("../../../../assets/img/icon-voltar.png")}
-                            style={styles.bottomIcon}
+                            style={styles.bottomBack}
                         />
-                    </TouchableOpacity> */}
+                    </TouchableOpacity>
 
                     <TouchableOpacity>
                         <Text style={styles.help}>ⓘ Ajuda</Text>
@@ -142,15 +142,15 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        paddingBottom: 120,
-        gap: 12,
+        paddingBottom: 50,
+        gap: 10,
     },
 
     title: {
         color: "#FFFFFF",
         fontSize: 28,
         fontWeight: "bold",
-        marginBottom: 55,
+        marginBottom: 29,
     },
 
     loginButton: {
@@ -178,5 +178,26 @@ const styles = StyleSheet.create({
         color: "#FFFFFF",
         fontSize: 18,
         marginTop: 5,
+    },
+
+
+    forgotPassword: {
+        color: "#FFFFFF",
+        fontSize: 14,
+        borderBottomColor: "#FFFFFF",
+        borderBottomWidth: 1,
+    },
+    bottomIcons: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        paddingRight: 140,
+        alignItems: "center",
+        width: "100%",
+    },
+
+    bottomBack: {
+        width: 110,
+        height: 50,
+        resizeMode: "contain",
     },
 });
