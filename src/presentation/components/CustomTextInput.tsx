@@ -45,9 +45,9 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginTop: 10,
-        width: 310,
-
+        marginTop: 12,
+        width: 340,
+        marginLeft:-40,
 
     },
 
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     },
 
     image: {
-        width: 200,
+        width: 55,
         height: 42,
         resizeMode: 'contain',
     },

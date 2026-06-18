@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { COLORS } from "../../theme/AppTheme";
-import { COLORS } from "../../theme/AppTheme";
 import { CustomTextInput } from "../../components/CustomTextInput"; // ajuste o caminho conforme sua estrutura
 
 export const LoginScreen = () => {

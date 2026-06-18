@@ -13,7 +13,7 @@ import cadastroViewModel from './ViewModel';
 
 export const CadastroSusScreen = () => {
 
-    const { userPassword, onChange,} = cadastroViewModel();
+    const { userPassword, userEmail, onChange,} = cadastroViewModel();
 
        const [form, setForm] = useState({ cpf: "", senha: "" });
     
@@ -56,9 +56,31 @@ export const CadastroSusScreen = () => {
 
                     <CustomTextInput
 
-                        image={require()}
+                        image={require('../../../../assets/img/icon-cpf.png')}
                         placeholder="Digite sua senha..."
-                        KeyboardType="default"
+                        keyboardType="default"
+                        secureTextEntry={true}
+                        property="userPassword"
+                        onChangeText={onChange}
+                        value={userPassword}
+                    
+                    />
+                    <CustomTextInput
+
+                        image={require('../../../../assets/img/icone-numero.png')}
+                        placeholder="Digite sua senha..."
+                        keyboardType="default"
+                        secureTextEntry={true}
+                        property="userPassword"
+                        onChangeText={onChange}
+                        value={userPassword}
+                    
+                    />
+                    <CustomTextInput
+
+                        image={require('../../../../assets/img/icon-senha.png')}
+                        placeholder="Digite sua senha..."
+                        keyboardType="default"
                         secureTextEntry={true}
                         property="userPassword"
                         onChangeText={onChange}
@@ -138,16 +160,15 @@ export const CadastroSusScreen = () => {
             flex: 1,
             justifyContent: "center",
             alignItems: "center",
-           
             paddingTop: -10,
             gap: 12,
         },
     
         title: {
-            marginTop:-375,
-            height: 50,
+            marginTop:-175,
+            height: 45,
             color: "#FFFFFF",
-            fontSize: 40,
+            fontSize: 38,
             fontWeight: "bold",
             
         },
