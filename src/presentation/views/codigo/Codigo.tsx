@@ -9,13 +9,14 @@ import { COLORS } from "../../theme/AppTheme";
 import { RoundedButton } from "../../components/RoudedButton";
 import { CustomTextInput } from "../../components/CustomTextInput";
 //views models
-import SenhaEsquecidaViewModel from './ViewModel';
+import CodigoViewModel from './ViewModel';
+import { TextInput } from "react-native-gesture-handler";
 
 
-export const SenhaEsquecidaScreen = () => {
+export const CodigoScreen = () => {
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
-    const { userPhone, onChange, } = SenhaEsquecidaViewModel();
+    const { userPhone, onChange, } = CodigoViewModel();
 
     const [form, setForm] = useState({ cpf: "", senha: "" });
 
@@ -54,23 +55,18 @@ export const SenhaEsquecidaScreen = () => {
 
             {/* Escrita */}
             <View style={styles.footer}>
-                <Text style={styles.title}>Recuperar Senha</Text>
+                <Text style={styles.title}>Confirme o Código Enviado</Text>
 
-                <CustomTextInput
-                    image={require('../../../../assets/img/icone-numero.png')}
-                    placeholder="Insira seu Numero de Telefone..."
-                    keyboardType="default"
-                    secureTextEntry={false}
-                    property="userPhone"
-                    onChangeText={onChange}
-                    value={userPhone}
+                <View style=>
+                    <TextInput/>
+                </View>
 
-                />
+                <Text style={styles.Codigo}>Reenviando Código? (1:00)</Text>
 
-                <TouchableOpacity style={styles.cadastroButton}
-                    onPress={() => navigation.navigate("CodigoScreen")}
+                <TouchableOpacity style={styles.confirmarButton}
+                    onPress={() => navigation.navigate("InicioScreen")}
                 >
-                    <Text style={styles.CadastroText}>Enviar Codigo</Text>
+                    <Text style={styles.CadastroText}>Confirmar</Text>
                 </TouchableOpacity>
 
                 <View style={styles.bottomIcons}>
@@ -156,31 +152,37 @@ const styles = StyleSheet.create({
         marginBottom: 60,
         height: 45,
         color: "#FFFFFF",
-        fontSize: 38,
+        fontSize: 25,
         fontWeight: "bold",
-        bottom:40
+        bottom:0
         
     },
 
-    cadastroButton: {
-        backgroundColor: COLORS.mintGreen,
-        width: 235,
+    confirmarButton: {
+        backgroundColor: COLORS.vibrantPink,
+        width: 150,
         height: 30,
         borderRadius: 22,
         justifyContent: "center",
         alignItems: "center",
-        marginBottom: 40,
+        marginBottom: 20,
         shadowColor: "#000",
         shadowOffset: { width: 0, height: 3 },
         shadowOpacity: 0.3,
         shadowRadius: 4,
         elevation: 5,
-        marginTop:180,
+        marginTop:130,
         bottom:80
     },
+    Codigo:{    
+            color: "#FFFFFF",
+            fontSize: 17,
+            margin: 5,
+            marginRight: 8,
+        },
     CadastroText:{
         height: 30,
-        color: "#000000ff",
+        color: "#ffffffff",
         fontSize: 21,
         fontWeight: "bold",
         
