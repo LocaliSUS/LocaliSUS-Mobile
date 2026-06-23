@@ -79,6 +79,7 @@ export const LoginScreen = () => {
                     <Text style={styles.loginText}>Entrar</Text>
                 </RoundedButton>
 
+
                 {/* Voltar + Ajuda */}
                 <View style={styles.bottomIcons}>
                     <RoundedButton
