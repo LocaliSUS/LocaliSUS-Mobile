@@ -28,14 +28,13 @@ export const LoginScreen = () => {
 
     return (
         <View style={styles.container}>
-
-            {/* FUNDO PRINCIPAL */}
+            {/* Fundo */}
             <Image
                 source={require("../../../../assets/img/tela-fundo.png")}
                 style={styles.backgroundImage}
             />
 
-            {/* CURVAS */}
+            {/* Curvas */}
             <Image
                 source={require("../../../../assets/img/curva-superior.png")}
                 style={styles.topDetail}
@@ -46,7 +45,7 @@ export const LoginScreen = () => {
                 style={styles.bottomDetail}
             />
 
-            {/* HEADER */}
+            {/* Header */}
             <View style={styles.header}>
                 <Image
                     style={styles.imageLogo}
@@ -58,7 +57,7 @@ export const LoginScreen = () => {
                 </Text>
             </View>
 
-            {/* FORMULÁRIO */}
+            {/* Formulário */}
             <View style={styles.footer}>
                 <Text style={styles.title}>
                     Entrar
@@ -94,6 +93,7 @@ export const LoginScreen = () => {
                     </Text>
                 </TouchableOpacity>
 
+                {/* Voltar + Ajuda */}
                 <View style={styles.bottomIcons}>
                     <TouchableOpacity
                         onPress={() => navigation.navigate("Inicio")}
@@ -118,23 +118,24 @@ export const LoginScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: COLORS.darkBlue,
+        backgroundColor: COLORS.darkBlue
     },
 
     backgroundImage: {
         position: "absolute",
         width: "100%",
         height: "100%",
-        resizeMode: "cover",
+        resizeMode: "cover"
     },
 
     topDetail: {
         position: "absolute",
         width: 500,
         height: 279,
-        top: -5,
-        left: -49,
+        top: -5, left: -49,
         resizeMode: "contain",
+
+
     },
 
     bottomDetail: {
@@ -143,42 +144,39 @@ const styles = StyleSheet.create({
         height: 590,
         bottom: -200,
         left: -172,
-        resizeMode: "contain",
+        resizeMode: "contain"
     },
-
     header: {
         flex: 1.4,
         justifyContent: "center",
         alignItems: "center",
-        paddingBottom: 240,
+        paddingBottom: 300
     },
-
-    imageLogo: {
+    imageLogo:
+    {
         width: 110,
         height: 110,
-        resizeMode: "contain",
+        resizeMode: "contain"
     },
-
     logo: {
-        color: "#FFFFFF",
+        color: "#FFF",
         fontSize: 26,
         fontWeight: "bold",
-        marginTop: 8,
+        marginTop: 8
     },
-
-    footer: {
+    footer:
+    {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        paddingBottom: 50,
-        gap: 10,
+        paddingBottom: 90,
+        gap: 5
     },
-
     title: {
-        color: "#FFFFFF",
+        color: "#FFF",
         fontSize: 28,
         fontWeight: "bold",
-        marginBottom: 29,
+        marginBottom: 29
     },
 
     loginButton: {
@@ -202,7 +200,7 @@ const styles = StyleSheet.create({
     loginText: {
         color: COLORS.darkBlue,
         fontWeight: "bold",
-        fontSize: 15,
+        fontSize: 15
     },
 
     help: {
@@ -212,10 +210,10 @@ const styles = StyleSheet.create({
     },
 
     forgotPassword: {
-        color: "#FFFFFF",
+        color: "#FFF",
         fontSize: 14,
-        borderBottomColor: "#FFFFFF",
-        borderBottomWidth: 1,
+        borderBottomColor: "#FFF",
+        borderBottomWidth: 1
     },
 
     bottomIcons: {
@@ -225,10 +223,9 @@ const styles = StyleSheet.create({
         width: "100%",
         paddingRight: 140,
     },
-
     bottomBack: {
-        width: 110,
-        height: 50,
-        resizeMode: "contain",
+        height: 55,
+        paddingTop: 30,
+        resizeMode: "contain"
     },
 });

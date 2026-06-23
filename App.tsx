@@ -5,6 +5,7 @@ import { Inicio } from "./src/presentation/views/inicio/Inicio";
 import { LoginScreen } from "./src/presentation/views/login/Login";
 import {CadastroSusScreen} from "./src/presentation/views/cadastro/CadastroSus";
 
+
 export type RootStackParamList = {
   Inicio: undefined;
   LoginScreen: undefined;
