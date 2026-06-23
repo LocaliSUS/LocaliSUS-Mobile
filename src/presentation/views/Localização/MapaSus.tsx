@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   View,
@@ -8,8 +8,42 @@ import {
   Image,
 } from "react-native";
 import { COLORS } from "../../theme/AppTheme";
+import MapView, { Marker } from "react-native-maps";
+import * as Location from "expo-location";
 
 export const MapaSus = () => {
+  //const [region, setRegion] = useState({
+    //latitude: -23.55052,
+    //longitude: -46.633308,
+    //latitudeDelta: 0.05,
+    //longitudeDelta: 0.05,
+  //});
+
+  //useEffect(() => {
+  //(async () => {
+    //const { status } =
+      //await Location.requestForegroundPermissionsAsync();
+
+    //console.log("STATUS:", status);
+
+    //if (status !== "granted") {
+      //console.log("Permissão negada");
+      //return;
+    //
+    //const location =
+      //await Location.getCurrentPositionAsync({});
+
+    //console.log("LOCATION:", location);
+
+    //setRegion({
+      //latitude: location.coords.latitude,
+      //longitude: location.coords.longitude,
+      //latitudeDelta: 0.05,
+      //longitudeDelta: 0.05,
+    //});
+  //})();
+//}, []);
+
   return (
     <View style={styles.container}>
 
@@ -45,11 +79,23 @@ export const MapaSus = () => {
       </View>
 
       {/* MAP AREA */}
-      <View style={styles.mapArea}>
-        <Text style={styles.mapText}>
-          Mapa será exibido aqui
-        </Text>
-      </View>
+      <MapView
+        style={{ flex: 1 }}
+        initialRegion={{
+            latitude: -23.55052,
+            longitude: -46.633308,
+            latitudeDelta: 0.05,
+            longitudeDelta: 0.05,
+        }}
+        >
+        <Marker
+            coordinate={{
+            latitude: -23.55052,
+            longitude: -46.633308,
+            }}
+            title="São Paulo"
+        />
+        </MapView>
 
       {/* FOOTER */}
       <View style={styles.footer}>
@@ -106,6 +152,10 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
   },
+  
+  map: {
+  flex: 1,
+},
 
   circleButton: {
     width: 44,
