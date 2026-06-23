@@ -67,14 +67,14 @@ export const LoginScreen = () => {
 
                 {/* Esqueci minha senha */}
                 <RoundedButton
-                    onPress={() => console.log("Recuperar senha")}
+                    onPress={() => navigation.navigate('SenhaEsquecidaScreen')}
                     backgroundColor="transparent" width={200} height={30}>
                     <Text style={styles.forgotPassword}>Esqueci minha senha</Text>
                 </RoundedButton>
 
                 {/* Entrar */}
                 <RoundedButton
-                    onPress={() => navigation.navigate("Inicio")}
+                    onPress={() => navigation.navigate("InicioScreen")}
                     backgroundColor={COLORS.mintGreen} width={90} height={25}>
                     <Text style={styles.loginText}>Entrar</Text>
                 </RoundedButton>

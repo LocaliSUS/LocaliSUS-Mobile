@@ -9,13 +9,13 @@ import { COLORS } from "../../theme/AppTheme";
 import { RoundedButton } from "../../components/RoudedButton";
 import { CustomTextInput } from "../../components/CustomTextInput";
 //views models
-import cadastroViewModel from './ViewModel';
+import SenhaEsquecidaViewModel from './ViewModel';
 
 
-export const CadastroSusScreen = () => {
+export const SenhaEsquecidaScreen = () => {
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
-    const { userPassword, userEmail, userPhone, onChange, } = cadastroViewModel();
+    const { userPhone, onChange, } = SenhaEsquecidaViewModel();
 
     const [form, setForm] = useState({ cpf: "", senha: "" });
 
@@ -54,19 +54,8 @@ export const CadastroSusScreen = () => {
 
             {/* Escrita */}
             <View style={styles.footer}>
-                <Text style={styles.title}>cadastro</Text>
+                <Text style={styles.title}>Recuperar Senha</Text>
 
-                <CustomTextInput
-
-                    image={require('../../../../assets/img/icon-cpf.png')}
-                    placeholder="Insira seu CPF..."
-                    keyboardType="default"
-                    secureTextEntry={false}
-                    property="userEmail"
-                    onChangeText={onChange}
-                    value={userEmail}
-
-                />
                 <CustomTextInput
 
                     image={require('../../../../assets/img/icone-numero.png')}
@@ -78,23 +67,11 @@ export const CadastroSusScreen = () => {
                     value={userPhone}
 
                 />
-                <CustomTextInput
-
-                    image={require('../../../../assets/img/icon-senha.png')}
-                    placeholder="Insira seu Senha..."
-                    keyboardType="default"
-                    secureTextEntry={true}
-                    property="userPassword"
-                    onChangeText={onChange}
-                    value={userPassword}
-
-                />
-
 
                 <TouchableOpacity style={styles.cadastroButton}
                     onPress={() => navigation.navigate("InicioScreen")}
                 >
-                    <Text style={styles.CadastroText}>Cadastre-se!</Text>
+                    <Text style={styles.CadastroText}>Enviar Codigo</Text>
                 </TouchableOpacity>
 
                 <View style={styles.bottomIcons}>
@@ -172,7 +149,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        paddingTop: -10,
+        paddingTop: -30,
         gap: 12,
     },
 
@@ -182,13 +159,13 @@ const styles = StyleSheet.create({
         color: "#FFFFFF",
         fontSize: 38,
         fontWeight: "bold",
-
+        
     },
 
     cadastroButton: {
-        backgroundColor: COLORS.goldenYellow,
-        width: 150,
-        height: 25,
+        backgroundColor: COLORS.mintGreen,
+        width: 235,
+        height: 30,
         borderRadius: 22,
         justifyContent: "center",
         alignItems: "center",
@@ -198,10 +175,13 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.3,
         shadowRadius: 4,
         elevation: 5,
-        marginTop: 20,
+        marginTop: 80,
     },
     CadastroText:{
-
+        height: 30,
+        color: "#000000ff",
+        fontSize: 21,
+        fontWeight: "bold",
     },
     help: {
         color: "#FFFFFF",
