@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../../../App";
-import { COLORS } from "../../../../src/presentation/theme/AppTheme";
+import { COLORS } from "../../theme/AppTheme";
 
 export const Inicio = () => {
   const navigation =
@@ -49,7 +49,9 @@ export const Inicio = () => {
           <Text style={styles.loginText}>Já tem uma conta?</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.registerButton}>
+        <TouchableOpacity style={styles.registerButton}
+        onPress={() => navigation.navigate("CadastroSusScreen")}
+        >
           <Text style={styles.registerText}>Cadastre-se!</Text>
         </TouchableOpacity>
 
@@ -90,7 +92,7 @@ const styles = StyleSheet.create({
     flex: 1.4,
     justifyContent: "center",
     alignItems: "center",
-    paddingBottom: 240
+    paddingBottom: 320
   },
 
   imageLogo: {
@@ -103,7 +105,7 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     fontSize: 26,
     fontWeight: "bold",
-    marginTop: 8,
+    marginTop: 10,
   },
 
   content: {

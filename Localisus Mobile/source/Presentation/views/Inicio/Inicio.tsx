@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../../../App";
-import { COLORS } from "../../../../src/presentation/theme/AppTheme";
+import { Color } from "../../theme/AppTheme";
 
 export const Inicio = () => {
   const navigation =
@@ -65,7 +65,7 @@ export const Inicio = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.darkBlue,
+    backgroundColor: Color.darkBlue,
   },
 
   topDetail: {
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
   },
 
   loginButton: {
-    backgroundColor: COLORS.mintGreen,
+    backgroundColor: Color.mintGreen,
     width: 150,
     height: 25,
     borderRadius: 22,
@@ -152,13 +152,13 @@ const styles = StyleSheet.create({
   },
 
   loginText: {
-    color: COLORS.darkBlue,
+    color: Color.darkBlue,
     fontWeight: "bold",
     fontSize: 15,
   },
 
   registerButton: {
-    backgroundColor: COLORS.goldenYellow,
+    backgroundColor: Color.goldenYellow,
     width: 110,
     height: 30,
     fontWeight: "bold",
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
   },
 
   registerText: {
-    color: COLORS.darkBlue,
+    color: Color.darkBlue,
     fontWeight: "bold",
     fontSize: 15,
   },
