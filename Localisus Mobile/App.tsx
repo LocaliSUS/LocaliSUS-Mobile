@@ -4,14 +4,12 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Inicio } from "./src/presentation/views/inicio/Inicio";
 import { LoginScreen } from "./src/presentation/views/login/Login";
 import {CadastroSusScreen} from "./src/presentation/views/cadastro/CadastroSus";
-import {SenhaEsquecidaScreen} from "./src/presentation/views/senhaEsquecida/SenhaEsquecida"
 
 
 export type RootStackParamList = {
-  InicioScreen: undefined;
+  Inicio: undefined;
   LoginScreen: undefined;
   CadastroSusScreen: undefined;
-  SenhaEsquecidaScreen:undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -24,7 +22,7 @@ export default function App() {
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen
-          name="InicioScreen"
+          name="Inicio"
           component={Inicio}
         />
 
@@ -36,11 +34,6 @@ export default function App() {
         <Stack.Screen
           name="CadastroSusScreen"
           component={CadastroSusScreen}
-        />
-
-        <Stack.Screen
-        name="SenhaEsquecidaScreen"
-        component={SenhaEsquecidaScreen}
         />
 
       </Stack.Navigator>

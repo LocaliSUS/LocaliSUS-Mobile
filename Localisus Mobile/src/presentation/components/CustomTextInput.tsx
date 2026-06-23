@@ -45,18 +45,17 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         alignItems: 'center',
-        width: 250,
-        height: 45,
-        marginBottom: 5,
+        width: 310,
+        height: 45,          // altura fixa
+        marginBottom: 5,    // controla espaçamento entre inputs
     },
 
     iconContainer: {
         width: 35,
-        height: 40,
+        height:40,
         justifyContent: "center",
         alignItems: "center",
-        marginRight: 24,
-        marginLeft: -60
+        marginRight: 10,
     },
 
     image: {
@@ -78,7 +77,6 @@ const styles = StyleSheet.create({
     TxtInput: {
         fontSize: 16,
         color: '#333',
-        alignSelf: 'flex-start'
     },
 
 });
