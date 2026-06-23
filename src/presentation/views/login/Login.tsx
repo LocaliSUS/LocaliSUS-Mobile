@@ -74,7 +74,7 @@ export const LoginScreen = () => {
 
                 {/* Entrar */}
                 <RoundedButton
-                    onPress={() => navigation.navigate("Inicio")}
+                    onPress={() => navigation.navigate("InicioScreen")}
                     backgroundColor={COLORS.mintGreen} width={90} height={25}>
                     <Text style={styles.loginText}>Entrar</Text>
                 </RoundedButton>
