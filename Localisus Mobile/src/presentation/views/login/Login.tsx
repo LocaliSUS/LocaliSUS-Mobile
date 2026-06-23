@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-
 import { COLORS } from "../../theme/AppTheme";
 import { RootStackParamList } from "../../../../App";
 import { CustomTextInput } from "../../components/CustomTextInput";
@@ -87,7 +86,9 @@ export const LoginScreen = () => {
                     </Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.loginButton}>
+                <TouchableOpacity 
+                    onPress={() => navigation.navigate("HomeScreen")}
+                    style={styles.loginButton}>
                     <Text style={styles.loginText}>
                         Entrar
                     </Text>

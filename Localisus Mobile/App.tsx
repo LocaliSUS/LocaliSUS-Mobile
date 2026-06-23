@@ -4,10 +4,11 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Inicio } from "./src/presentation/views/inicio/Inicio";
 import { LoginScreen } from "./src/presentation/views/login/Login";
 import {CadastroSusScreen} from "./src/presentation/views/cadastro/CadastroSus";
-
+import { HomeScreen } from "./src/presentation/views/home/HomeScreen"
 
 export type RootStackParamList = {
   Inicio: undefined;
+  HomeScreen: undefined;
   LoginScreen: undefined;
   CadastroSusScreen: undefined;
 };
@@ -35,7 +36,10 @@ export default function App() {
           name="CadastroSusScreen"
           component={CadastroSusScreen}
         />
-
+        <Stack.Screen 
+          name="HomeScreen"
+          component={HomeScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

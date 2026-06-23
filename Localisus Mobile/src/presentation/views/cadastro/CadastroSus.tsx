@@ -92,9 +92,6 @@ export const CadastroSusScreen = () => {
 
                     
 
-                    <RoundedButton
-                        text="cadastrar"
-                    />
                     <View style={styles.bottomIcons}>
                         
                         <TouchableOpacity onPress={() => navigation.navigate('Inicio') } style={styles.voltarButton}>
