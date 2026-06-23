@@ -1,14 +1,29 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+
 import { COLORS } from "../../theme/AppTheme";
-import { CustomTextInput } from "../../components/CustomTextInput"; // ajuste o caminho conforme sua estrutura
+import { RootStackParamList } from "../../../../App";
+import { CustomTextInput } from "../../components/CustomTextInput";
+
+type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 export const LoginScreen = () => {
-    const [form, setForm] = useState({ cpf: "", senha: "" });
+    const [form, setForm] = useState({
+        cpf: "",
+        senha: "",
+    });
+
+    const navigation = useNavigation<NavigationProp>();
 
     const handleChange = (property: string | undefined, value: any) => {
         if (!property) return;
-        setForm({ ...form, [property]: value });
+
+        setForm({
+            ...form,
+            [property]: value,
+        });
     };
 
     return (
@@ -25,6 +40,7 @@ export const LoginScreen = () => {
                 source={require("../../../../assets/img/curva-superior.png")}
                 style={styles.topDetail}
             />
+
             <Image
                 source={require("../../../../assets/img/curva-inferior.png")}
                 style={styles.bottomDetail}
@@ -36,12 +52,17 @@ export const LoginScreen = () => {
                     style={styles.imageLogo}
                     source={require("../../../../assets/img/LocaliSUS-Logo-Fundo.png")}
                 />
-                <Text style={styles.logo}>LOCALISUS</Text>
+
+                <Text style={styles.logo}>
+                    LOCALISUS
+                </Text>
             </View>
 
             {/* FORMULÁRIO */}
             <View style={styles.footer}>
-                <Text style={styles.title}>Entrar</Text>
+                <Text style={styles.title}>
+                    Entrar
+                </Text>
 
                 <CustomTextInput
                     image={require("../../../../assets/img/icon-cpf.png")}
@@ -56,21 +77,27 @@ export const LoginScreen = () => {
                     image={require("../../../../assets/img/icon-senha.png")}
                     placeholder="Insira sua Senha..."
                     value={form.senha}
-                    secureTextEntry
+                    secureTextEntry={true}
                     property="senha"
                     onChangeText={handleChange}
                 />
 
                 <TouchableOpacity>
-                    <Text style={styles.forgotPassword}>Esqueci minha senha</Text>
+                    <Text style={styles.forgotPassword}>
+                        Esqueci minha senha
+                    </Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.loginButton}>
-                    <Text style={styles.loginText}>Entrar</Text>
+                    <Text style={styles.loginText}>
+                        Entrar
+                    </Text>
                 </TouchableOpacity>
 
                 <View style={styles.bottomIcons}>
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate("Inicio")}
+                    >
                         <Image
                             source={require("../../../../assets/img/icon-voltar.png")}
                             style={styles.bottomBack}
@@ -78,14 +105,15 @@ export const LoginScreen = () => {
                     </TouchableOpacity>
 
                     <TouchableOpacity>
-                        <Text style={styles.help}>ⓘ Ajuda</Text>
+                        <Text style={styles.help}>
+                            ⓘ Ajuda
+                        </Text>
                     </TouchableOpacity>
                 </View>
             </View>
         </View>
     );
 };
-
 
 const styles = StyleSheet.create({
     container: {
@@ -162,7 +190,10 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginBottom: 10,
         shadowColor: "#000",
-        shadowOffset: { width: 0, height: 3 },
+        shadowOffset: {
+            width: 0,
+            height: 3,
+        },
         shadowOpacity: 0.3,
         shadowRadius: 4,
         elevation: 5,
@@ -180,19 +211,19 @@ const styles = StyleSheet.create({
         marginTop: 5,
     },
 
-
     forgotPassword: {
         color: "#FFFFFF",
         fontSize: 14,
         borderBottomColor: "#FFFFFF",
         borderBottomWidth: 1,
     },
+
     bottomIcons: {
         flexDirection: "row",
         justifyContent: "space-between",
-        paddingRight: 140,
         alignItems: "center",
         width: "100%",
+        paddingRight: 140,
     },
 
     bottomBack: {
