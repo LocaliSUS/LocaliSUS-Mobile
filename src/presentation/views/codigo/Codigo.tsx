@@ -10,7 +10,6 @@ import { RoundedButton } from "../../components/RoudedButton";
 import { CustomTextInput } from "../../components/CustomTextInput";
 //views models
 import CodigoViewModel from './ViewModel';
-import { TextInput } from "react-native-gesture-handler";
 
 
 export const CodigoScreen = () => {
@@ -57,9 +56,7 @@ export const CodigoScreen = () => {
             <View style={styles.footer}>
                 <Text style={styles.title}>Confirme o Código Enviado</Text>
 
-                <View style=>
-                    <TextInput/>
-                </View>
+                
 
                 <Text style={styles.Codigo}>Reenviando Código? (1:00)</Text>
 
