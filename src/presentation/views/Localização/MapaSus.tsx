@@ -80,21 +80,20 @@ export const MapaSus = () => {
 
       {/* MAP AREA */}
       <MapView
-        style={styles.map}
+        style={{ flex: 1 }}
         initialRegion={{
             latitude: -23.55052,
             longitude: -46.633308,
             latitudeDelta: 0.05,
             longitudeDelta: 0.05,
         }}
-        loadingEnabled={true}
         >
         <Marker
             coordinate={{
             latitude: -23.55052,
             longitude: -46.633308,
             }}
-            title="Teste"
+            title="São Paulo"
         />
         </MapView>
 
