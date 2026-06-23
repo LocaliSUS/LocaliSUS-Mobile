@@ -84,18 +84,25 @@ export const LoginScreen = () => {
                 <View style={styles.bottomIcons}>
                     <RoundedButton
                         onPress={() => navigation.goBack()}
-                        backgroundColor="COLORS.darkBlue" width={90} height={60}>
+                        backgroundColor={COLORS.darkBlue}
+                        width={60}
+                        height={60}
+                    >
                         <Image
                             source={require("../../../../assets/img/icon-voltar.png")}
                             style={styles.bottomBack}
                         />
                     </RoundedButton>
 
-                    <RoundedButton onPress={() => console.log("Ajuda")}
+                    <RoundedButton
+                        onPress={() => console.log("Ajuda")}
                         backgroundColor="transparent"
-                        width={100} height={50}>
+                        width={100}
+                        height={40}
+                    >
                         <Text style={styles.help}>ⓘ Ajuda</Text>
                     </RoundedButton>
+
                 </View>
             </View>
         </View>
@@ -156,8 +163,8 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        paddingBottom: 90,
-        gap: 5
+        paddingBottom: 80,
+        gap: 9
     },
     title: {
         color: "#FFF",
@@ -174,7 +181,7 @@ const styles = StyleSheet.create({
         color: "#FFF",
         fontSize: 14,
         borderBottomColor: "#FFF",
-        borderBottomWidth: 1
+        borderBottomWidth: 1,
     },
     help: {
         color: "#FFF",

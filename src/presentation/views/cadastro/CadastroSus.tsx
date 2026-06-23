@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { StyleSheet, View, Text, Image, TouchableOpacity, Button } from "react-native";
+import React from "react";
+import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../../../App";
 import { useNavigation } from "@react-navigation/native";
@@ -14,15 +14,7 @@ import cadastroViewModel from './ViewModel';
 
 export const CadastroSusScreen = () => {
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
-
-    const { userPassword, userEmail, userPhone, onChange, } = cadastroViewModel();
-
-    const [form, setForm] = useState({ cpf: "", senha: "" });
-
-    const handleChange = (property: string | undefined, value: any) => {
-        if (!property) return;
-        setForm({ ...form, [property]: value });
-    };
+    const { userPassword, userEmail, userPhone, onChange } = cadastroViewModel();
 
     return (
         <View style={styles.container}>
@@ -57,7 +49,6 @@ export const CadastroSusScreen = () => {
                 <Text style={styles.title}>cadastro</Text>
 
                 <CustomTextInput
-
                     image={require('../../../../assets/img/icon-cpf.png')}
                     placeholder="Insira seu CPF..."
                     keyboardType="default"
@@ -65,10 +56,9 @@ export const CadastroSusScreen = () => {
                     property="userEmail"
                     onChangeText={onChange}
                     value={userEmail}
-
                 />
-                <CustomTextInput
 
+                <CustomTextInput
                     image={require('../../../../assets/img/icone-numero.png')}
                     placeholder="Insira seu Numero de Telefone..."
                     keyboardType="default"
@@ -76,29 +66,28 @@ export const CadastroSusScreen = () => {
                     property="userPhone"
                     onChangeText={onChange}
                     value={userPhone}
-
                 />
-                <CustomTextInput
 
+                <CustomTextInput
                     image={require('../../../../assets/img/icon-senha.png')}
-                    placeholder="Insira seu Senha..."
+                    placeholder="Insira sua Senha..."
                     keyboardType="default"
                     secureTextEntry={true}
                     property="userPassword"
                     onChangeText={onChange}
                     value={userPassword}
-
                 />
 
-
-                <TouchableOpacity style={styles.cadastroButton}
-                    onPress={() => navigation.navigate("InicioScreen")}
+                <RoundedButton
+                    onPress={() => console.log('Cadastrar')}
+                    backgroundColor={COLORS.goldenYellow}
+                    width={150}
+                    height={40}
                 >
-                    <Text style={styles.CadastroText}>Cadastre-se!</Text>
-                </TouchableOpacity>
+                    <Text style={{ color: COLORS.darkBlue, fontWeight: 'bold' }}>cadastrar</Text>
+                </RoundedButton>
 
                 <View style={styles.bottomIcons}>
-
                     <TouchableOpacity onPress={() => navigation.navigate('InicioScreen')} style={styles.voltarButton}>
                         <Image
                             style={styles.voltarLogo}
@@ -109,7 +98,6 @@ export const CadastroSusScreen = () => {
                     <TouchableOpacity>
                         <Text style={styles.help}>ⓘ Ajuda</Text>
                     </TouchableOpacity>
-
                 </View>
             </View>
         </View>
@@ -165,7 +153,7 @@ const styles = StyleSheet.create({
         color: "#FFFFFF",
         fontSize: 26,
         fontWeight: "bold",
-        marginBottom: 125
+        marginTop: 10,
     },
 
     footer: {
@@ -200,9 +188,7 @@ const styles = StyleSheet.create({
         elevation: 5,
         marginTop: 20,
     },
-    CadastroText:{
 
-    },
     help: {
         color: "#FFFFFF",
         fontSize: 25,
