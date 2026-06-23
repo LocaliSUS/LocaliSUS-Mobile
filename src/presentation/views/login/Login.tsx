@@ -1,29 +1,19 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Text, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-
-import { COLORS } from "../../theme/AppTheme";
+import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../../../App";
+import { COLORS } from "../../theme/AppTheme";
 import { CustomTextInput } from "../../components/CustomTextInput";
-
-type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
+import { RoundedButton } from "../../components/RoudedButton";
 
 export const LoginScreen = () => {
-    const [form, setForm] = useState({
-        cpf: "",
-        senha: "",
-    });
-
-    const navigation = useNavigation<NavigationProp>();
+    const [form, setForm] = useState({ cpf: "", senha: "" });
+    const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
     const handleChange = (property: string | undefined, value: any) => {
         if (!property) return;
-
-        setForm({
-            ...form,
-            [property]: value,
-        });
+        setForm({ ...form, [property]: value });
     };
 
     return (
@@ -39,7 +29,6 @@ export const LoginScreen = () => {
                 source={require("../../../../assets/img/curva-superior.png")}
                 style={styles.topDetail}
             />
-
             <Image
                 source={require("../../../../assets/img/curva-inferior.png")}
                 style={styles.bottomDetail}
@@ -51,17 +40,12 @@ export const LoginScreen = () => {
                     style={styles.imageLogo}
                     source={require("../../../../assets/img/LocaliSUS-Logo-Fundo.png")}
                 />
-
-                <Text style={styles.logo}>
-                    LOCALISUS
-                </Text>
+                <Text style={styles.logo}>LOCALISUS</Text>
             </View>
 
             {/* Formulário */}
             <View style={styles.footer}>
-                <Text style={styles.title}>
-                    Entrar
-                </Text>
+                <Text style={styles.title}>Entrar</Text>
 
                 <CustomTextInput
                     image={require("../../../../assets/img/icon-cpf.png")}
@@ -76,39 +60,42 @@ export const LoginScreen = () => {
                     image={require("../../../../assets/img/icon-senha.png")}
                     placeholder="Insira sua Senha..."
                     value={form.senha}
-                    secureTextEntry={true}
+                    secureTextEntry
                     property="senha"
                     onChangeText={handleChange}
                 />
 
-                <TouchableOpacity>
-                    <Text style={styles.forgotPassword}>
-                        Esqueci minha senha
-                    </Text>
-                </TouchableOpacity>
+                {/* Esqueci minha senha */}
+                <RoundedButton
+                    onPress={() => navigation.navigate('SenhaEsquecidaScreen')}
+                    backgroundColor="transparent" width={200} height={30}>
+                    <Text style={styles.forgotPassword}>Esqueci minha senha</Text>
+                </RoundedButton>
 
-                <TouchableOpacity style={styles.loginButton}>
-                    <Text style={styles.loginText}>
-                        Entrar
-                    </Text>
-                </TouchableOpacity>
+                {/* Entrar */}
+                <RoundedButton
+                    onPress={() => navigation.navigate("InicioScreen")}
+                    backgroundColor={COLORS.mintGreen} width={90} height={25}>
+                    <Text style={styles.loginText}>Entrar</Text>
+                </RoundedButton>
+
 
                 {/* Voltar + Ajuda */}
                 <View style={styles.bottomIcons}>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate("Inicio")}
-                    >
+                    <RoundedButton
+                        onPress={() => navigation.goBack()}
+                        backgroundColor="COLORS.darkBlue" width={90} height={60}>
                         <Image
                             source={require("../../../../assets/img/icon-voltar.png")}
                             style={styles.bottomBack}
                         />
-                    </TouchableOpacity>
+                    </RoundedButton>
 
-                    <TouchableOpacity>
-                        <Text style={styles.help}>
-                            ⓘ Ajuda
-                        </Text>
-                    </TouchableOpacity>
+                    <RoundedButton onPress={() => console.log("Ajuda")}
+                        backgroundColor="transparent"
+                        width={100} height={50}>
+                        <Text style={styles.help}>ⓘ Ajuda</Text>
+                    </RoundedButton>
                 </View>
             </View>
         </View>
@@ -178,50 +165,28 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         marginBottom: 29
     },
-
-    loginButton: {
-        backgroundColor: COLORS.mintGreen,
-        width: 150,
-        height: 25,
-        borderRadius: 22,
-        justifyContent: "center",
-        alignItems: "center",
-        marginBottom: 10,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 3,
-        },
-        shadowOpacity: 0.3,
-        shadowRadius: 4,
-        elevation: 5,
-    },
-
     loginText: {
         color: COLORS.darkBlue,
         fontWeight: "bold",
         fontSize: 15
     },
-
-    help: {
-        color: "#FFFFFF",
-        fontSize: 18,
-        marginTop: 5,
-    },
-
     forgotPassword: {
         color: "#FFF",
         fontSize: 14,
         borderBottomColor: "#FFF",
         borderBottomWidth: 1
     },
-
+    help: {
+        color: "#FFF",
+        fontSize: 18,
+        marginTop: 5
+    },
     bottomIcons: {
         flexDirection: "row",
         justifyContent: "space-between",
+        paddingRight: 155,
         alignItems: "center",
-        width: "100%",
-        paddingRight: 140,
+        width: "100%"
     },
     bottomBack: {
         height: 55,

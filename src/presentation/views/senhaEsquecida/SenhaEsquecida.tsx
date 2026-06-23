@@ -9,13 +9,13 @@ import { COLORS } from "../../theme/AppTheme";
 import { RoundedButton } from "../../components/RoudedButton";
 import { CustomTextInput } from "../../components/CustomTextInput";
 //views models
-import cadastroViewModel from './ViewModel';
+import SenhaEsquecidaViewModel from './ViewModel';
 
 
-export const CadastroSusScreen = () => {
+export const SenhaEsquecidaScreen = () => {
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
-    const { userPassword, userEmail, userPhone, onChange, } = cadastroViewModel();
+    const { userPhone, onChange, } = SenhaEsquecidaViewModel();
 
     const [form, setForm] = useState({ cpf: "", senha: "" });
 
@@ -54,21 +54,9 @@ export const CadastroSusScreen = () => {
 
             {/* Escrita */}
             <View style={styles.footer}>
-                <Text style={styles.title}>cadastro</Text>
+                <Text style={styles.title}>Recuperar Senha</Text>
 
                 <CustomTextInput
-
-                    image={require('../../../../assets/img/icon-cpf.png')}
-                    placeholder="Insira seu CPF..."
-                    keyboardType="default"
-                    secureTextEntry={false}
-                    property="userEmail"
-                    onChangeText={onChange}
-                    value={userEmail}
-
-                />
-                <CustomTextInput
-
                     image={require('../../../../assets/img/icone-numero.png')}
                     placeholder="Insira seu Numero de Telefone..."
                     keyboardType="default"
@@ -78,23 +66,11 @@ export const CadastroSusScreen = () => {
                     value={userPhone}
 
                 />
-                <CustomTextInput
-
-                    image={require('../../../../assets/img/icon-senha.png')}
-                    placeholder="Insira seu Senha..."
-                    keyboardType="default"
-                    secureTextEntry={true}
-                    property="userPassword"
-                    onChangeText={onChange}
-                    value={userPassword}
-
-                />
-
 
                 <TouchableOpacity style={styles.cadastroButton}
                     onPress={() => navigation.navigate("InicioScreen")}
                 >
-                    <Text style={styles.CadastroText}>Cadastre-se!</Text>
+                    <Text style={styles.CadastroText}>Enviar Codigo</Text>
                 </TouchableOpacity>
 
                 <View style={styles.bottomIcons}>
@@ -143,8 +119,8 @@ const styles = StyleSheet.create({
         position: "absolute",
         width: 750,
         height: 610,
-        bottom: -200,
-        left: -172,
+        top: 430,
+        right: -170,
         resizeMode: "contain",
     },
 
@@ -172,44 +148,51 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        paddingTop: -10,
-        gap: 12,
+        paddingBottom: 30,
+        gap: 1,
     },
 
     title: {
-        marginTop: -120,
+        marginBottom: 60,
         height: 45,
         color: "#FFFFFF",
         fontSize: 38,
         fontWeight: "bold",
-
+        bottom:40
+        
     },
 
     cadastroButton: {
-        backgroundColor: COLORS.goldenYellow,
-        width: 150,
-        height: 25,
+        backgroundColor: COLORS.mintGreen,
+        width: 235,
+        height: 30,
         borderRadius: 22,
         justifyContent: "center",
         alignItems: "center",
-        marginBottom: 10,
+        marginBottom: 40,
         shadowColor: "#000",
         shadowOffset: { width: 0, height: 3 },
         shadowOpacity: 0.3,
         shadowRadius: 4,
         elevation: 5,
-        marginTop: 20,
+        marginTop:180,
+        bottom:80
     },
     CadastroText:{
-
+        height: 30,
+        color: "#000000ff",
+        fontSize: 21,
+        fontWeight: "bold",
+        
     },
     help: {
         color: "#FFFFFF",
         fontSize: 25,
-        marginTop: 5,
+        margin: 5,
         marginRight: 8,
     },
     forgotPassword: {
+        
 
     },
     bottomIcons: {
@@ -219,10 +202,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         gap: 8,
         paddingRight: 125,
+        bottom:80
     },
     voltarLogo: {
         width: 43,
         height: 47,
+        
 
     },
     voltarButton: {

@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         alignItems: 'center',
-        width: 310,
+        width: 330,
         height: 45,          // altura fixa
         marginBottom: 5,    // controla espaçamento entre inputs
     },
@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
     TxtInput: {
         fontSize: 16,
         color: '#333',
+        alignSelf:'flex-start'
     },
 
 });
