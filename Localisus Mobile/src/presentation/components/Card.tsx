@@ -24,6 +24,30 @@ export function ComponenteCard({
     return(
         <div>
             <h1>{titulo}</h1>
+            <p>
+                {descricao}
+            </p>
+            {children}
         </div>
     )
 }
+
+
+    export const Cards = () => {
+        return (
+            <>
+                <div className="cards">
+                    {
+                        elementosCard.map(e =>
+                                <ComponenteCard
+                                    id={e.id}
+                                    titulo={e.titulo}
+                                    descricao={e.descricao}
+                                    cor={e.cor}
+                                />
+                        )
+                    }
+                </div>
+            </>
+        )
+    }
