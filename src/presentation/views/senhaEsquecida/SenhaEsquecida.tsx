@@ -57,7 +57,6 @@ export const SenhaEsquecidaScreen = () => {
                 <Text style={styles.title}>Recuperar Senha</Text>
 
                 <CustomTextInput
-
                     image={require('../../../../assets/img/icone-numero.png')}
                     placeholder="Insira seu Numero de Telefone..."
                     keyboardType="default"
@@ -120,8 +119,8 @@ const styles = StyleSheet.create({
         position: "absolute",
         width: 750,
         height: 610,
-        bottom: -200,
-        left: -172,
+        top: 430,
+        right: -170,
         resizeMode: "contain",
     },
 
@@ -142,23 +141,24 @@ const styles = StyleSheet.create({
         color: "#FFFFFF",
         fontSize: 26,
         fontWeight: "bold",
-        marginTop: 10,
+        marginBottom: 125
     },
 
     footer: {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        paddingTop: -30,
-        gap: 12,
+        paddingBottom: 30,
+        gap: 1,
     },
 
     title: {
-        marginTop: -120,
+        marginBottom: 60,
         height: 45,
         color: "#FFFFFF",
         fontSize: 38,
         fontWeight: "bold",
+        bottom:40
         
     },
 
@@ -169,27 +169,30 @@ const styles = StyleSheet.create({
         borderRadius: 22,
         justifyContent: "center",
         alignItems: "center",
-        marginBottom: 10,
+        marginBottom: 40,
         shadowColor: "#000",
         shadowOffset: { width: 0, height: 3 },
         shadowOpacity: 0.3,
         shadowRadius: 4,
         elevation: 5,
-        marginTop: 80,
+        marginTop:180,
+        bottom:80
     },
     CadastroText:{
         height: 30,
         color: "#000000ff",
         fontSize: 21,
         fontWeight: "bold",
+        
     },
     help: {
         color: "#FFFFFF",
         fontSize: 25,
-        marginTop: 5,
+        margin: 5,
         marginRight: 8,
     },
     forgotPassword: {
+        
 
     },
     bottomIcons: {
@@ -199,10 +202,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         gap: 8,
         paddingRight: 125,
+        bottom:80
     },
     voltarLogo: {
         width: 43,
         height: 47,
+        
 
     },
     voltarButton: {

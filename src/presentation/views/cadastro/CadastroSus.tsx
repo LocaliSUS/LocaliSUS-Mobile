@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
         color: "#FFFFFF",
         fontSize: 26,
         fontWeight: "bold",
-        marginTop: 10,
+        marginBottom: 125
     },
 
     footer: {
