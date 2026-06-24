@@ -81,10 +81,14 @@ export const CadastroSusScreen = () => {
                 <RoundedButton
                     onPress={() => console.log('Cadastrar')}
                     backgroundColor={COLORS.goldenYellow}
-                    width={150}
-                    height={40}
+                        width={110}
+                        height={30}
                 >
-                    <Text style={{ color: COLORS.darkBlue, fontWeight: 'bold' }}>cadastrar</Text>
+                    <Text style={{
+                        color: COLORS.darkBlue,
+                        fontWeight: "bold",
+                        fontSize: 15,
+                    }}>cadastrar</Text>
                 </RoundedButton>
 
                 <View style={styles.bottomIcons}>
