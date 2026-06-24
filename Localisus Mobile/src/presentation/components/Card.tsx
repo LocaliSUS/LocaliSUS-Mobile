@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import { View, Text } from "react-native";
+import {styles} from "../theme/CardTheme"
 
 export interface CardProps {
     id: number,
@@ -10,22 +11,23 @@ export interface CardProps {
 }
 
 const elementosCard: CardProps[] = [
-    { id: 1, titulo: "Descarte impróprio de remédios", descricao: "Aprenda a descartar corretamente seus medicamentos os levando a unidade de saúde próxima", cor: "#12d393" },
-    { id: 2, titulo: "Verifique a validade dos medicamentos", descricao: "Antes de usar, confira sempre a data de validade e descarte seus medicamentos vencidos de forma segura", cor: "#1286d3ff" },
-    { id: 3, titulo: "Remova rótulos e dados pessoais", descricao: "Antes de descartar, retire rótulos com seus dados pessoais das embalagens para proteger a sua privacidade", cor: "#e6d010ff" },
-    { id: 4, titulo: "Mantenha fora do alcance de crianças", descricao: "Guarde os medicamentos em locais seguros e altos, longe do alcance de crianças e animais de estimação.", cor: "#9612d3ff" },
+    { id: 1, titulo: "Descarte impróprio de remédios", descricao: "Aprenda a descartar corretamente seus medicamentos os levando a unidade de saúde próxima", cor: "#74BF8A" },
+    { id: 2, titulo: "Verifique a validade dos medicamentos", descricao: "Antes de usar, confira sempre a data de validade e descarte seus medicamentos vencidos de forma segura", cor: "#5b8cdbff" },
+    { id: 3, titulo: "Remova rótulos e dados pessoais", descricao: "Antes de descartar, retire rótulos com seus dados pessoais das embalagens para proteger a sua privacidade", cor: "#F0C55A" },
+    { id: 4, titulo: "Mantenha fora do alcance de crianças", descricao: "Guarde os medicamentos em locais seguros e altos, longe do alcance de crianças e animais de estimação.", cor: "#9577c5ff" },
     { id: 5, titulo: "Contribua para o meio ambiente", descricao: "O descarte correto evita a contaminação do solo e da água, protegendo o meio ambiente e a saúde da comunidade.", cor: "#12d3d3ff" }
 ]
 
 export function ComponenteCard({
     titulo,
+    cor,
     descricao,
     children
 }: CardProps) {
     return (
-        <View>
-            <Text>{titulo}</Text>
-            <Text> {descricao} </Text>
+        <View style={[styles.card, {backgroundColor: cor}]}>
+            <Text style={styles.txtTitulo}>{titulo}</Text>
+            <Text style={styles.txtDescricao}>{descricao} </Text>
             {children}
         </View>
     )
@@ -35,7 +37,7 @@ export function ComponenteCard({
 export const Cards = () => {
     return (
         <>
-            <View>
+            <View style={styles.card}>
                 {
                     elementosCard.map(e =>
                         <ComponenteCard
