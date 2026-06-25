@@ -5,10 +5,10 @@ import { StyleSheet} from "react-native";
 export const styles = StyleSheet.create({
     visualizacaoTela: {
         flex: 1,
+        flexDirection: 'column',
         alignItems: 'center'
     },
-    txtTelaHome: {
-        marginTop: 10,
+    txtTelaHome: { 
         fontSize : 25,
         fontWeight: 'bold',
         left: 0
@@ -22,5 +22,8 @@ export const styles = StyleSheet.create({
     },
     scrollContent: {
 
+    },
+    unidadesProximasCard: {
+        marginTop: 10
     }
 })

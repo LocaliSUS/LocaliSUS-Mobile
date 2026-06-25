@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 import { View, Text, ViewStyle, StyleProp, ImageSourcePropType, Image} from "react-native";
 import {styles} from "../theme/CardTheme"
+import Swiper from "react-native-deck-swiper";
 
 export interface CardProps {
     id: number,
@@ -29,7 +30,7 @@ export function ComponenteCard({
     children
 }: CardProps) {
     return (
-        <View style={[styles.card, {backgroundColor: cor}, style]}>
+        <View style={[styles.cardsContainer, {backgroundColor: cor}, style]}>
             <Text style={styles.txtTitulo}>{titulo}</Text>
              {img && (
                 <Image 
@@ -48,7 +49,58 @@ export function ComponenteCard({
 export const Cards = () => {
     return (
         <>
-            <View style={styles.card}>
+        <View style={styles.swiperWrapper}>
+            <Swiper
+                cards={elementosCard}
+                cardIndex={0}
+                renderCard={( card ) => {
+                    {card ? card : <View/>}
+                return (
+                    <ComponenteCard 
+                        id={card.id}
+                        titulo={card.titulo}
+                        descricao={card.descricao}
+                        cor={card.cor}
+                    />
+                )
+                }}
+                   onSwiped={(cardIndex) => console.log("Card arrastado:", cardIndex)}
+                    onSwipedAll={() => console.log("Todos cards visualizados")}
+                    backgroundColor="transparent"
+                    stackSize={3}
+                    stackSeparation={10}
+                    animateCardOpacity
+                    cardVerticalMargin={20}
+                    cardHorizontalMargin={20}
+                    containerStyle={styles.containerSwiper}
+      />
+        </View>
+        {/* <View style={{height: 10}}>   
+            <Swiper
+                cards={elementosCard}
+                renderCard={(card) => {
+                    return (
+                        <ComponenteCard
+                            id={card.id}
+                            titulo={card.titulo}
+                            descricao={card.descricao}
+                            cor={card.cor}                        />
+                    )
+                }}
+                cardVerticalMargin={0}
+                cardHorizontalMargin={0}
+                containerStyle={{ flex: 0, height: 10}}
+                onSwiped={(cardIndex) => { console.log("Card: ", cardIndex, " arrastado")}}
+                onSwipedAll={() => {console.log("Todos cards visualizados")}}
+                cardIndex={0}
+                backgroundColor="transparent"
+                stackSize={3}
+                stackSeparation={10}
+                infinite={true}
+                animateCardOpacity={true}
+            />
+        </View> */}
+             {/* <View style={styles.card}>
                 {
                     elementosCard.map(e =>
                         <ComponenteCard
@@ -60,7 +112,7 @@ export const Cards = () => {
                         />
                     )
                 }
-            </View>
+            </View>  */}
         </>
     )
 }

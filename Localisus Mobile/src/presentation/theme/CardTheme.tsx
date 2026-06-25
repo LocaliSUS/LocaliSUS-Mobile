@@ -23,5 +23,16 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         fontWeight: 'bold',
         color: '#fff'
-    }
+    },
+    containerSwiper: {
+
+    },
+      swiperWrapper: {
+    width: "100%",
+    alignItems: "center",
+      },
+        cardsContainer: {
+    width: "100%",
+    alignItems: "center",
+        }
 })

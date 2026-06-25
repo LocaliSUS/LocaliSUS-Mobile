@@ -22,28 +22,32 @@ export const HomeScreen = () => {
                 showsVerticalScrollIndicator={true}
             >
                 <View style={styles.visualizacaoTela}>
+
                     <Cards></Cards>
-                    
+
                     <HorizontalDivider></HorizontalDivider>
 
                     <Text style={styles.txtTelaHome}> Unidades Próximas
                     </Text>
-                    <FlatList 
-                        data={cardsHospitais}
-                        keyExtractor={(item) => item.id.toString()}
-                        horizontal={true}
-                        showsHorizontalScrollIndicator={false}
-                        contentContainerStyle={{ }}
-                        renderItem={({ item }) => (
-                            <ComponenteCard 
-                                id={item.id}
-                                titulo={item.titulo}
-                                descricao={item.descricao}
-                                style={item.style}  
-                                img={item.img}
-                            />
-                        )}
-                    />
+                    <View style={styles.unidadesProximasCard}>
+                        <FlatList
+                            data={cardsHospitais}
+                            keyExtractor={(item) => item.id.toString()}
+                            horizontal={true}
+                            showsHorizontalScrollIndicator={false}
+                            contentContainerStyle={{}}
+                            renderItem={({ item }) => (
+                                <ComponenteCard
+                                    id={item.id}
+                                    titulo={item.titulo}
+                                    descricao={item.descricao}
+                                    style={item.style}
+                                    img={item.img}
+                                />
+                            )}
+                        />
+
+                    </View>
                 </View>
             </ScrollView>
 
