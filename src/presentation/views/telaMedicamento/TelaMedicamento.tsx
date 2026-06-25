@@ -13,7 +13,9 @@ export const Medicamento= () => {
     return (
         <View style={styles.container}>
 
-            
+            <View style={styles.frm}>
+
+            </View>
 
         </View>
     )
@@ -21,5 +23,15 @@ export const Medicamento= () => {
 
 const styles = StyleSheet.create({
 
-    container:{}
+    container:{},
+    frm:{
+        width: '100%',
+        height: '45%',
+        backgroundColor: COLORS.lightBlue,
+        position: 'absolute',
+        bottom: 0,
+        borderTopLeftRadius: 40,
+        borderTopRightRadius: 40,
+        padding: 20,
+    }
 })

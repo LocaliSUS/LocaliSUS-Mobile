@@ -1,282 +1,253 @@
-// import React, { useEffect, useState } from "react";
-// import {
-//   StyleSheet,
-//   View,
-//   Text,
-//   TouchableOpacity,
-//   TextInput,
-//   Image,
-// } from "react-native";
-// import { COLORS } from "../../theme/AppTheme";
-// import MapView, { Marker } from "react-native-maps";
-// import * as Location from "expo-location";
+import React, { useEffect, useState } from "react";
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  TextInput,
+  Image,
+} from "react-native";
+import { COLORS } from "../../theme/AppTheme";
+import MapView, { Marker } from "react-native-maps";
+import * as Location from "expo-location";
 
-// export const MapaSus = () => {
-//   //const [region, setRegion] = useState({
-//     //latitude: -23.55052,
-//     //longitude: -46.633308,
-//     //latitudeDelta: 0.05,
-//     //longitudeDelta: 0.05,
-//   //});
+export const MapaSus = () => {
 
-//   //useEffect(() => {
-//   //(async () => {
-//     //const { status } =
-//       //await Location.requestForegroundPermissionsAsync();
+  return (
+    <View style={styles.container}>
 
-//     //console.log("STATUS:", status);
+      {/* HEADER */}
+      <View style={styles.header}>
+        <View style={styles.headerTop}>
 
-//     //if (status !== "granted") {
-//       //console.log("Permissão negada");
-//       //return;
-//     //
-//     //const location =
-//       //await Location.getCurrentPositionAsync({});
+          <TouchableOpacity style={styles.circleButton}>
+            <Text style={styles.icon}>☰</Text>
+          </TouchableOpacity>
 
-//     //console.log("LOCATION:", location);
+          <Text style={styles.title}>
+            Pesquisar por Unidades
+          </Text>
 
-//     //setRegion({
-//       //latitude: location.coords.latitude,
-//       //longitude: location.coords.longitude,
-//       //latitudeDelta: 0.05,
-//       //longitudeDelta: 0.05,
-//     //});
-//   //})();
-// //}, []);
+          <TouchableOpacity style={styles.circleButton}
+          >
+            <Image
+              source={require("../../../../assets/img/icon-voltar.png")}
+              style={styles.backIcon}
+            />
+          </TouchableOpacity>
 
-//   return (
-//     <View style={styles.container}>
+        </View>
 
-//       {/* HEADER */}
-//       <View style={styles.header}>
-//         <View style={styles.headerTop}>
+        <View style={styles.searchContainer}>
+          <TextInput
+            placeholder="UBS Vila Romana"
+            placeholderTextColor="#4B4B6A"
+            style={styles.searchInput}
+          />
+          <Text style={styles.searchIcon}>⌕</Text>
+        </View>
+      </View>
 
-//           <TouchableOpacity style={styles.circleButton}>
-//             <Text style={styles.icon}>☰</Text>
-//           </TouchableOpacity>
+      {/* MAP AREA */}
+      <MapView
+        style={{ flex: 1 }}
+        onMapReady={() => console.log("MAP READY")}
+        initialRegion={{
+          latitude: -23.55052,
+          longitude: -46.633308,
+          latitudeDelta: 0.05,
+          longitudeDelta: 0.05,
+        }}
+      >
+        <Marker
+          coordinate={{
+            latitude: -23.55052,
+            longitude: -46.633308,
+          }}
+          title="São Paulo"
+        />
+      </MapView>
 
-//           <Text style={styles.title}>
-//             Pesquisar por Unidades
-//           </Text>
+      {/* FOOTER */}
+      <View style={styles.footer}>
 
-//           <TouchableOpacity style={styles.circleButton}>
-//   <Image
-//     source={require("../../../../assets/img/icon-voltar.png")}
-//     style={styles.backIcon}
-//   />
-// </TouchableOpacity>
+        <View style={styles.row}>
+          <TouchableOpacity style={styles.remediosButton}>
+            <Text style={styles.buttonText}>💊 Remédios</Text>
+          </TouchableOpacity>
 
-//         </View>
+          <TouchableOpacity style={styles.localizacaoButton}>
+            <Text style={styles.buttonText}>🗺 Localização</Text>
+          </TouchableOpacity>
+        </View>
 
-//         <View style={styles.searchContainer}>
-//           <TextInput
-//             placeholder="UBS Vila Romana"
-//             placeholderTextColor="#4B4B6A"
-//             style={styles.searchInput}
-//           />
-//           <Text style={styles.searchIcon}>⌕</Text>
-//         </View>
-//       </View>
+        <View style={styles.row}>
+          <TouchableOpacity style={styles.lembretesButton}>
+            <Text style={styles.buttonText}>⏰ Lembretes</Text>
+          </TouchableOpacity>
 
-//       {/* MAP AREA */}
-//       <MapView
-//         style={{ flex: 1 }}
-//         initialRegion={{
-//             latitude: -23.55052,
-//             longitude: -46.633308,
-//             latitudeDelta: 0.05,
-//             longitudeDelta: 0.05,
-//         }}
-//         >
-//         <Marker
-//             coordinate={{
-//             latitude: -23.55052,
-//             longitude: -46.633308,
-//             }}
-//             title="São Paulo"
-//         />
-//         </MapView>
+          <TouchableOpacity style={styles.ajudaButton}>
+            <View style={styles.buttonContent}>
+              <Image
+                source={require("../../../../assets/img/icone-ajuda.png")}
+                style={styles.helpIcon}
+              />
+              <Text style={styles.buttonText}>Ajuda</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
 
-//       {/* FOOTER */}
-//       <View style={styles.footer}>
+      </View>
 
-//         <View style={styles.row}>
-//           <TouchableOpacity style={styles.remediosButton}>
-//             <Text style={styles.buttonText}>💊 Remédios</Text>
-//           </TouchableOpacity>
+    </View>
+  );
+};
 
-//           <TouchableOpacity style={styles.localizacaoButton}>
-//             <Text style={styles.buttonText}>🗺 Localização</Text>
-//           </TouchableOpacity>
-//         </View>
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: COLORS.darkBlue,
+  },
 
-//         <View style={styles.row}>
-//           <TouchableOpacity style={styles.lembretesButton}>
-//             <Text style={styles.buttonText}>⏰ Lembretes</Text>
-//           </TouchableOpacity>
+  header: {
+    backgroundColor: COLORS.darkBlue,
+    paddingTop: 40,
+    paddingHorizontal: 15,
+    paddingBottom: 15,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+  },
 
-//           <TouchableOpacity style={styles.ajudaButton}>
-//             <View style={styles.buttonContent}>
-//               <Image
-//                 source={require("../../../../assets/img/icone-ajuda.png")}
-//                 style={styles.helpIcon}
-//               />
-//               <Text style={styles.buttonText}>Ajuda</Text>
-//             </View>
-//           </TouchableOpacity>
-//         </View>
+  headerTop: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
 
-//       </View>
+  map: {
+    flex: 1,
+  },
 
-//     </View>
-//   );
-// };
+  circleButton: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: '#fff',
+    justifyContent: "center",
+    alignItems: "center",
+  },
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: COLORS.darkBlue,
-//   },
+  icon: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: COLORS.darkBlue,
+  },
 
-//   header: {
-//     backgroundColor: COLORS.darkBlue,
-//     paddingTop: 40,
-//     paddingHorizontal: 15,
-//     paddingBottom: 15,
-//     borderBottomLeftRadius: 20,
-//     borderBottomRightRadius: 20,
-//   },
+  title: {
+    color: "#FFFFFF",
+    fontSize: 20,
+    fontWeight: "bold",
+  },
 
-//   headerTop: {
-//     flexDirection: "row",
-//     justifyContent: "space-between",
-//     alignItems: "center",
-//   },
-  
-//   map: {
-//   flex: 1,
-// },
+  searchContainer: {
+    marginTop: 15,
+    backgroundColor: "#DCE7EC",
+    borderRadius: 20,
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: 15,
+  },
 
-//   circleButton: {
-//     width: 44,
-//     height: 44,
-//     borderRadius: 22,
-//     backgroundColor: '#fff',
-//     justifyContent: "center",
-//     alignItems: "center",
-//   },
+  searchInput: {
+    flex: 1,
+    height: 45,
+    color: COLORS.darkBlue,
+    fontSize: 18,
+    fontWeight: "600",
+  },
 
-//   icon: {
-//     fontSize: 24,
-//     fontWeight: "bold",
-//     color: COLORS.darkBlue,
-//   },
+  searchIcon: {
+    fontSize: 24,
+    color: "#4B4B6A",
+  },
 
-//   title: {
-//     color: "#FFFFFF",
-//     fontSize: 20,
-//     fontWeight: "bold",
-//   },
+  backIcon: {
+    width: 50,
+    height: 50,
+    resizeMode: "contain",
+  },
 
-//   searchContainer: {
-//     marginTop: 15,
-//     backgroundColor: "#DCE7EC",
-//     borderRadius: 20,
-//     flexDirection: "row",
-//     alignItems: "center",
-//     paddingHorizontal: 15,
-//   },
+  mapArea: {
+    flex: 1,
+    backgroundColor: "#bdbdbdff",
+    justifyContent: "center",
+    alignItems: "center",
+  },
 
-//   searchInput: {
-//     flex: 1,
-//     height: 45,
-//     color: COLORS.darkBlue,
-//     fontSize: 18,
-//     fontWeight: "600",
-//   },
+  mapText: {
+    color: "#666",
+    fontSize: 18,
+  },
 
-//   searchIcon: {
-//     fontSize: 24,
-//     color: "#4B4B6A",
-//   },
+  footer: {
+    backgroundColor: COLORS.darkBlue,
+    padding: 15,
+    gap: 10,
+  },
 
-//   backIcon: {
-//   width: 50,
-//   height: 50,
-//   resizeMode: "contain",
-// },
+  row: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
 
-//   mapArea: {
-//     flex: 1,
-//     backgroundColor: "#bdbdbdff",
-//     justifyContent: "center",
-//     alignItems: "center",
-//   },
+  remediosButton: {
+    width: "48%",
+    backgroundColor: COLORS.coralRed,
+    paddingVertical: 15,
+    borderRadius: 25,
+    alignItems: "center",
+  },
 
-//   mapText: {
-//     color: "#666",
-//     fontSize: 18,
-//   },
+  localizacaoButton: {
+    width: "48%",
+    backgroundColor: COLORS.mintGreen,
+    paddingVertical: 15,
+    borderRadius: 25,
+    alignItems: "center",
+  },
 
-//   footer: {
-//     backgroundColor: COLORS.darkBlue,
-//     padding: 15,
-//     gap: 10,
-//   },
+  lembretesButton: {
+    width: "48%",
+    backgroundColor: COLORS.goldenYellow,
+    paddingVertical: 15,
+    borderRadius: 25,
+    alignItems: "center",
+  },
 
-//   row: {
-//     flexDirection: "row",
-//     justifyContent: "space-between",
-//   },
+  ajudaButton: {
+    width: "48%",
+    backgroundColor: "#E8F0FF",
+    paddingVertical: 15,
+    borderRadius: 25,
+    alignItems: "center",
+  },
 
-//   remediosButton: {
-//     width: "48%",
-//     backgroundColor: COLORS.coralRed,
-//     paddingVertical: 15,
-//     borderRadius: 25,
-//     alignItems: "center",
-//   },
+  buttonText: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: COLORS.darkBlue,
+  },
 
-//   localizacaoButton: {
-//     width: "48%",
-//     backgroundColor: COLORS.mintGreen,
-//     paddingVertical: 15,
-//     borderRadius: 25,
-//     alignItems: "center",
-//   },
+  buttonContent: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+  },
 
-//   lembretesButton: {
-//     width: "48%",
-//     backgroundColor: COLORS.goldenYellow,
-//     paddingVertical: 15,
-//     borderRadius: 25,
-//     alignItems: "center",
-//   },
-
-//   ajudaButton: {
-//     width: "48%",
-//     backgroundColor: "#E8F0FF",
-//     paddingVertical: 15,
-//     borderRadius: 25,
-//     alignItems: "center",
-//   },
-
-//   buttonText: {
-//     fontSize: 18,
-//     fontWeight: "bold",
-//     color: COLORS.darkBlue,
-//   },
-
-//   buttonContent: {
-//     flexDirection: "row",
-//     alignItems: "center",
-//     justifyContent: "center",
-//   },
-
-//   helpIcon: {
-//     width: 24,
-//     height: 24,
-//     resizeMode: "contain",
-//     marginRight: 8,
-//   },
-// });
+  helpIcon: {
+    width: 24,
+    height: 24,
+    resizeMode: "contain",
+    marginRight: 8,
+  },
+});
