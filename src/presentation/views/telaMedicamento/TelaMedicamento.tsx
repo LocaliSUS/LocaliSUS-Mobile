@@ -23,7 +23,12 @@ export const MedicamentoScreen= () => {
 
 const styles = StyleSheet.create({
 
-    container:{},
+    container:{
+        flex: 1,
+        backgroundColor: COLORS.darkBlue,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
     frm:{
         width: '100%',
         height: '45%',
