@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { StyleSheet, View, Text, Image, TouchableOpacity, Button } from "react-native";
+import React, { useState, useRef } from "react";
+import { StyleSheet, View, Text, Image, TouchableOpacity, Button, TextInput } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../../../App";
 import { useNavigation } from "@react-navigation/native";
@@ -10,7 +10,6 @@ import { RoundedButton } from "../../components/RoudedButton";
 import { CustomTextInput } from "../../components/CustomTextInput";
 //views models
 import CodigoViewModel from './ViewModel';
-import { TextInput } from "react-native-gesture-handler";
 
 
 export const CodigoScreen = () => {
@@ -19,6 +18,26 @@ export const CodigoScreen = () => {
     const { userPhone, onChange, } = CodigoViewModel();
 
     const [form, setForm] = useState({ cpf: "", senha: "" });
+
+    // código de verificação: 6 dígitos
+    const [code, setCode] = useState<string[]>(["", "", "", "", "", ""]);
+    const inputsRef = useRef<Array<TextInput | null>>([]);
+
+    const handleCodeChange = (text: string, index: number) => {
+        const digit = text.replace(/[^0-9]/g, "").slice(-1);
+        const newCode = [...code];
+        newCode[index] = digit;
+        setCode(newCode);
+        if (digit && index < inputsRef.current.length - 1) {
+            inputsRef.current[index + 1]?.focus();
+        }
+    };
+
+    const handleKeyPress = (e: any, index: number) => {
+        if (e.nativeEvent.key === 'Backspace' && code[index] === '' && index > 0) {
+            inputsRef.current[index - 1]?.focus();
+        }
+    };
 
     const handleChange = (property: string | undefined, value: any) => {
         if (!property) return;
@@ -57,8 +76,23 @@ export const CodigoScreen = () => {
             <View style={styles.footer}>
                 <Text style={styles.title}>Confirme o Código Enviado</Text>
 
-                <View style=>
-                    <TextInput/>
+                {/* Entrada do código: 6 campos */}
+                <View style={styles.codeContainer}>
+                    {code.map((c, i) => (
+                        <TextInput
+                            key={i}
+                            ref={ref => { inputsRef.current[i] = ref }}
+                            value={c}
+                            onChangeText={(text) => handleCodeChange(text, i)}
+                            onKeyPress={(e) => handleKeyPress(e, i)}
+                            keyboardType="number-pad"
+                            maxLength={1}
+                            autoFocus={i === 0}
+                            style={styles.codeBox}
+                            returnKeyType="done"
+                            textAlign="center"
+                        />
+                    ))}
                 </View>
 
                 <Text style={styles.Codigo}>Reenviando Código? (1:00)</Text>
@@ -215,5 +249,22 @@ const styles = StyleSheet.create({
     voltarButton: {
         marginLeft: 6,
         paddingRight: 70,
+    },
+    codeContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 10,
+        marginBottom: 12,
+    },
+    codeBox: {
+        width: 48,
+        height: 56,
+        backgroundColor: '#e9f3fb',
+        borderRadius: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontSize: 22,
+        color: COLORS.darkBlue,
     },
 });
