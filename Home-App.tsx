@@ -6,6 +6,7 @@ import { MapaSus } from './src/presentation/views/Localização/MapaSus';
 
 export type RootStackParamList = {
   MapaSus: undefined;
+
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -23,6 +24,7 @@ export default function App() {
           name="MapaSus"
           component={MapaSus}
         />
+        
       </Stack.Navigator>
     </NavigationContainer>
   );

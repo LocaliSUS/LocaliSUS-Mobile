@@ -8,7 +8,7 @@ import { COLORS } from "../../theme/AppTheme";
 //views models
 
 
-export const Medicamento= () => {
+export const MedicamentoScreen= () => {
 
     return (
         <View style={styles.container}>
