@@ -6,9 +6,7 @@ import { LoginScreen } from "./src/presentation/views/login/Login";
 import { CadastroSusScreen } from "./src/presentation/views/cadastro/CadastroSus";
 import { SenhaEsquecidaScreen } from "./src/presentation/views/senhaEsquecida/SenhaEsquecida";
 import { CodigoScreen } from "./src/presentation/views/codigo/Codigo";
-
-import { useFonts } from 'expo-font';
-import { FONTS } from "./assets/fontes/Fontes";
+import { MedicamentoScreen } from './src/presentation/views/telaMedicamento/TelaMedicamento';
 
 
 
@@ -16,8 +14,8 @@ export type RootStackParamList = {
   InicioScreen: undefined;
   LoginScreen: undefined;
   CadastroSusScreen: undefined;
-  SenhaEsquecidaScreen: undefined;
-  CodigoScreen: undefined;
+  SenhaEsquecidaScreen:undefined;
+  CodigoScreen:undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -55,6 +53,10 @@ export default function App() {
         <Stack.Screen
           name="CodigoScreen"
           component={CodigoScreen}
+        />
+        <Stack.Screen
+        name="MedicamentoScreen"
+        component={MedicamentoScreen}
         />
 
       </Stack.Navigator>

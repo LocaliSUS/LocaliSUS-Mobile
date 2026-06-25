@@ -17,6 +17,7 @@ export const CadastroSusScreen = () => {
     const { userPassword, userEmail, userPhone, onChange } = cadastroViewModel();
 
     return (
+        
         <View style={styles.container}>
 
             {/* FUNDO PRINCIPAL */}
@@ -79,9 +80,8 @@ export const CadastroSusScreen = () => {
                 />
 
                 <RoundedButton
-                    onPress={() => {
-                        console.log('Cadastrar');
-                        navigation.navigate('InicioScreen');
+                    onPress={() => {console.log('Cadastrar')
+                    navigation.navigate('MedicamentoScreen')
                     }}
                     backgroundColor={COLORS.goldenYellow}
                     width={125} //Largura
