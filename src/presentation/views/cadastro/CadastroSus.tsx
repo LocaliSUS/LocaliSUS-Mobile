@@ -79,18 +79,19 @@ export const CadastroSusScreen = () => {
                 />
 
                 <RoundedButton
-                    onPress={() => {console.log('Cadastrar');
-                    navigation.navigate('InicioScreen');
+                    onPress={() => {
+                        console.log('Cadastrar');
+                        navigation.navigate('InicioScreen');
                     }}
                     backgroundColor={COLORS.goldenYellow}
-                        width={110}
-                        height={30}
+                    width={125} //Largura
+                    height={38} // Altura
                 >
                     <Text style={{
                         color: COLORS.darkBlue,
                         fontWeight: "bold",
-                        fontSize: 15,
-                    }}>cadastrar</Text>
+                        fontSize: 19,
+                    }}>Cadastrar</Text>
                 </RoundedButton>
 
                 <View style={styles.bottomIcons}>
@@ -115,6 +116,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: COLORS.darkBlue,
+
     },
 
     FundoImage: {
@@ -146,7 +148,7 @@ const styles = StyleSheet.create({
         flex: 1.4,
         justifyContent: "center",
         alignItems: "center",
-        paddingBottom: 240,
+        paddingBottom: 300,
     },
 
     imageLogo: {
@@ -166,12 +168,12 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        paddingTop: -10,
-        gap: 12,
+        paddingTop: -16,
+        gap: 15,
     },
 
     title: {
-        marginTop: -120,
+        marginTop: -150,
         height: 45,
         color: "#FFFFFF",
         fontSize: 38,
@@ -179,30 +181,12 @@ const styles = StyleSheet.create({
 
     },
 
-    cadastroButton: {
-        backgroundColor: COLORS.goldenYellow,
-        width: 150,
-        height: 25,
-        borderRadius: 22,
-        justifyContent: "center",
-        alignItems: "center",
-        marginBottom: 10,
-        shadowColor: "#000",
-        shadowOffset: { width: 0, height: 3 },
-        shadowOpacity: 0.3,
-        shadowRadius: 4,
-        elevation: 5,
-        marginTop: 20,
-    },
 
     help: {
         color: "#FFFFFF",
         fontSize: 25,
         marginTop: 5,
         marginRight: 8,
-    },
-    forgotPassword: {
-
     },
     bottomIcons: {
         marginTop: 5,
