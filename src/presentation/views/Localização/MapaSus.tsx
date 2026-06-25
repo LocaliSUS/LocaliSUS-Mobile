@@ -30,11 +30,11 @@ export const MapaSus = () => {
 
           <TouchableOpacity style={styles.circleButton}
           >
-  <Image
-    source={require("../../../../assets/img/icon-voltar.png")}
-    style={styles.backIcon}
-  />
-</TouchableOpacity>
+            <Image
+              source={require("../../../../assets/img/icon-voltar.png")}
+              style={styles.backIcon}
+            />
+          </TouchableOpacity>
 
         </View>
 
@@ -53,20 +53,20 @@ export const MapaSus = () => {
         style={{ flex: 1 }}
         onMapReady={() => console.log("MAP READY")}
         initialRegion={{
-            latitude: -23.55052,
-            longitude: -46.633308,
-            latitudeDelta: 0.05,
-            longitudeDelta: 0.05,
+          latitude: -23.55052,
+          longitude: -46.633308,
+          latitudeDelta: 0.05,
+          longitudeDelta: 0.05,
         }}
-        >
+      >
         <Marker
-            coordinate={{
+          coordinate={{
             latitude: -23.55052,
             longitude: -46.633308,
-            }}
-            title="São Paulo"
+          }}
+          title="São Paulo"
         />
-        </MapView>
+      </MapView>
 
       {/* FOOTER */}
       <View style={styles.footer}>
@@ -123,10 +123,10 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
   },
-  
+
   map: {
-  flex: 1,
-},
+    flex: 1,
+  },
 
   circleButton: {
     width: 44,
@@ -172,10 +172,10 @@ const styles = StyleSheet.create({
   },
 
   backIcon: {
-  width: 50,
-  height: 50,
-  resizeMode: "contain",
-},
+    width: 50,
+    height: 50,
+    resizeMode: "contain",
+  },
 
   mapArea: {
     flex: 1,
