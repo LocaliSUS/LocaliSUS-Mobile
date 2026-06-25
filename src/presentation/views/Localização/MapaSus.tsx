@@ -51,6 +51,7 @@ export const MapaSus = () => {
       {/* MAP AREA */}
       <MapView
         style={{ flex: 1 }}
+        mapType="satellite"
         onMapReady={() => console.log("MAP READY")}
         initialRegion={{
           latitude: -23.55052,
