@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   StyleSheet,
   View,
@@ -8,34 +8,25 @@ import {
   Image,
 } from "react-native";
 import { COLORS } from "../../theme/AppTheme";
-import MapView, { Marker } from "react-native-maps";
-import * as Location from "expo-location";
 
 export const MapaSus = () => {
-
   return (
     <View style={styles.container}>
-
       {/* HEADER */}
       <View style={styles.header}>
         <View style={styles.headerTop}>
-
           <TouchableOpacity style={styles.circleButton}>
             <Text style={styles.icon}>☰</Text>
           </TouchableOpacity>
 
-          <Text style={styles.title}>
-            Pesquisar por Unidades
-          </Text>
+          <Text style={styles.title}>Pesquisar por Unidades</Text>
 
-          <TouchableOpacity style={styles.circleButton}
-          >
+          <TouchableOpacity style={styles.circleButton}>
             <Image
               source={require("../../../../assets/img/icon-voltar.png")}
               style={styles.backIcon}
             />
           </TouchableOpacity>
-
         </View>
 
         <View style={styles.searchContainer}>
@@ -49,28 +40,16 @@ export const MapaSus = () => {
       </View>
 
       {/* MAP AREA */}
-      <MapView
-        style={{ flex: 1 }}
-        onMapReady={() => console.log("MAP READY")}
-        initialRegion={{
-          latitude: -23.55052,
-          longitude: -46.633308,
-          latitudeDelta: 0.05,
-          longitudeDelta: 0.05,
-        }}
-      >
-        <Marker
-          coordinate={{
-            latitude: -23.55052,
-            longitude: -46.633308,
-          }}
-          title="São Paulo"
+      <View style={styles.mapArea}>
+        <Image
+          source={require("../../../../assets/img/MapaSUS.png")}
+          style={styles.mapImage}
+          resizeMode="cover"
         />
-      </MapView>
+      </View>
 
       {/* FOOTER */}
       <View style={styles.footer}>
-
         <View style={styles.row}>
           <TouchableOpacity style={styles.remediosButton}>
             <Text style={styles.buttonText}>💊 Remédios</Text>
@@ -96,9 +75,7 @@ export const MapaSus = () => {
             </View>
           </TouchableOpacity>
         </View>
-
       </View>
-
     </View>
   );
 };
@@ -124,15 +101,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 
-  map: {
-    flex: 1,
-  },
-
   circleButton: {
     width: 44,
     height: 44,
     borderRadius: 22,
-    backgroundColor: '#fff',
+    backgroundColor: "#FFFFFF",
     justifyContent: "center",
     alignItems: "center",
   },
@@ -179,14 +152,12 @@ const styles = StyleSheet.create({
 
   mapArea: {
     flex: 1,
-    backgroundColor: "#bdbdbdff",
-    justifyContent: "center",
-    alignItems: "center",
+    backgroundColor: "#BDBDBD",
   },
 
-  mapText: {
-    color: "#666",
-    fontSize: 18,
+  mapImage: {
+    width: "100%",
+    height: "100%",
   },
 
   footer: {
