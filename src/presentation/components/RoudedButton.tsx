@@ -31,7 +31,6 @@ export const RoundedButton = ({
     );
 };
 
-
 const styles = StyleSheet.create({
     btn: {
         borderRadius: 25,

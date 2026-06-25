@@ -79,7 +79,9 @@ export const CadastroSusScreen = () => {
                 />
 
                 <RoundedButton
-                    onPress={() => console.log('Cadastrar')}
+                    onPress={() => {console.log('Cadastrar');
+                    navigation.navigate('InicioScreen');
+                    }}
                     backgroundColor={COLORS.goldenYellow}
                         width={110}
                         height={30}
