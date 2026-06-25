@@ -12,14 +12,15 @@ export const styles = StyleSheet.create({
     },
     txtTitulo: {
         fontSize: 14,
-        fontFamily: 'bold',
-        color: '#fff'
+        fontWeight: 'bold',
+        color: '#fff',
     },
     txtDescricao: {
-        fontSize: 14,
+        fontSize: 13,
         display: 'flex',
-        justifyContent: 'center',
-        alignItems:'center',
+        width: 100,
+        textAlign: 'center',
+        fontWeight: 'bold',
         color: '#fff'
     }
 })

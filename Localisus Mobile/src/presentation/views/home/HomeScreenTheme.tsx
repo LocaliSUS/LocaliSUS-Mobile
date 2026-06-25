@@ -4,11 +4,22 @@ import { StyleSheet} from "react-native";
 
 export const styles = StyleSheet.create({
     visualizacaoTela: {
-        display: 'flex',
+        flex: 1,
         alignItems: 'center'
     },
     txtTelaHome: {
-        fontSize : 22.5,
-        
+        fontSize : 25,
+        fontWeight: 'bold',
+        left: 0
+    },
+    txtDescricao: {
+        flex: 1,
+
+    },
+    scrollContainer: {
+
+    },
+    scrollContent: {
+
     }
 })
