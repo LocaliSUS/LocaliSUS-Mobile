@@ -3,6 +3,7 @@ import { CardProps, Cards, ComponenteCard } from "../../components/Card";
 import { StyleSheet, Text, View, ScrollView, Dimensions } from "react-native";
 import { styles } from './HomeScreenTheme'
 import amegeraldopaulo from '../../imagens/amegeraldopaulo.jpg'
+import { HorizontalDivider } from "../../components/Divider";
 
 const { width: screenWidth } = Dimensions.get('window')
 
@@ -20,6 +21,9 @@ export const HomeScreen = () => {
             >
                 <View style={styles.visualizacaoTela}>
                     <Cards></Cards>
+                    
+                    <HorizontalDivider></HorizontalDivider>
+                    
                     <Text style={styles.txtTelaHome}> Unidades Próximas
                     </Text>
                     {

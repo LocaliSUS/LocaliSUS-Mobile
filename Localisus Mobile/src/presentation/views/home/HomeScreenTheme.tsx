@@ -8,6 +8,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center'
     },
     txtTelaHome: {
+        marginTop: 10,
         fontSize : 25,
         fontWeight: 'bold',
         left: 0

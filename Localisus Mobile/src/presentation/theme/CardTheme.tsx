@@ -8,7 +8,8 @@ export const styles = StyleSheet.create({
         width: 265,
         minHeight: 115,
         display: 'flex',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginBottom: 10
     },
     txtTitulo: {
         fontSize: 14,
