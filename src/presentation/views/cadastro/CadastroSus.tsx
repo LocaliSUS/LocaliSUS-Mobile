@@ -81,7 +81,7 @@ export const CadastroSusScreen = () => {
 
                 <RoundedButton
                     onPress={() => {console.log('Cadastrar')
-                    navigation.navigate('MedicamentoScreen')
+                        navigation.navigate('MedicamentoScreen')
                     }}
                     backgroundColor={COLORS.goldenYellow}
                     width={125} //Largura
