@@ -52,26 +52,38 @@ export const MapaSus = () => {
             <View style={styles.footer}>
                 <View style={styles.row}>
                     <TouchableOpacity style={styles.remediosButton}>
-                        <Text style={styles.buttonText}>💊 Remédios</Text>
+                        <Image
+                            source={require("../../../../assets/img/Remedio-logo.png")}
+                            style={{ width: 30, height: 30 }}
+                        />
+                        <Text style={styles.buttonText}>   Remédios</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.localizacaoButton}>
-                        <Text style={styles.buttonText}>🗺 Localização</Text>
+                        <Image
+                            source={require("../../../../assets/img/Mapa.png")}
+                            style={{ width: 35, height: 30 }}
+                        />
+                        <Text style={styles.buttonText}>   Localização</Text>
                     </TouchableOpacity>
                 </View>
 
                 <View style={styles.row}>
                     <TouchableOpacity style={styles.lembretesButton}>
-                        <Text style={styles.buttonText}>⏰ Lembretes</Text>
+                        <Image
+                            source={require("../../../../assets/img/Relogio.png")}
+                            style={{ width: 30, height: 35 }}
+                        />
+                        <Text style={styles.buttonText}>   Lembretes</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.ajudaButton}>
                         <View style={styles.buttonContent}>
                             <Image
-                                source={require("../../../../assets/img/icone-ajuda.png")}
-                                style={styles.helpIcon}
+                                source={require("../../../../assets/img/Ajuda.png")}
+                                style={{ width: 35, height: 35 }}
                             />
-                            <Text style={styles.buttonText}>Ajuda</Text>
+                            <Text style={styles.buttonText}>   Ajuda</Text>
                         </View>
                     </TouchableOpacity>
                 </View>
@@ -162,7 +174,7 @@ const styles = StyleSheet.create({
 
     footer: {
         backgroundColor: COLORS.darkBlue,
-        padding: 15,
+        padding: 30,
         gap: 10,
     },
 
@@ -173,34 +185,42 @@ const styles = StyleSheet.create({
 
     remediosButton: {
         width: "48%",
+        height: 48,
         backgroundColor: COLORS.coralRedLight,
-        paddingVertical: 15,
-        borderRadius: 25,
+        borderRadius: 30,
         alignItems: "center",
+        flexDirection: 'row',
+        justifyContent: 'center'
     },
 
     localizacaoButton: {
         width: "48%",
+        height: 48,
         backgroundColor: COLORS.mintGreenLight,
-        paddingVertical: 15,
-        borderRadius: 25,
+        borderRadius: 30,
         alignItems: "center",
+        flexDirection: 'row',
+        justifyContent: 'center'
     },
 
     lembretesButton: {
         width: "48%",
+        height: 50,
         backgroundColor: COLORS.goldenYellowLight,
-        paddingVertical: 15,
-        borderRadius: 25,
+        borderRadius: 30,
         alignItems: "center",
+        flexDirection: 'row',
+        justifyContent: 'center'
     },
 
     ajudaButton: {
         width: "48%",
+        height: 50,
         backgroundColor: "#E8F0FF",
-        paddingVertical: 15,
-        borderRadius: 25,
+        borderRadius: 30,
         alignItems: "center",
+        flexDirection: 'row',
+        justifyContent: 'center'
     },
 
     buttonText: {
