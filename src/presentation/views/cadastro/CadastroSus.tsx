@@ -17,6 +17,7 @@ export const CadastroSusScreen = () => {
     const { userPassword, userEmail, userPhone, onChange } = cadastroViewModel();
 
     return (
+        
         <View style={styles.container}>
 
             {/* FUNDO PRINCIPAL */}
