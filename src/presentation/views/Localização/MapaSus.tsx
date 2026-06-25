@@ -12,37 +12,6 @@ import MapView, { Marker } from "react-native-maps";
 import * as Location from "expo-location";
 
 export const MapaSus = () => {
-  //const [region, setRegion] = useState({
-    //latitude: -23.55052,
-    //longitude: -46.633308,
-    //latitudeDelta: 0.05,
-    //longitudeDelta: 0.05,
-  //});
-
-  //useEffect(() => {
-  //(async () => {
-    //const { status } =
-      //await Location.requestForegroundPermissionsAsync();
-
-    //console.log("STATUS:", status);
-
-    //if (status !== "granted") {
-      //console.log("Permissão negada");
-      //return;
-    //
-    //const location =
-      //await Location.getCurrentPositionAsync({});
-
-    //console.log("LOCATION:", location);
-
-    //setRegion({
-      //latitude: location.coords.latitude,
-      //longitude: location.coords.longitude,
-      //latitudeDelta: 0.05,
-      //longitudeDelta: 0.05,
-    //});
-  //})();
-//}, []);
 
   return (
     <View style={styles.container}>
@@ -59,7 +28,8 @@ export const MapaSus = () => {
             Pesquisar por Unidades
           </Text>
 
-          <TouchableOpacity style={styles.circleButton}>
+          <TouchableOpacity style={styles.circleButton}
+          >
   <Image
     source={require("../../../../assets/img/icon-voltar.png")}
     style={styles.backIcon}
@@ -81,6 +51,7 @@ export const MapaSus = () => {
       {/* MAP AREA */}
       <MapView
         style={{ flex: 1 }}
+        onMapReady={() => console.log("MAP READY")}
         initialRegion={{
             latitude: -23.55052,
             longitude: -46.633308,
