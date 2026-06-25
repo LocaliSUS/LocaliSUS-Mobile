@@ -4,6 +4,11 @@ import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../../../App";
 import { COLORS } from "../../theme/AppTheme";
+import { RoundedButton } from "../../components/RoudedButton";
+import { FONTS } from "../../../../assets/fontes/Fontes";
+
+
+
 
 export const Inicio = () => {
   const navigation =
@@ -42,18 +47,34 @@ export const Inicio = () => {
       <View style={styles.footer}>
         <Text style={styles.title}>Acesso</Text>
 
-        <TouchableOpacity
-          style={styles.loginButton}
-          onPress={() => navigation.navigate("LoginScreen")}
-        >
+        <RoundedButton
+          onPress={() => {
+            console.log('autenticando');
+            navigation.navigate('LoginScreen');
+          }}
+          backgroundColor={COLORS.mintGreen}
+          width={230}
+          height={30}>
           <Text style={styles.loginText}>Já tem uma conta?</Text>
-        </TouchableOpacity>
+        </RoundedButton>
 
-        <TouchableOpacity style={styles.registerButton}
-        onPress={() => navigation.navigate("CadastroSusScreen")}
+
+        <RoundedButton
+          onPress={() => {
+            console.log('Cadastrar');
+            navigation.navigate('CadastroSusScreen');
+          }}
+          backgroundColor={COLORS.goldenYellow}
+          width={140} //Largura
+          height={28} // Altura
         >
-          <Text style={styles.registerText}>Cadastre-se!</Text>
-        </TouchableOpacity>
+          <Text style={{
+            color: COLORS.darkBlue,
+            fontFamily: 'Montserrat_700Bold',
+            fontSize: 17,
+          }}>Cadastrar-se</Text>
+        </RoundedButton>
+
 
         <TouchableOpacity>
           <Text style={styles.help}>ⓘ Ajuda</Text>
@@ -127,14 +148,15 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     paddingBottom: 40,
-    gap: 10,
+    gap: 20,
+
   },
 
   title: {
-    color: "#FFFFFF",
-    fontSize: 28,
-    fontWeight: "bold",
-    marginBottom: 55,
+    color: "#FFF",
+    marginBottom: 29,
+    fontFamily: 'Montserrat_700Bold',
+    fontSize: 30,
   },
 
   loginButton: {
@@ -155,8 +177,8 @@ const styles = StyleSheet.create({
 
   loginText: {
     color: COLORS.darkBlue,
-    fontWeight: "bold",
-    fontSize: 15,
+    fontFamily: 'Montserrat_700Bold',
+    fontSize: 19,
   },
 
   registerButton: {
@@ -185,5 +207,6 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     fontSize: 18,
     marginTop: 5,
+
   },
 });

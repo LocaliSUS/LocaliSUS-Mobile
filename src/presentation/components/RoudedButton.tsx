@@ -11,6 +11,7 @@ interface Props {
     textColor?: string;
     width?: number;
     height?: number;
+    icon?: string;
 }
 
 export const RoundedButton = ({
@@ -20,11 +21,12 @@ export const RoundedButton = ({
     textColor = COLORS.lightBlue,
     width = 200,
     height = 50,
+    icon
 }: Props) => {
     return (
         <TouchableOpacity
             onPress={onPress}
-            style={[styles.btn, { backgroundColor, width, height }]}
+            style={[styles.btn, { backgroundColor, width, height, icon }]}
         >
             {children}
         </TouchableOpacity>
