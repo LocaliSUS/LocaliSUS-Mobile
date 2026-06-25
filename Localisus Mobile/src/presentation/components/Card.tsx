@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { View, Text } from "react-native";
+import { View, Text, ViewStyle, StyleProp } from "react-native";
 import {styles} from "../theme/CardTheme"
 
 export interface CardProps {
@@ -7,6 +7,7 @@ export interface CardProps {
     titulo: string,
     descricao: string,
     cor?: string,
+    style?: StyleProp<ViewStyle>,
     children?: ReactNode
 }
 
@@ -21,11 +22,12 @@ const elementosCard: CardProps[] = [
 export function ComponenteCard({
     titulo,
     cor,
+    style,
     descricao,
     children
 }: CardProps) {
     return (
-        <View style={[styles.card, {backgroundColor: cor}]}>
+        <View style={[styles.card, {backgroundColor: cor}, style]}>
             <Text style={styles.txtTitulo}>{titulo}</Text>
             <Text style={styles.txtDescricao}>{descricao} </Text>
             {children}
