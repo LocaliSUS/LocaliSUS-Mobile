@@ -7,31 +7,25 @@ import {
   TextInput,
   Image,
 } from "react-native";
+import iconevoltar from "../../../assets/img/icon-voltar.png";
+import iconeajuda from "../../../assets/img/icon-ajuda.png";
 import { COLORS } from "../../theme/AppTheme";
 
 export const MapaSus = () => {
   return (
     <View style={styles.container}>
-
       {/* HEADER */}
       <View style={styles.header}>
         <View style={styles.headerTop}>
-
           <TouchableOpacity style={styles.circleButton}>
             <Text style={styles.icon}>☰</Text>
           </TouchableOpacity>
 
-          <Text style={styles.title}>
-            Pesquisar por Unidades
-          </Text>
+          <Text style={styles.title}>Pesquisar por Unidades</Text>
 
           <TouchableOpacity style={styles.circleButton}>
-  <Image
-    source={require("../../../../assets/img/icon-voltar.png")}
-    style={styles.backIcon}
-  />
-</TouchableOpacity>
-
+            <Image source={iconevoltar} style={styles.backIcon} />
+          </TouchableOpacity>
         </View>
 
         <View style={styles.searchContainer}>
@@ -46,14 +40,11 @@ export const MapaSus = () => {
 
       {/* MAP AREA */}
       <View style={styles.mapArea}>
-        <Text style={styles.mapText}>
-          Mapa será exibido aqui
-        </Text>
+        <Text style={styles.mapText}>Mapa será exibido aqui</Text>
       </View>
 
       {/* FOOTER */}
       <View style={styles.footer}>
-
         <View style={styles.row}>
           <TouchableOpacity style={styles.remediosButton}>
             <Text style={styles.buttonText}>💊 Remédios</Text>
@@ -71,17 +62,13 @@ export const MapaSus = () => {
 
           <TouchableOpacity style={styles.ajudaButton}>
             <View style={styles.buttonContent}>
-              <Image
-                source={require("../../../../assets/img/icone-ajuda.png")}
-                style={styles.helpIcon}
-              />
+              <Image source={iconeajuda}
+               style={styles.helpIcon} />
               <Text style={styles.buttonText}>Ajuda</Text>
             </View>
           </TouchableOpacity>
         </View>
-
       </View>
-
     </View>
   );
 };
@@ -111,7 +98,7 @@ const styles = StyleSheet.create({
     width: 44,
     height: 44,
     borderRadius: 22,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     justifyContent: "center",
     alignItems: "center",
   },
@@ -151,10 +138,10 @@ const styles = StyleSheet.create({
   },
 
   backIcon: {
-  width: 50,
-  height: 50,
-  resizeMode: "contain",
-},
+    width: 50,
+    height: 50,
+    resizeMode: "contain",
+  },
 
   mapArea: {
     flex: 1,

@@ -4,11 +4,9 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Inicio } from "./src/presentation/views/inicio/Inicio";
 import { LoginScreen } from "./src/presentation/views/login/Login";
 import { CadastroSusScreen } from "./src/presentation/views/cadastro/CadastroSus";
-import { useFonts } from 'expo-font';
-import { FONTS } from "../assets/fontes/Fontes";
-
-const [fontsLoaded] = useFonts(FONTS);
-import { HomeScreen } from "./src/presentation/views/home/HomeScreen"
+import { FONTS } from "./src/assets/fontes/Fontes";
+import { useFonts } from "expo-font";
+import { HomeScreen } from "./src/presentation/views/home/HomeScreen";
 
 export type RootStackParamList = {
   Inicio: undefined;
@@ -19,36 +17,22 @@ export type RootStackParamList = {
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-
 export default function App() {
+  
+const [fontsLoaded] = useFonts(FONTS);
 
   if (!fontsLoaded) {
     return null;
   }
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        id={undefined}
-        screenOptions={{ headerShown: false }}
-      >
-        <Stack.Screen
-          name="Inicio"
-          component={Inicio}
-        />
+      <Stack.Navigator id={undefined} screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Inicio" component={Inicio} />
 
-        <Stack.Screen
-          name="LoginScreen"
-          component={LoginScreen}
-        />
+        <Stack.Screen name="LoginScreen" component={LoginScreen} />
 
-        <Stack.Screen
-          name="CadastroSusScreen"
-          component={CadastroSusScreen}
-        />
-        <Stack.Screen 
-          name="HomeScreen"
-          component={HomeScreen}
-        />
+        <Stack.Screen name="CadastroSusScreen" component={CadastroSusScreen} />
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
