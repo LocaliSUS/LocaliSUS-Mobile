@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-const cadastroViewModel = () => {
+const SenhaEsquecidaViewModel = () => {
 
         const [ values, setValues] = useState({
-            userEmail: '',
-            userPassword:'',
+        
             userPhone:'',
+        
         });
 
         const onChange = ( property: string, value: any) => { 
@@ -23,4 +23,4 @@ const cadastroViewModel = () => {
 
 }
 
-export default cadastroViewModel
+export default SenhaEsquecidaViewModel

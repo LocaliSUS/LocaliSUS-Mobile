@@ -3,7 +3,11 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Inicio } from "./src/presentation/views/inicio/Inicio";
 import { LoginScreen } from "./src/presentation/views/login/Login";
-import {CadastroSusScreen} from "./src/presentation/views/cadastro/CadastroSus";
+import { CadastroSusScreen } from "./src/presentation/views/cadastro/CadastroSus";
+import { useFonts } from 'expo-font';
+import { FONTS } from "../assets/fontes/Fontes";
+
+const [fontsLoaded] = useFonts(FONTS);
 import { HomeScreen } from "./src/presentation/views/home/HomeScreen"
 
 export type RootStackParamList = {
@@ -15,7 +19,12 @@ export type RootStackParamList = {
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
+
 export default function App() {
+
+  if (!fontsLoaded) {
+    return null;
+  }
   return (
     <NavigationContainer>
       <Stack.Navigator

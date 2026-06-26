@@ -20,17 +20,17 @@ export const RoundedButton = ({
     textColor = COLORS.lightBlue,
     width = 200,
     height = 50,
+    
 }: Props) => {
     return (
         <TouchableOpacity
             onPress={onPress}
-            style={[styles.btn, { backgroundColor, width, height }]}
+            style={[styles.btn, { backgroundColor, width, height}]}
         >
             {children}
         </TouchableOpacity>
     );
 };
-
 
 const styles = StyleSheet.create({
     btn: {

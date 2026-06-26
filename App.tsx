@@ -3,18 +3,30 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Inicio } from "./src/presentation/views/inicio/Inicio";
 import { LoginScreen } from "./src/presentation/views/login/Login";
-import {CadastroSusScreen} from "./src/presentation/views/cadastro/CadastroSus";
+import { CadastroSusScreen } from "./src/presentation/views/cadastro/CadastroSus";
+import { SenhaEsquecidaScreen } from "./src/presentation/views/senhaEsquecida/SenhaEsquecida";
+import { CodigoScreen } from "./src/presentation/views/codigo/Codigo";
+import { MedicamentoScreen } from './src/presentation/views/telaMedicamento/TelaMedicamento';
+import { useFonts } from "expo-font";
+import { FONTS } from "./assets/fontes/Fontes";
+
 
 
 export type RootStackParamList = {
-  Inicio: undefined;
+  InicioScreen: undefined;
   LoginScreen: undefined;
   CadastroSusScreen: undefined;
+  SenhaEsquecidaScreen: undefined;
+  CodigoScreen: undefined;
+  MedicamentoScreen: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
+
+  const [fontsLoaded] = useFonts(FONTS);
+  if (!fontsLoaded) return null;
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -22,7 +34,7 @@ export default function App() {
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen
-          name="Inicio"
+          name="InicioScreen"
           component={Inicio}
         />
 
@@ -34,6 +46,20 @@ export default function App() {
         <Stack.Screen
           name="CadastroSusScreen"
           component={CadastroSusScreen}
+        />
+
+        <Stack.Screen
+          name="SenhaEsquecidaScreen"
+          component={SenhaEsquecidaScreen}
+        />
+
+        <Stack.Screen
+          name="CodigoScreen"
+          component={CodigoScreen}
+        />
+        <Stack.Screen
+          name="MedicamentoScreen"
+          component={MedicamentoScreen}
         />
 
       </Stack.Navigator>
