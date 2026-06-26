@@ -29,17 +29,17 @@ export const SenhaEsquecidaScreen = () => {
 
             {/* FUNDO PRINCIPAL */}
             <Image
-                source={require("../../../../assets/img/tela-fundo.png")}
+                source={require("../../../assets/img/tela-fundo.png")}
                 style={styles.FundoImage}
             />
 
             {/* Card/image */}
             <Image
-                source={require("../../../../assets/img/curva-superior.png")}
+                source={require("../../../assets/img/curva-superior.png")}
                 style={styles.Cardtop}
             />
             <Image
-                source={require("../../../../assets/img/curva-inferior.png")}
+                source={require("../../../assets/img/curva-inferior.png")}
                 style={styles.cardDow}
             />
 
@@ -47,7 +47,7 @@ export const SenhaEsquecidaScreen = () => {
             <View style={styles.header}>
                 <Image
                     style={styles.imageLogo}
-                    source={require("../../../../assets/img/LocaliSUS-Logo-Fundo.png")}
+                    source={require("../../../assets/img/LocaliSUS-Logo-Fundo.png")}
                 />
                 <Text style={styles.textlogo}>LOCALISUS</Text>
             </View>
@@ -57,7 +57,7 @@ export const SenhaEsquecidaScreen = () => {
                 <Text style={styles.title}>Recuperar Senha</Text>
 
                 <CustomTextInput
-                    image={require('../../../../assets/img/icone-numero.png')}
+                    image={require('../../../assets/img/icone-numero.png')}
                     placeholder="Insira seu Numero de Telefone..."
                     keyboardType="default"
                     secureTextEntry={false}
@@ -75,10 +75,10 @@ export const SenhaEsquecidaScreen = () => {
 
                 <View style={styles.bottomIcons}>
 
-                    <TouchableOpacity onPress={() => navigation.navigate('InicioScreen')} style={styles.voltarButton}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Inicio')} style={styles.voltarButton}>
                         <Image
                             style={styles.voltarLogo}
-                            source={require("../../../../assets/img/icon-voltar.png")}
+                            source={require("../../../assets/img/icon-voltar.png")}
                         />
                     </TouchableOpacity>
 

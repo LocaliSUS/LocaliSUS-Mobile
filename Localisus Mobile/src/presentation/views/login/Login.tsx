@@ -77,7 +77,7 @@ export const LoginScreen = () => {
           onChangeText={handleChange}
         />
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("PasswordForget")}>
           <Text style={styles.forgotPassword}>Esqueci minha senha</Text>
         </TouchableOpacity>
 
