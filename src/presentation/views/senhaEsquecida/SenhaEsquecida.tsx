@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity, Button } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "../../../../../App";
+import { RootStackParamList } from "../../../../App";
 import { useNavigation } from "@react-navigation/native";
 
 //componentes
