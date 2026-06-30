@@ -5,6 +5,7 @@ import { Inicio } from "./src/presentation/views/inicio/Inicio";
 import { SenhaEsquecidaScreen } from "./src/presentation/views/senhaEsquecida/SenhaEsquecida";
 import { LoginScreen } from "./src/presentation/views/login/Login";
 import { CadastroSusScreen } from "./src/presentation/views/cadastro/CadastroSus";
+import { TelaInicio } from "./src/assets/componentestelas/inicio/ComponenteInicio";
 import { FONTS } from "./src/assets/fontes/Fontes";
 import { useFonts } from "expo-font";
 import { HomeScreen } from "./src/presentation/views/home/HomeScreen";
@@ -12,6 +13,7 @@ import { CodigoScreen } from "./src/presentation/views/codigo/Codigo";
 
 export type RootStackParamList = {
   Inicio: undefined;
+  Tela: undefined;
   PasswordForget: undefined;
   CodigoScreen: undefined;
   HomeScreen: undefined;
@@ -32,6 +34,8 @@ export default function App() {
       <Stack.Navigator id={undefined} screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Inicio" component={Inicio} />
 
+        <Stack.Screen name="Tela" component={TelaInicio}/>
+        
         <Stack.Screen name="PasswordForget" component={SenhaEsquecidaScreen} />
 
         <Stack.Screen name="CodigoScreen" component={CodigoScreen} />

@@ -1,10 +1,13 @@
 import React from "react";
+import {TelaInicio} from '../../../assets/componentestelas/inicio/ComponenteInicio'
 import { CardProps, Cards, ComponenteCard } from "../../components/Card";
 import { StyleSheet, Text, View, ScrollView, Dimensions, FlatList } from "react-native";
 import { styles } from './HomeScreenTheme'
 import amegeraldopaulo from '../../imagens/amegeraldopaulo.jpg'
 import hospitalsorocabana from '../../imagens/sorocab.png'
 import { HorizontalDivider } from "../../components/Divider";
+import { CabecalhoHome } from "../../../assets/componentestelas/elementoshome/cabecalho/CabecalhoHome";
+import { RodapeHome } from "../../../assets/componentestelas/elementoshome/rodape/RodapeHome";
 
 const { width: screenWidth } = Dimensions.get('window')
 
@@ -16,13 +19,14 @@ const cardsHospitais: CardProps[] = [
 export const HomeScreen = () => {
     return (
         <>
+        <View style={{ flex: 1}}>
+            
             <ScrollView
-                style={styles.scrollContainer}
-                contentContainerStyle={styles.scrollContent}
                 showsVerticalScrollIndicator={true}
+                style={styles.background}
             >
+            <CabecalhoHome></CabecalhoHome>
                 <View style={styles.visualizacaoTela}>
-
                     <Cards></Cards>
 
                     <HorizontalDivider></HorizontalDivider>
@@ -50,6 +54,8 @@ export const HomeScreen = () => {
                     </View>
                 </View>
             </ScrollView>
+            <RodapeHome></RodapeHome>
+        </View>
 
         </>
     )

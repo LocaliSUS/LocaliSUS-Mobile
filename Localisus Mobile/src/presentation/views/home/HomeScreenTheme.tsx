@@ -3,6 +3,10 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   visualizacaoTela: {
     flex: 1,
+    zIndex: 1,
+    top: -20,
+    borderTopStartRadius: 25,
+    borderTopRightRadius: 25,
     flexDirection: "column",
     alignItems: "center",
   },
@@ -14,9 +18,10 @@ export const styles = StyleSheet.create({
   txtDescricao: {
     flex: 1,
   },
-  scrollContainer: {},
-  scrollContent: {},
   unidadesProximasCard: {
     marginTop: 10,
   },
+  background: {
+    backgroundColor: "red",
+  }
 });
