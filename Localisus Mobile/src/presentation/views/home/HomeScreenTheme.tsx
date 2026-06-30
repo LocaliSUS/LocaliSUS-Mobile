@@ -24,6 +24,6 @@ export const styles = StyleSheet.create({
 
     },
     unidadesProximasCard: {
-        marginTop: 10
+        marginTop: 50
     }
 })

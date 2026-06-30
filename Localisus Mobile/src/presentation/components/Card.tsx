@@ -65,14 +65,14 @@ export const Cards = () => {
                 )
                 }}
                    onSwiped={(cardIndex) => console.log("Card arrastado:", cardIndex)}
-                    onSwipedAll={() => console.log("Todos cards visualizados")}
-                    backgroundColor="transparent"
-                    stackSize={3}
-                    stackSeparation={10}
-                    animateCardOpacity
-                    cardVerticalMargin={20}
-                    cardHorizontalMargin={20}
-                    containerStyle={styles.containerSwiper}
+            onSwipedAll={() => console.log("Todos cards visualizados")}
+            backgroundColor="transparent"
+            stackSize={3}
+            stackSeparation={10}
+            animateCardOpacity
+            cardVerticalMargin={20}
+            cardHorizontalMargin={20}
+            containerStyle={styles.containerSwiper}
       />
         </View>
         {/* <View style={{height: 10}}>   
@@ -100,7 +100,7 @@ export const Cards = () => {
                 animateCardOpacity={true}
             />
         </View> */}
-             {/* <View style={styles.card}>
+             <View style={styles.card}>
                 {
                     elementosCard.map(e =>
                         <ComponenteCard
@@ -112,7 +112,7 @@ export const Cards = () => {
                         />
                     )
                 }
-            </View>  */}
+            </View> 
         </>
     )
 }

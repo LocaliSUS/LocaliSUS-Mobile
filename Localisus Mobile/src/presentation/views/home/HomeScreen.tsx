@@ -27,9 +27,9 @@ export const HomeScreen = () => {
 
                     <HorizontalDivider></HorizontalDivider>
 
-                    <Text style={styles.txtTelaHome}> Unidades Próximas
-                    </Text>
                     <View style={styles.unidadesProximasCard}>
+                        <Text style={styles.txtTelaHome}> Unidades Próximas
+                        </Text>
                         <FlatList
                             data={cardsHospitais}
                             keyExtractor={(item) => item.id.toString()}
