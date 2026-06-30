@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   StyleSheet,
   View,
@@ -6,6 +6,7 @@ import {
   Image,
   TouchableOpacity,
   Button,
+  TextInput,
 } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../../../App";
@@ -16,12 +17,39 @@ import { COLORS } from "../../theme/AppTheme";
 import { RoundedButton } from "../../components/RoudedButton";
 import { CustomTextInput } from "../../components/CustomTextInput";
 //views models
-import cadastroViewModel from "./ViewModel";
+import CodigoViewModel from "./ViewModel";
 
-export const CadastroSusScreen = () => {
+export const CodigoScreen = () => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
-  const { userPassword, userEmail, userPhone, onChange } = cadastroViewModel();
+  const { userPhone, onChange } = CodigoViewModel();
+
+  const [form, setForm] = useState({ cpf: "", senha: "" });
+
+  // código de verificação: 6 dígitos
+  const [code, setCode] = useState<string[]>(["", "", "", "", "", ""]);
+  const inputsRef = useRef<Array<TextInput | null>>([]);
+
+  const handleCodeChange = (text: string, index: number) => {
+    const digit = text.replace(/[^0-9]/g, "").slice(-1);
+    const newCode = [...code];
+    newCode[index] = digit;
+    setCode(newCode);
+    if (digit && index < inputsRef.current.length - 1) {
+      inputsRef.current[index + 1]?.focus();
+    }
+  };
+
+  const handleKeyPress = (e: any, index: number) => {
+    if (e.nativeEvent.key === "Backspace" && code[index] === "" && index > 0) {
+      inputsRef.current[index - 1]?.focus();
+    }
+  };
+
+  const handleChange = (property: string | undefined, value: any) => {
+    if (!property) return;
+    setForm({ ...form, [property]: value });
+  };
 
   return (
     <View style={styles.container}>
@@ -52,39 +80,38 @@ export const CadastroSusScreen = () => {
 
       {/* Escrita */}
       <View style={styles.footer}>
-        <Text style={styles.title}>cadastro</Text>
+        <Text style={styles.title}>Confirme o Código Enviado</Text>
 
-        <CustomTextInput
-          image={require("../../../assets/img/icon-cpf.png")}
-          placeholder="Insira seu CPF..."
-          keyboardType="default"
-          secureTextEntry={false}
-          property="userEmail"
-          onChangeText={onChange}
-          value={userEmail}
-        />
-        <CustomTextInput
-          image={require("../../../assets/img/icone-numero.png")}
-          placeholder="Insira seu Numero de Telefone..."
-          keyboardType="default"
-          secureTextEntry={false}
-          property="userPhone"
-          onChangeText={onChange}
-          value={userPhone}
-        />
-        <CustomTextInput
-          image={require("../../../assets/img/icon-senha.png")}
-          placeholder="Insira seu Senha..."
-          keyboardType="default"
-          secureTextEntry={true}
-          property="userPassword"
-          onChangeText={onChange}
-          value={userPassword}
-        />
+        {/* Entrada do código: 6 campos */}
+        <View style={styles.codeContainer}>
+          {code.map((c, i) => (
+            <TextInput
+              key={i}
+              ref={(ref) => {
+                inputsRef.current[i] = ref;
+              }}
+              value={c}
+              onChangeText={(text) => handleCodeChange(text, i)}
+              onKeyPress={(e) => handleKeyPress(e, i)}
+              keyboardType="number-pad"
+              maxLength={1}
+              autoFocus={i === 0}
+              style={styles.codeBox}
+              returnKeyType="done"
+              textAlign="center"
+            />
+          ))}
+        </View>
 
-        <RoundedButton>
-          <Text>Cadastrar</Text>
-        </RoundedButton>
+        <Text style={styles.Codigo}>Reenviando Código? (1:00)</Text>
+
+        <TouchableOpacity
+          style={styles.confirmarButton}
+          onPress={() => navigation.navigate("Inicio")}
+        >
+          <Text style={styles.CadastroText}>Confirmar</Text>
+        </TouchableOpacity>
+
         <View style={styles.bottomIcons}>
           <TouchableOpacity
             onPress={() => navigation.navigate("Inicio")}
@@ -131,8 +158,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 750,
     height: 610,
-    bottom: -200,
-    left: -172,
+    top: 430,
+    right: -170,
     resizeMode: "contain",
   },
 
@@ -153,45 +180,58 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     fontSize: 26,
     fontWeight: "bold",
-    marginTop: 10,
+    marginBottom: 125,
   },
 
   footer: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    paddingTop: -10,
-    gap: 12,
+    paddingBottom: 30,
+    gap: 1,
   },
 
   title: {
-    marginTop: -120,
+    marginBottom: 60,
     height: 45,
     color: "#FFFFFF",
-    fontSize: 38,
+    fontSize: 25,
     fontWeight: "bold",
+    bottom: 0,
   },
 
-  cadastroButton: {
-    backgroundColor: COLORS.goldenYellow,
+  confirmarButton: {
+    backgroundColor: COLORS.vibrantPink,
     width: 150,
-    height: 25,
+    height: 30,
     borderRadius: 22,
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 10,
+    marginBottom: 20,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.3,
     shadowRadius: 4,
     elevation: 5,
-    marginTop: 20,
+    marginTop: 130,
+    bottom: 80,
   },
-
+  Codigo: {
+    color: "#FFFFFF",
+    fontSize: 17,
+    margin: 5,
+    marginRight: 8,
+  },
+  CadastroText: {
+    height: 30,
+    color: "#ffffffff",
+    fontSize: 21,
+    fontWeight: "bold",
+  },
   help: {
     color: "#FFFFFF",
     fontSize: 25,
-    marginTop: 5,
+    margin: 5,
     marginRight: 8,
   },
   forgotPassword: {},
@@ -202,6 +242,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: 8,
     paddingRight: 125,
+    bottom: 80,
   },
   voltarLogo: {
     width: 43,
@@ -210,5 +251,22 @@ const styles = StyleSheet.create({
   voltarButton: {
     marginLeft: 6,
     paddingRight: 70,
+  },
+  codeContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 10,
+    marginBottom: 12,
+  },
+  codeBox: {
+    width: 48,
+    height: 56,
+    backgroundColor: "#e9f3fb",
+    borderRadius: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    fontSize: 22,
+    color: COLORS.darkBlue,
   },
 });

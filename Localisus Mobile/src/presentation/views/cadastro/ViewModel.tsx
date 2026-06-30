@@ -1,26 +1,25 @@
 import React, { useState } from "react";
 
 const cadastroViewModel = () => {
+  const [values, setValues] = useState({
+    userEmail: "",
+    userPassword: "",
+    userPhone: "",
+  });
 
-        const [ values, setValues] = useState({
-            userEmail: '',
-            userPassword:'',
-            userPhone:'',
-        });
+  const onChange = (property: string, value: string) => {
+    setValues({ ...values, [property]: value });
+  };
 
-        const onChange = ( property: string, value: any) => { 
-            setValues({ ...values, [property]: value })
-        }
+  const login = () => {
+    console.log(JSON.stringify(values));
+  };
 
-    const login = () => { 
-        console.log(JSON.stringify(values))
-    }
-    return {
-        ...values,
-        onChange,
-        login,
-    }
+  return {
+    ...values,
+    onChange,
+    login,
+  };
+};
 
-}
-
-export default cadastroViewModel
+export default cadastroViewModel;

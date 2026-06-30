@@ -1,56 +1,49 @@
 import React from "react";
+import { TelaInicio } from '../../../assets/componentestelas/inicio/ComponenteInicio'
 import { CardProps, Cards, ComponenteCard } from "../../components/Card";
-import { StyleSheet, Text, View, ScrollView, Dimensions, FlatList } from "react-native";
+import { StyleSheet, Text, View, ScrollView, FlatList } from "react-native";
 import { styles } from './HomeScreenTheme'
 import amegeraldopaulo from '../../imagens/amegeraldopaulo.jpg'
 import hospitalsorocabana from '../../imagens/sorocab.png'
 import { HorizontalDivider } from "../../components/Divider";
-
-const { width: screenWidth } = Dimensions.get('window')
+import { CabecalhoHome } from "../../../assets/componentestelas/elementoshome/cabecalho/CabecalhoHome";
+import { RodapeHome } from "../../../assets/componentestelas/elementoshome/rodape/RodapeHome";
 
 const cardsHospitais: CardProps[] = [
-    { id: 1, titulo: "AME - Dr. Geraldo Paulo Bourrol", descricao: "R. Martins Fontes, 208 - Centro Histórico de São Paulo", style: { width: 520, height: 250 }, img: amegeraldopaulo },
-    { id: 2, titulo: "Hospital Municipal Sorocabana", descricao: "R. Faustolo, 1633 - Lapa", style: { width: 520, height: 250 }, img: hospitalsorocabana }
+    { id: 1, titulo: "AME - Dr. Geraldo Paulo Bourrol", descricao: "R. Martins Fontes, 208 - Centro Histórico de São Paulo", style: { width: 320, height: 200 }, img: amegeraldopaulo },
+    { id: 2, titulo: "Hospital Municipal Sorocabana", descricao: "R. Faustolo, 1633 - Lapa", style: { width: 320, height: 200 }, img: hospitalsorocabana }
 ]
 
 export const HomeScreen = () => {
     return (
         <>
-            <ScrollView
-                style={styles.scrollContainer}
-                contentContainerStyle={styles.scrollContent}
-                showsVerticalScrollIndicator={true}
-            >
-                <View style={styles.visualizacaoTela}>
+        
+        <CabecalhoHome></CabecalhoHome>
+            <View style={styles.visualizacaoTela}>
+                <Cards></Cards>
 
-                    <Cards></Cards>
-
-                    <HorizontalDivider></HorizontalDivider>
-
-                    <View style={styles.unidadesProximasCard}>
-                        <Text style={styles.txtTelaHome}> Unidades Próximas
-                        </Text>
-                        <FlatList
-                            data={cardsHospitais}
-                            keyExtractor={(item) => item.id.toString()}
-                            horizontal={true}
-                            showsHorizontalScrollIndicator={false}
-                            contentContainerStyle={{}}
-                            renderItem={({ item }) => (
-                                <ComponenteCard
-                                    id={item.id}
-                                    titulo={item.titulo}
-                                    descricao={item.descricao}
-                                    style={item.style}
-                                    img={item.img}
-                                />
-                            )}
-                        />
-
-                    </View>
+                <HorizontalDivider></HorizontalDivider>
+                <Text style={styles.txtTelaHome}> Unidades Próximas
+                </Text>
+                <View style={styles.unidadesProximasCard}>
+                    <FlatList
+                        data={cardsHospitais}
+                        keyExtractor={(item) => item.id.toString()}
+                        horizontal={true}
+                        showsHorizontalScrollIndicator={false}
+                        contentContainerStyle={{}}
+                        renderItem={({ item }) => (
+                            <ComponenteCard
+                                id={item.id}
+                                titulo={item.titulo}
+                                descricao={item.descricao}
+                                style={item.style}
+                                img={item.img}
+                            />
+                        )}
+                    />
                 </View>
-            </ScrollView>
-
+            </View>
         </>
     )
 }
