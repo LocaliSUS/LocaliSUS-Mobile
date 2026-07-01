@@ -98,7 +98,7 @@ export const CodigoScreen = () => {
                 <Text style={styles.Codigo}>Reenviando Código? (1:00)</Text>
 
                 <TouchableOpacity style={styles.confirmarButton}
-                    onPress={() => navigation.navigate("InicioScreen")}
+                    onPress={() => navigation.navigate("MedicamentoScreen")}
                 >
                     <Text style={styles.CadastroText}>Confirmar</Text>
                 </TouchableOpacity>

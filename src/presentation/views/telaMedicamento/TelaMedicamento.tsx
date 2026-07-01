@@ -1,12 +1,11 @@
 import React from "react";
-import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Text, Image, TouchableOpacity, TextInput,  } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../../../App";
 import { useNavigation } from "@react-navigation/native";
 
 //componentes
 import { COLORS } from "../../theme/AppTheme";
-
 //views models
 
 
@@ -16,7 +15,29 @@ export const MedicamentoScreen= () => {
     return (
         // quando componentizar adicionar atributos de: tamanho, ícone e cor
         <View style={styles.container}>
+                
+                 <TouchableOpacity onPress={() => navigation.navigate('InicioScreen')} style={styles.bntMenuCont}>
 
+                    <Image
+                        style={styles.bntMenu}
+                        source={require("../../../../assets/img/Menu.png")}
+                    />
+
+                 </TouchableOpacity>
+
+                    <Text style={styles.txtTitulo}>Pesquisar por Remedios</Text>
+
+            <View style={styles.inputContainer} >
+                    <TextInput
+                        placeholder="Buscar por algum medicamento..."
+                        style={styles.textInput}
+                    />
+                    <Image
+                        source={require("../../../../assets/img/icon-lupa.png")}
+                        style={styles.imgLupa}
+                        />
+            </View>
+            
             <View style={styles.bottomIcons}>
                 <TouchableOpacity onPress={() => navigation.navigate('InicioScreen')} style={styles.voltarButton}>
                     <Image
@@ -24,26 +45,22 @@ export const MedicamentoScreen= () => {
                         source={require("../../../../assets/img/icon-voltar.png")}
                     />
                 </TouchableOpacity>
-                <View style={styles.txtTitulo}>
-                    <Text style={styles.help}>Pesqusar por Remedios</Text>
-                </View>
-            </View>
-                
-{/* 
+            </View>         
+
             <View style={styles.frm}>
 
             </View>
 
             <View style={styles.bntcont}>
 
-            </View> */}
+            </View> 
 
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-
+    
     container:{
         flex: 1,
         backgroundColor: COLORS.darkBlue,
@@ -52,7 +69,7 @@ const styles = StyleSheet.create({
     },
     frm:{
         width: '100%',
-        height: '85%',
+        height: '82.1%',
         backgroundColor: COLORS.lightBlue,
         position: 'absolute',
         bottom: 0,
@@ -62,7 +79,7 @@ const styles = StyleSheet.create({
     },
     bntcont:{
         width: '100%',
-        height: '18%',
+        height: '16%',
         backgroundColor: COLORS.darkBlue,
         position: 'absolute',
         bottom: 0,
@@ -71,7 +88,6 @@ const styles = StyleSheet.create({
         padding: 20,
     },
     bottomIcons: {
-        marginTop: 0,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
@@ -84,16 +100,48 @@ const styles = StyleSheet.create({
         height: 56,
     },
     voltarButton: {
-        marginLeft: 6,
-        paddingRight: 70,
+        marginRight:66,
+        bottom:75,
     },
-    help: {
+    txtTitulo: {
+        top:30,
+        height: 45,
         color: "#FFFFFF",
-        fontSize: 25,
-        marginTop: 5,
-        margin: 10,
+        fontSize: 18,
+        fontWeight: "bold",
     },
-    txtTitulo:{
-        
+    inputContainer: {
+        flexDirection:'row',
+        alignItems: 'center',
+        width: 370,
+        height: 30,
+        backgroundColor: '#fff',
+        borderRadius: 22,
+        top:30,
     },
+    textInput:{
+        fontSize: 19,
+        color: '#333',
+        alignSelf: 'flex-start',
+        paddingTop:1,
+        top:8,
+        left:10,
+        fontWeight:"bold",
+    },
+    imgLupa:{ 
+        width: 21,
+        height: 21, 
+        marginLeft: 46, 
+    },
+    bntMenuCont:{      
+        marginRight: 336,
+        top:60,
+    },
+    bntMenu:{
+        width: 75,
+        height: 55,
+    },
+    
+    
+    
 })
