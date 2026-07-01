@@ -8,7 +8,8 @@ export const styles = StyleSheet.create({
         borderTopRightRadius: 35,
         borderTopLeftRadius: 35,
         width: "100%",
-        backgroundColor: COLORS.darkBlue
+        backgroundColor: COLORS.darkBlue,
+        color: COLORS.coralRed
     }
 }   
 )

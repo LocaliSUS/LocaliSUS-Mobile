@@ -6,7 +6,7 @@ export const BarraPesquisa = () => {
     return(
         <>
             <View style={styles.barrapesquisa}>
-                <Text> Placeholder </Text>
+                <Text style={styles.placeholder}>Pesquisar...</Text>
             </View>
         </>
     )

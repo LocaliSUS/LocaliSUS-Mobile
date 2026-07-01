@@ -88,7 +88,7 @@ export function ComponenteCard({
   );
 }
 
-export const Cards = () => {
+export const CardsSwipper = () => {
   return (
     <>
       <View

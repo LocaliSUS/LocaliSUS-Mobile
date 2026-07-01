@@ -6,14 +6,14 @@ export const styles = StyleSheet.create({
         top: 0,
         backgroundColor: COLORS.darkBlue,
         width: "100%",
-        height: 175,
-        zIndex: 2,
+        height: 190,
+        zIndex: -1,
         justifyContent: 'center',
         alignItems: 'center'
     },
     titulo: {
         color: "white",
-        marginTop: 20,
+        marginTop: 8,
         fontSize: 17,
         fontWeight: 'bold'
     },
