@@ -164,8 +164,7 @@ export const MedicamentoScreen= () => {
                     </View>
 
                     <Image source={require("../../../../assets/img/Dipirona.png")}
-                    style={{ styles.imgDipirona }
-                }
+                    style={ styles.imgDipirona }
                 />
 
                     <Text style={styles.txtDipirona}> Captopril </Text>
