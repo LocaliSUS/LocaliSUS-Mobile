@@ -3,7 +3,7 @@ import { COLORS } from "../../theme/AppTheme";
 
 export const styles = StyleSheet.create({
   visualizacaoTela: {
-    zIndex: -2,
+    flex: 1,
     borderTopStartRadius: 25,
     borderTopRightRadius: 25,
     flexDirection: "column",

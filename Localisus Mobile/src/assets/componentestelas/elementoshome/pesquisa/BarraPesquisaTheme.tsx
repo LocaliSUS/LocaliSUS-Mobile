@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
     barrapesquisa: {
         backgroundColor: "pink",
         width: "85%",
-        height: 33,
+        height: 28,
         borderRadius: 30,
         marginTop: 25,
         justifyContent: 'center',

@@ -17,33 +17,35 @@ const cardsHospitais: CardProps[] = [
 export const HomeScreen = () => {
     return (
         <>
-        
-        <CabecalhoHome></CabecalhoHome>
-            <View style={styles.visualizacaoTela}>
-                <Cards></Cards>
 
-                <HorizontalDivider></HorizontalDivider>
-                <Text style={styles.txtTelaHome}> Unidades Próximas
-                </Text>
-                <View style={styles.unidadesProximasCard}>
-                    <FlatList
-                        data={cardsHospitais}
-                        keyExtractor={(item) => item.id.toString()}
-                        horizontal={true}
-                        showsHorizontalScrollIndicator={false}
-                        contentContainerStyle={{}}
-                        renderItem={({ item }) => (
-                            <ComponenteCard
-                                id={item.id}
-                                titulo={item.titulo}
-                                descricao={item.descricao}
-                                style={item.style}
-                                img={item.img}
-                            />
-                        )}
-                    />
+
+            <CabecalhoHome></CabecalhoHome>
+                <View style={styles.visualizacaoTela}>
+                    <Cards></Cards> 
+
+                    <HorizontalDivider></HorizontalDivider>
+                    <Text style={styles.txtTelaHome}> Unidades Próximas
+                    </Text>
+                    <View style={styles.unidadesProximasCard}>
+                        <FlatList
+                            data={cardsHospitais}
+                            keyExtractor={(item) => item.id.toString()}
+                            horizontal={true}
+                            showsHorizontalScrollIndicator={false}
+                            contentContainerStyle={{}}
+                            renderItem={({ item }) => (
+                                <ComponenteCard
+                                    id={item.id}
+                                    titulo={item.titulo}
+                                    descricao={item.descricao}
+                                    style={item.style}
+                                    img={item.img}
+                                />
+                            )}
+                        />
+                    </View>
                 </View>
-            </View>
+            <RodapeHome></RodapeHome>
         </>
     )
 }
