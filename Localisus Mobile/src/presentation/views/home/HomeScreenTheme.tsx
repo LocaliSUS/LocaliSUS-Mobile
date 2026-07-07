@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   unidadesProximasCard: {
-    marginTop: 10
+    marginTop: 10,
   },
   botoesRodapeHome: {
     zIndex: 100,
@@ -30,6 +30,5 @@ export const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "center",
     alignItems: "center",
-    flexDirection: 'row',
   }
 });

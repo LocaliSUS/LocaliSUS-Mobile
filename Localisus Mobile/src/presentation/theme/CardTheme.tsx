@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { red } from "react-native-reanimated/lib/typescript/Colors";
 
 export const styles = StyleSheet.create({
   txtTitulo: {

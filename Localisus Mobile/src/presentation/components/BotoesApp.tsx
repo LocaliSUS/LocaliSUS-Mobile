@@ -28,11 +28,12 @@ export const BotoesApp =({
 }: BotaoProps) => { 
     return(
         <TouchableOpacity style={{ backgroundColor: cor,
-                                    width: 80, 
+                                    width: '40%', 
                                     borderRadius: 20,
-                                    margin: 10, 
                                     height: 45, 
-                                    justifyContent: 'center'}}>
+                                    justifyContent: 'center',
+                                    alignItems: 'center'
+                                    }}>
             <Text>{texto}</Text>
         </TouchableOpacity>
     )}

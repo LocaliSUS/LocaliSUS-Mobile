@@ -11,8 +11,8 @@ import { RodapeHome } from "../../../assets/componentestelas/elementoshome/rodap
 import { BotaoProps, BotoesApp } from "../../components/BotoesApp";
 
 const cardsHospitais: CardProps[] = [
-    { id: 1, titulo: "AME - Dr. Geraldo Paulo Bourrol", descricao: "R. Martins Fontes, 208 - Centro Histórico de São Paulo", style: { width: 320, height: 200 }, img: amegeraldopaulo },
-    { id: 2, titulo: "Hospital Municipal Sorocabana", descricao: "R. Faustolo, 1633 - Lapa", style: { width: 320, height: 200 }, img: hospitalsorocabana }
+    { id: 1, titulo: "AME - Dr. Geraldo Paulo Bourrol", descricao: "R. Martins Fontes, 208 - Centro Histórico de São Paulo", style: { width: "40%", height: 200, }, img: amegeraldopaulo },
+    { id: 2, titulo: "Hospital Municipal Sorocabana", descricao: "R. Faustolo, 1633 - Lapa", style: { width: "40%", height: 200, marginLeft: "25%" }, img: hospitalsorocabana }
 ]
 
 
@@ -30,7 +30,7 @@ export const HomeScreen = () => {
 
             <CabecalhoHome></CabecalhoHome>
             <View style={styles.visualizacaoTela}>
-                {/* <CardsSwipper></CardsSwipper> */}
+                <CardsSwipper></CardsSwipper> 
 
                 <HorizontalDivider></HorizontalDivider>
                 <Text style={styles.txtTelaHome}> Unidades Próximas
@@ -39,9 +39,8 @@ export const HomeScreen = () => {
                     <FlatList
                         data={cardsHospitais}
                         keyExtractor={(item) => item.id.toString()}
-                        numColumns={2}
                         showsHorizontalScrollIndicator={false}
-                        contentContainerStyle={{}}
+                        horizontal={true}
                         renderItem={({ item }) => (
                             <ComponenteCard
                                 id={item.id}
@@ -58,8 +57,10 @@ export const HomeScreen = () => {
               <FlatList
                     data={botoesRodapeHome}
                     keyExtractor={(item) => item.id.toString()}
-                    showsHorizontalScrollIndicator={false}
+                    showsVerticalScrollIndicator={true}
+                    numColumns={2}
                     horizontal={false}
+                    columnWrapperStyle={{ justifyContent: 'space-evenly', width: '100%', marginBottom: 15}}
                     contentContainerStyle={styles.botoesRodapeHome}
                     renderItem={({ item }) => (
                         <BotoesApp

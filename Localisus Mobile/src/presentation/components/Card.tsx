@@ -116,10 +116,10 @@ export const CardsSwipper = () => {
           onSwiped={(cardIndex) => console.log("Card arrastado:", cardIndex)}
           onSwipedAll={() => console.log("Todos cards visualizados")}
           backgroundColor="transparent"
-          cardVerticalMargin={0}
-          stackScale={5}
+          verticalThreshold={1}
+          stackScale={4}
           stackSize={3}
-          infinite={true}
+          infinite={false}
           animateCardOpacity
           horizontalSwipe={true}
           verticalSwipe={false}
