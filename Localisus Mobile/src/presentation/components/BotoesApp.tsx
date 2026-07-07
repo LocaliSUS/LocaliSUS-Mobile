@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import { ImageSourcePropType } from "react-native";
+import { FlatList } from "react-native-gesture-handler";
 
 export interface BotaoProps {
     id: number
@@ -26,7 +27,12 @@ export const BotoesApp =({
     cor
 }: BotaoProps) => { 
     return(
-        <View style={{ backgroundColor: cor}}>
+        <TouchableOpacity style={{ backgroundColor: cor,
+                                    width: 80, 
+                                    borderRadius: 20,
+                                    margin: 10, 
+                                    height: 45, 
+                                    justifyContent: 'center'}}>
             <Text>{texto}</Text>
-        </View>
+        </TouchableOpacity>
     )}

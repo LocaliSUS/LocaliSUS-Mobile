@@ -23,4 +23,13 @@ export const styles = StyleSheet.create({
   unidadesProximasCard: {
     marginTop: 10
   },
+  botoesRodapeHome: {
+    zIndex: 100,
+    alignContent: 'center',
+    flex: 1,
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: 'row',
+  }
 });

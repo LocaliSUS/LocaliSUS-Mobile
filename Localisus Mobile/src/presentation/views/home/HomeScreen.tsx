@@ -17,7 +17,11 @@ const cardsHospitais: CardProps[] = [
 
 
 const botoesRodapeHome: BotaoProps[] = [
-    {id: 1, texto: "Remédios"}
+    { id: 1, texto: "Remédios", cor: "#ffc4c4" },
+    { id: 2, texto: "Localização", cor: "#fffdc4" },
+    { id: 3, texto: "Lembretes", cor: "#d8ffc4ff" },
+    { id: 4, texto: "Ajuda", cor: "#ffffffff" },
+
 ]
 
 export const HomeScreen = () => {
@@ -26,7 +30,7 @@ export const HomeScreen = () => {
 
             <CabecalhoHome></CabecalhoHome>
             <View style={styles.visualizacaoTela}>
-                <CardsSwipper></CardsSwipper>
+                {/* <CardsSwipper></CardsSwipper> */}
 
                 <HorizontalDivider></HorizontalDivider>
                 <Text style={styles.txtTelaHome}> Unidades Próximas
@@ -35,7 +39,7 @@ export const HomeScreen = () => {
                     <FlatList
                         data={cardsHospitais}
                         keyExtractor={(item) => item.id.toString()}
-                        horizontal={true}
+                        numColumns={2}
                         showsHorizontalScrollIndicator={false}
                         contentContainerStyle={{}}
                         renderItem={({ item }) => (
@@ -51,13 +55,20 @@ export const HomeScreen = () => {
                 </View>
             </View>
             <RodapeHome>
-                {
-                    botoesRodapeHome.map(brH => (
-                      <BotoesApp
-                        id={brH.id}
-                        texto={brH.texto}
-                      />  
-                    ))}
+              <FlatList
+                    data={botoesRodapeHome}
+                    keyExtractor={(item) => item.id.toString()}
+                    showsHorizontalScrollIndicator={false}
+                    horizontal={false}
+                    contentContainerStyle={styles.botoesRodapeHome}
+                    renderItem={({ item }) => (
+                        <BotoesApp
+                            id={item.id}
+                            texto={item.texto}
+                            cor={item.cor}
+                        />
+                    )}  
+              />
             </RodapeHome>
         </>
     )
