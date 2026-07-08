@@ -113,11 +113,12 @@ export const CardsSwipper = () => {
               />
             );
           }}
+          cardStyle={{  height: "10%"}}
           onSwiped={(cardIndex) => console.log("Card arrastado:", cardIndex)}
           onSwipedAll={() => console.log("Todos cards visualizados")}
-          backgroundColor="transparent"
-          verticalThreshold={1}
-          stackScale={4}
+          backgroundColor="red"
+          verticalThreshold={2}
+          stackScale={1}
           stackSize={3}
           infinite={false}
           animateCardOpacity
