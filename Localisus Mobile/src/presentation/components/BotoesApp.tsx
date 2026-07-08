@@ -22,18 +22,20 @@ export function ComponenteBotao({
     )
 }
 
-export const BotoesApp =({
+export const BotoesApp = ({
     texto,
     cor
-}: BotaoProps) => { 
-    return(
-        <TouchableOpacity style={{ backgroundColor: cor,
-                                    width: '40%', 
-                                    borderRadius: 20,
-                                    height: 45, 
-                                    justifyContent: 'center',
-                                    alignItems: 'center'
-                                    }}>
+}: BotaoProps) => {
+    return (
+        <TouchableOpacity style={{
+            backgroundColor: cor,
+            width: '40%',
+            borderRadius: 20,
+            height: 45,
+            justifyContent: 'center',
+            alignItems: 'center'
+        }}>
             <Text>{texto}</Text>
         </TouchableOpacity>
-    )}
+    )
+}

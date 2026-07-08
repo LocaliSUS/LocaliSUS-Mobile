@@ -17,8 +17,8 @@ export const styles = StyleSheet.create({
   },
   swiperWrapper: {
     marginRight: 400,
-    marginTop: 65,
-    marginBottom: 35,
+    marginTop: 5,
+    marginBottom: 65,
     height: 220,
   },
   cardsContainer: {
@@ -27,6 +27,7 @@ export const styles = StyleSheet.create({
     minWidth: 270,
     justifyContent: "center",
     alignItems: "center",
+
   },
   swiperContainer: {
   },

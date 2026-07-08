@@ -1,12 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {styles} from './BarraPesquisaTheme'
-import { View, Text } from 'react-native'
+import { View, TextInput } from 'react-native'
 
 export const BarraPesquisa = () => {
+    const [ busca, setBusca] = useState('');
+    const medicamentos = [
+        { id: 1, nome: 'Captopril'},
+        { id: 2, nome: 'Dipirona'},
+        { id: 3, nome: 'Ibuprofeno'}
+    ]
     return(
         <>
             <View style={styles.barrapesquisa}>
-                <Text style={styles.placeholder}>Pesquisar...</Text>
+                <TextInput 
+                    style={styles.placeholder}
+                    placeholder='Buscar por algum medicamento...'
+                    value={busca}
+                    onChangeText={setBusca}
+                />
             </View>
         </>
     )

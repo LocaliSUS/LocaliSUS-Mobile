@@ -5,18 +5,15 @@ export const styles = StyleSheet.create({
     barrapesquisa: {
         backgroundColor: "#cddee6ff",
         width: "85%",
-        height: 35,
-        borderRadius: 30,
-        marginTop: 25,
+        borderRadius: 25,
+        marginTop: 15,
         justifyContent: 'center',
         alignItems: 'flex-start',
-        zIndex: 300,
-        
     },
     placeholder: {
         marginLeft: 25 ,
         fontWeight: 'bold',
-        fontSize: 18,
+        fontSize: 16,
         color: '#505050ff'
     }
 })

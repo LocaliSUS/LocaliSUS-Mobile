@@ -120,7 +120,7 @@ export const CardsSwipper = () => {
           verticalThreshold={2}
           stackScale={1}
           stackSize={3}
-          infinite={false}
+          infinite={true}
           animateCardOpacity
           horizontalSwipe={true}
           verticalSwipe={false}

@@ -9,6 +9,7 @@ import { HorizontalDivider } from "../../components/Divider";
 import { CabecalhoHome } from "../../../assets/componentestelas/elementoshome/cabecalho/CabecalhoHome";
 import { RodapeHome } from "../../../assets/componentestelas/elementoshome/rodape/RodapeHome";
 import { BotaoProps, BotoesApp } from "../../components/BotoesApp";
+import { useNavigation } from "@react-navigation/native";
 
 const cardsHospitais: CardProps[] = [
     { id: 1, titulo: "AME - Dr. Geraldo Paulo Bourrol", descricao: "R. Martins Fontes, 208 - Centro Histórico de São Paulo", style: { width: "40%", height: 200, }, img: amegeraldopaulo },
@@ -25,6 +26,7 @@ const botoesRodapeHome: BotaoProps[] = [
 ]
 
 export const HomeScreen = () => {
+
     return (
         <>
 
