@@ -414,7 +414,7 @@ const styles = StyleSheet.create({
         color: '#000',
         fontWeight: 'bold',
         fontSize: 20,
-        left: 60,
+        left: 59,
         bottom: 13,
         position: 'absolute'
     },
