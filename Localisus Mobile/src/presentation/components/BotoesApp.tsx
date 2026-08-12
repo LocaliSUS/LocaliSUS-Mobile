@@ -1,10 +1,10 @@
 import React, { ReactNode } from "react";
 import { View, Text, TouchableOpacity } from 'react-native'
 import { ImageSourcePropType } from "react-native";
-import { FlatList } from "react-native-gesture-handler";
+import { TouchableOpacityProps } from "react-native";
 
-export interface BotaoProps {
-    id: number
+export interface BotaoProps extends TouchableOpacityProps {
+    botaoId?: number //nome foi alterado devido à um conflito existente entre a palavra reservada id para touchable opacity props;
     texto: string
     cor?: string
     children?: ReactNode
@@ -13,8 +13,8 @@ export interface BotaoProps {
 
 export function ComponenteBotao({
     texto,
-    cor
-}: BotaoProps) {
+    cor,
+ }: BotaoProps) {
     return (
         <View style={[{ backgroundColor: cor }]}>
             <Text>{texto}</Text>
@@ -24,7 +24,8 @@ export function ComponenteBotao({
 
 export const BotoesApp = ({
     texto,
-    cor
+    cor, 
+    ...rest //agora implementamos o rest permitindo que venham se espalhar as diferentes alterações que fizermos para os elementos do componente, permitindo que todo o componente tenha sua própria estilização
 }: BotaoProps) => {
     return (
         <TouchableOpacity style={{
@@ -34,7 +35,9 @@ export const BotoesApp = ({
             height: 45,
             justifyContent: 'center',
             alignItems: 'center'
-        }}>
+        }} {...rest}
+        
+        >
             <Text>{texto}</Text>
         </TouchableOpacity>
     )

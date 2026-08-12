@@ -2,6 +2,7 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Inicio } from "./src/presentation/views/inicio/Inicio";
+import { MedicamentoScreen } from "./src/presentation/views/telaMedicamento/TelaMedicamento"
 import { SenhaEsquecidaScreen } from "./src/presentation/views/senhaEsquecida/SenhaEsquecida";
 import { LoginScreen } from "./src/presentation/views/login/Login";
 import { CadastroSusScreen } from "./src/presentation/views/cadastro/CadastroSus";
@@ -17,6 +18,7 @@ export type RootStackParamList = {
   PasswordForget: undefined;
   CodigoScreen: undefined;
   HomeScreen: undefined;
+  MedicamentoScreen: undefined;
   LoginScreen: undefined;
   CadastroSusScreen: undefined;
 };
@@ -35,6 +37,8 @@ export default function App() {
         <Stack.Screen name="Inicio" component={Inicio} />
 
         <Stack.Screen name="Tela" component={TelaInicio}/>
+
+        <Stack.Screen name="MedicamentoScreen" component={MedicamentoScreen}/>
         
         <Stack.Screen name="PasswordForget" component={SenhaEsquecidaScreen} />
 

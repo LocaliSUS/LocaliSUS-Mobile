@@ -2,6 +2,8 @@ import React from "react";
 import { TelaInicio } from '../../../assets/componentestelas/inicio/ComponenteInicio'
 import { CardProps, CardsSwipper, ComponenteCard } from "../../components/Card";
 import { StyleSheet, Text, View, ScrollView, FlatList } from "react-native";
+import { RootStackParamList } from "../../../../App";
+import { useNavigation, NavigationProp } from "@react-navigation/native";
 import { styles } from './HomeScreenTheme'
 import amegeraldopaulo from '../../imagens/amegeraldopaulo.jpg'
 import hospitalsorocabana from '../../imagens/sorocab.png'
@@ -9,7 +11,6 @@ import { HorizontalDivider } from "../../components/Divider";
 import { CabecalhoHome } from "../../../assets/componentestelas/elementoshome/cabecalho/CabecalhoHome";
 import { RodapeHome } from "../../../assets/componentestelas/elementoshome/rodape/RodapeHome";
 import { BotaoProps, BotoesApp } from "../../components/BotoesApp";
-import { useNavigation } from "@react-navigation/native";
 
 const cardsHospitais: CardProps[] = [
     { id: 1, titulo: "AME - Dr. Geraldo Paulo Bourrol", descricao: "R. Martins Fontes, 208 - Centro Histórico de São Paulo", style: { width: "40%", height: 200, }, img: amegeraldopaulo },
@@ -18,15 +19,15 @@ const cardsHospitais: CardProps[] = [
 
 
 const botoesRodapeHome: BotaoProps[] = [
-    { id: 1, texto: "Remédios", cor: "#ffc4c4" },
-    { id: 2, texto: "Localização", cor: "#fffdc4" },
-    { id: 3, texto: "Lembretes", cor: "#d8ffc4ff" },
-    { id: 4, texto: "Ajuda", cor: "#ffffffff" },
+    { botaoId: 1, texto: "Remédios", cor: "#ffc4c4" },
+    { botaoId: 2, texto: "Localização", cor: "#fffdc4" },
+    { botaoId: 3, texto: "Lembretes", cor: "#d8ffc4ff" },
+    { botaoId: 4, texto: "Ajuda", cor: "#ffffffff" },
 
 ]
 
 export const HomeScreen = () => {
-
+const navigation = useNavigation<NavigationProp<RootStackParamList>>();
     return (
         <>
 
@@ -58,7 +59,7 @@ export const HomeScreen = () => {
             <RodapeHome>
               <FlatList
                     data={botoesRodapeHome}
-                    keyExtractor={(item) => item.id.toString()}
+                    keyExtractor={(item) => item.botaoId.toString()}
                     showsVerticalScrollIndicator={true}
                     numColumns={2}
                     horizontal={false}
@@ -66,9 +67,10 @@ export const HomeScreen = () => {
                     contentContainerStyle={styles.botoesRodapeHome}
                     renderItem={({ item }) => (
                         <BotoesApp
-                            id={item.id}
+                            botaoId={item.botaoId}
                             texto={item.texto}
                             cor={item.cor}
+                            onPress={() => navigation.navigate("MedicamentoScreen")}
                         />
                     )}  
               />

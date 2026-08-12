@@ -18,7 +18,7 @@ export const MedicamentoScreen= () => {
         <View style={styles.container}>
 
             <View style={styles.bottomIcons}>
-                <TouchableOpacity onPress={() => navigation.navigate('InicioScreen')} style={styles.voltarButton}>
+                <TouchableOpacity onPress={() => navigation.navigate('Inicio')} style={styles.voltarButton}>
                     <Image
                         style={styles.voltarLogo}
                         source={require("../../../../assets/img/icon-voltar.png")}
