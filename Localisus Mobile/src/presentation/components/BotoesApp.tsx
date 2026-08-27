@@ -12,7 +12,6 @@ export interface BotaoProps extends TouchableOpacityProps {
     onPress?: () => void
     children?: ReactNode
     img?: ImageSourcePropType
-    tela?: keyof RootStackParamList
 }
 
 export function ComponenteBotao({
@@ -29,8 +28,7 @@ export function ComponenteBotao({
 export const BotoesApp = ({
     texto,
     cor, 
-    onPress,
-    ...rest //agora implementamos o rest permitindo que venham se espalhar as diferentes alterações que fizermos para os elementos do componente, permitindo que todo o componente tenha sua própria estilização
+    ...rest
 }: BotaoProps) => {
     return (
         <TouchableOpacity style={{
@@ -39,11 +37,11 @@ export const BotoesApp = ({
             borderRadius: 20,
             height: 45,
             justifyContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
+           
         }}
-        activeOpacity={0.6}
          {...rest}
-            onPress={onPress}
+        activeOpacity={0.6}
         
         >
             <Text>{texto}</Text>

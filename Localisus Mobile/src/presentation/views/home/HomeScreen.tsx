@@ -1,7 +1,7 @@
 import React from "react";
 import { TelaInicio } from '../../../assets/componentestelas/inicio/ComponenteInicio'
 import { CardProps, CardsSwipper, ComponenteCard } from "../../components/Card";
-import { StyleSheet, Text, View, ScrollView, FlatList } from "react-native";
+import { StyleSheet, Text, View, ScrollView, FlatList, TouchableOpacity } from "react-native";
 import { RootStackParamList } from "../../../../App";
 import { useNavigation, NavigationProp } from "@react-navigation/native";
 import { styles } from './HomeScreenTheme'
@@ -12,17 +12,24 @@ import { CabecalhoHome } from "../../../assets/componentestelas/elementoshome/ca
 import { RodapeHome } from "../../../assets/componentestelas/elementoshome/rodape/RodapeHome";
 import { BotaoProps, BotoesApp } from "../../components/BotoesApp";
 
+type BotaoHome = {
+    botaoId: number, 
+    texto: string,
+    cor: string,
+    tela?: keyof RootStackParamList
+}
+
 const cardsHospitais: CardProps[] = [
     { id: 1, titulo: "AME - Dr. Geraldo Paulo Bourrol", descricao: "R. Martins Fontes, 208 - Centro Histórico de São Paulo", style: { width: "40%", height: 200, }, img: amegeraldopaulo },
     { id: 2, titulo: "Hospital Municipal Sorocabana", descricao: "R. Faustolo, 1633 - Lapa", style: { width: "40%", height: 200, marginLeft: "25%" }, img: hospitalsorocabana }
 ]
 
 
-const botoesRodapeHome: BotaoProps[] = [
+const botoesRodapeHome: BotaoHome[] = [
     { botaoId: 1, texto: "Remédios", cor: "#ffc4c4", tela: "MedicamentoScreen" },
-    { botaoId: 2, texto: "Localização", cor: "#fffdc4"},
-    { botaoId: 3, texto: "Lembretes", cor: "#d8ffc4ff", tela: "MedicamentoScreen" },
-    { botaoId: 4, texto: "Ajuda", cor: "#ffffffff", tela: "MedicamentoScreen" },
+    { botaoId: 2, texto: "Localização", cor: "#fffdc4", tela: "CodigoScreen"},
+    { botaoId: 3, texto: "Lembretes", cor: "#d8ffc4ff", tela: "PasswordForget" },
+    { botaoId: 4, texto: "Ajuda", cor: "#ffffffff", tela: "Tela" },
 
 ]
 
@@ -57,7 +64,9 @@ const navigation = useNavigation<NavigationProp<RootStackParamList>>();
                 </View>
             </View>
             <RodapeHome>
+              
               <FlatList
+              
                     data={botoesRodapeHome}
                     keyExtractor={(item) => item.botaoId.toString()}
                     showsVerticalScrollIndicator={true}
@@ -74,6 +83,7 @@ const navigation = useNavigation<NavigationProp<RootStackParamList>>();
                         />
                     )}  
               />
+              
             </RodapeHome>
         </>
     )
