@@ -14,29 +14,19 @@ export const MedicamentoScreen= () => {
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
     return (
-        // quando componentizar adicionar atributos de: tamanho, ícone e cor
         <View style={styles.container}>
 
             <View style={styles.bottomIcons}>
                 <TouchableOpacity onPress={() => navigation.navigate('Inicio')} style={styles.voltarButton}>
                     <Image
                         style={styles.voltarLogo}
-                        source={require("../../../../assets/img/icon-voltar.png")}
+                        source={require("../../../assets/img/icon-voltar.png")}
                     />
                 </TouchableOpacity>
                 <View style={styles.txtTitulo}>
                     <Text style={styles.help}>Pesqusar por Remedios</Text>
                 </View>
             </View>
-                
-{/* 
-            <View style={styles.frm}>
-
-            </View>
-
-            <View style={styles.bntcont}>
-
-            </View> */}
 
         </View>
     )

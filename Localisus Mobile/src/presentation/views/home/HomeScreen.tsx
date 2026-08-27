@@ -19,10 +19,10 @@ const cardsHospitais: CardProps[] = [
 
 
 const botoesRodapeHome: BotaoProps[] = [
-    { botaoId: 1, texto: "Remédios", cor: "#ffc4c4" },
-    { botaoId: 2, texto: "Localização", cor: "#fffdc4" },
-    { botaoId: 3, texto: "Lembretes", cor: "#d8ffc4ff" },
-    { botaoId: 4, texto: "Ajuda", cor: "#ffffffff" },
+    { botaoId: 1, texto: "Remédios", cor: "#ffc4c4", tela: "MedicamentoScreen" },
+    { botaoId: 2, texto: "Localização", cor: "#fffdc4"},
+    { botaoId: 3, texto: "Lembretes", cor: "#d8ffc4ff", tela: "MedicamentoScreen" },
+    { botaoId: 4, texto: "Ajuda", cor: "#ffffffff", tela: "MedicamentoScreen" },
 
 ]
 
@@ -70,7 +70,7 @@ const navigation = useNavigation<NavigationProp<RootStackParamList>>();
                             botaoId={item.botaoId}
                             texto={item.texto}
                             cor={item.cor}
-                            onPress={() => navigation.navigate("MedicamentoScreen")}
+                            onPress={() => navigation.navigate(item.tela)}
                         />
                     )}  
               />
