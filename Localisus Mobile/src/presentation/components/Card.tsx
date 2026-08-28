@@ -19,7 +19,7 @@ export interface CardProps {
   style?: StyleProp<ViewStyle>;
   children?: ReactNode;
   img?: ImageSourcePropType;
-  onPress?: () => void;
+  onPress?: () => void; 
 }
 
 const elementosCard: CardProps[] = [

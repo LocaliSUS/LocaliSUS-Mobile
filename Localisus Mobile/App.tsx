@@ -12,12 +12,14 @@ import { useFonts } from "expo-font";
 import { HomeScreen } from "./src/presentation/views/home/HomeScreen";
 import { CodigoScreen } from "./src/presentation/views/codigo/Codigo";
 import { MapaSus } from "./src/presentation/views/Localização/MapaSus";
+import { VilaRomanaInfoScreen } from "./src/presentation/views/hospitais/vilaRomana";
 
 export type RootStackParamList = {
   LocalizacaoScreen: undefined;
   Inicio: undefined;
   Tela: undefined;
   PasswordForget: undefined;
+  VilaRomanaScreen: undefined;
   CodigoScreen: undefined;
   HomeScreen: undefined;
   MedicamentoScreen: undefined;
@@ -49,6 +51,8 @@ export default function App() {
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
 
         <Stack.Screen name="LocalizacaoScreen" component={MapaSus}/>
+
+        <Stack.Screen name="VilaRomanaScreen" component={VilaRomanaInfoScreen}/>
 
         <Stack.Screen name="CadastroSusScreen" component={CadastroSusScreen} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
