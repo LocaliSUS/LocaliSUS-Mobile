@@ -10,7 +10,7 @@ import hospitalsorocabana from '../../imagens/sorocab.png'
 import { HorizontalDivider } from "../../components/Divider";
 import { CabecalhoHome } from "../../../assets/componentestelas/elementoshome/cabecalho/CabecalhoHome";
 import { RodapeHome } from "../../../assets/componentestelas/elementoshome/rodape/RodapeHome";
-import { BotaoProps, BotoesApp } from "../../components/BotoesApp";
+import {  BotoesApp } from "../../components/BotoesApp";
 
 type BotaoHome = {
     botaoId: number, 
@@ -20,8 +20,8 @@ type BotaoHome = {
 }
 
 const cardsHospitais: CardProps[] = [
-    { id: 1, titulo: "AME - Dr. Geraldo Paulo Bourrol", descricao: "R. Martins Fontes, 208 - Centro Histórico de São Paulo", style: { width: "40%", height: 200, }, img: amegeraldopaulo },
-    { id: 2, titulo: "Hospital Municipal Sorocabana", descricao: "R. Faustolo, 1633 - Lapa", style: { width: "40%", height: 200, marginLeft: "25%" }, img: hospitalsorocabana }
+    { id: 1, titulo: "AME - Dr. Geraldo Paulo Bourrol", descricao: "R. Martins Fontes, 208 - Centro Histórico de São Paulo", style: {  height: 165, }, img: amegeraldopaulo },
+    { id: 2, titulo: "Hospital Municipal Sorocabana", descricao: "R. Faustolo, 1633 - Lapa", style: {  height: 165 }, img: hospitalsorocabana }
 ]
 
 
@@ -64,9 +64,7 @@ const navigation = useNavigation<NavigationProp<RootStackParamList>>();
                 </View>
             </View>
             <RodapeHome>
-              
               <FlatList
-              
                     data={botoesRodapeHome}
                     keyExtractor={(item) => item.botaoId.toString()}
                     showsVerticalScrollIndicator={true}

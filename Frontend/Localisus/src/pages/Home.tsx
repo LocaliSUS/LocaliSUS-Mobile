@@ -1,0 +1,47 @@
+import { NavLink } from "react-router-dom"
+import "./Home.css"
+import { PartticulasFundo } from "./ParticulasFundo"
+import { Cards } from "../components/Cards"
+import { BarraPesquisa } from "../components/BarraPesquisa"
+
+export const Home = () => {
+    return (
+        <>
+            <header className="elementos-cabecalho">
+                <span>
+                    <ul className="navbar">
+                        <li>
+                            <h1 id="letreiro">
+                                LOCALISUS
+                            </h1>
+                        </li>
+                        <NavLink to="/">
+                            <li id="home-navbar">Home</li>
+                        </NavLink>
+                        <NavLink to="/contato">
+                            <li id="contato-navbar">Contato</li>
+                        </NavLink>
+                        <NavLink to="/sobre">
+                            <li id="sobre-navbar">Sobre</li>
+                        </NavLink>
+                        <NavLink to="/Login">
+                            <button id="botao-conhecer">
+                                Entrar
+                            </button>
+                        </NavLink>
+                    </ul>
+                </span>
+            </header>
+            <main>
+                <div className="conteudo-home">
+                    <section className="info-pagina">
+                        {/* <BarraPesquisa {}></BarraPesquisa> */}
+                        <h2>Conectando tecnologia ao cuidado, para que o acesso a saúde nunca seja uma distância</h2>
+                        <h3>Como o Localisus ajuda você</h3>
+                        <Cards></Cards>
+                    </section>
+                </div>
+            </main>
+        </>
+    )
+}

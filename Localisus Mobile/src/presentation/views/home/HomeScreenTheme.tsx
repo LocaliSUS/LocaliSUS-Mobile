@@ -24,9 +24,9 @@ export const styles = StyleSheet.create({
     marginTop: 10,
   },
   botoesRodapeHome: {
-    zIndex: 100,
+    zIndex: 2500,
     alignContent: 'center',
-    flex: 1,
+    flex: 5,
     width: "100%",
     justifyContent: "center",
     alignItems: "center",

@@ -9,7 +9,8 @@ export const styles = StyleSheet.create({
         borderTopLeftRadius: 35,
         width: "100%",
         backgroundColor: COLORS.darkBlue,
-        color: COLORS.coralRed
+        color: COLORS.coralRed,
+        zIndex: 200
     }
 }   
 )
