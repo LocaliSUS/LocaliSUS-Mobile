@@ -13,8 +13,8 @@ import Swiper from "react-native-deck-swiper";
 
 export interface CardProps {
   id: number;
-  titulo: string;
-  descricao: string;
+  titulo?: string;
+  descricao?: string;
   cor?: string;
   style?: StyleProp<ViewStyle>;
   children?: ReactNode;
@@ -80,12 +80,12 @@ export function ComponenteCard({
         <Image
           source={img}
           style={{
-            width: 245,
+            width: 265,
             height: 150,
             borderRadius: 5,
             position: "absolute",
             zIndex: -1,
-          }}
+                  }}
           resizeMode="cover"
         />
       )}

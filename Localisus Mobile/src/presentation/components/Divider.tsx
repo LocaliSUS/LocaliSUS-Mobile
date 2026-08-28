@@ -8,9 +8,9 @@ interface DividerProps {
 }
 
 export const HorizontalDivider = ({
-    cor = '#05064bff',
+    cor = '#1b1b34ff',
     espessura=  1.5,
-    largura = '80%'
+    largura = '95%',
 }: DividerProps) => {
     return (
         <View 
@@ -18,7 +18,8 @@ export const HorizontalDivider = ({
                 height: espessura,
                 backgroundColor: cor,
                 width: largura,
-                alignSelf: 'center'
+                alignSelf: 'center',
+                boxShadow:  '0px 4px 10px 1px rgba(4, 0, 255, 0.15)'
             }} 
         />
     );

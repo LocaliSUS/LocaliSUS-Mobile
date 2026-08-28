@@ -1,7 +1,7 @@
 import React from "react";
 import { TelaInicio } from '../../../assets/componentestelas/inicio/ComponenteInicio'
 import { CardProps, CardsSwipper, ComponenteCard } from "../../components/Card";
-import { StyleSheet, Text, View, ScrollView, FlatList, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, ScrollView, FlatList, TouchableOpacity, StyleProp, ViewStyle, ImageSourcePropType } from "react-native";
 import { RootStackParamList } from "../../../../App";
 import { useNavigation, NavigationProp } from "@react-navigation/native";
 import { styles } from './HomeScreenTheme'
@@ -12,6 +12,15 @@ import { CabecalhoHome } from "../../../assets/componentestelas/elementoshome/ca
 import { RodapeHome } from "../../../assets/componentestelas/elementoshome/rodape/RodapeHome";
 import {  BotoesApp } from "../../components/BotoesApp";
 
+type hospitalCard = {
+    id: number,
+    titulo: string,
+    descricao: string,
+    img?: ImageSourcePropType,
+    style?: StyleProp<ViewStyle>;
+    infoHospital?: keyof RootStackParamList
+}
+
 type BotaoHome = {
     botaoId: number, 
     texto: string,
@@ -19,15 +28,15 @@ type BotaoHome = {
     tela?: keyof RootStackParamList
 }
 
-const cardsHospitais: CardProps[] = [
-    { id: 1, titulo: "AME - Dr. Geraldo Paulo Bourrol", descricao: "R. Martins Fontes, 208 - Centro Histórico de São Paulo", style: {  height: 165, }, img: amegeraldopaulo },
-    { id: 2, titulo: "Hospital Municipal Sorocabana", descricao: "R. Faustolo, 1633 - Lapa", style: {  height: 165 }, img: hospitalsorocabana }
+const cardsHospitais: hospitalCard[] = [
+    { id: 1, titulo: "AME - Dr. Geraldo Paulo Bourrol", descricao: "R. Martins Fontes, 208 - Centro Histórico de São Paulo",  img: amegeraldopaulo },
+    { id: 2, titulo: "Hospital Municipal Sorocabana", descricao: "R. Faustolo, 1633 - Lapa", img: hospitalsorocabana }
 ]
 
 
 const botoesRodapeHome: BotaoHome[] = [
     { botaoId: 1, texto: "Remédios", cor: "#ffc4c4", tela: "MedicamentoScreen" },
-    { botaoId: 2, texto: "Localização", cor: "#fffdc4", tela: "CodigoScreen"},
+    { botaoId: 2, texto: "Localização", cor: "#fffdc4", tela: "LocalizacaoScreen"},
     { botaoId: 3, texto: "Lembretes", cor: "#d8ffc4ff", tela: "PasswordForget" },
     { botaoId: 4, texto: "Ajuda", cor: "#ffffffff", tela: "Tela" },
 
@@ -41,7 +50,6 @@ const navigation = useNavigation<NavigationProp<RootStackParamList>>();
             <CabecalhoHome></CabecalhoHome>
             <View style={styles.visualizacaoTela}>
                 <CardsSwipper></CardsSwipper> 
-
                 <HorizontalDivider></HorizontalDivider>
                 <Text style={styles.txtTelaHome}> Unidades Próximas
                 </Text>

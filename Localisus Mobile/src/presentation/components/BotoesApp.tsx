@@ -33,9 +33,9 @@ export const BotoesApp = ({
     return (
         <TouchableOpacity style={{
             backgroundColor: cor,
-            width: '40%',
-            borderRadius: 20,
-            height: 45,
+            width: '45%',
+            borderRadius:18,
+            height:45,
             justifyContent: 'center',
             alignItems: 'center',
            

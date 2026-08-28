@@ -15,16 +15,16 @@ export const styles = StyleSheet.create({
   txtTelaHome: {
     fontSize: 25,
     fontWeight: "bold",
-    left: 0,
+    top: 10,
+    color: '#151633ff'
   },
   txtDescricao: {
     flex: 1,
   },
   unidadesProximasCard: {
-    marginTop: 10,
+    marginTop: 20,
   },
   botoesRodapeHome: {
-    zIndex: 2500,
     alignContent: 'center',
     flex: 5,
     width: "100%",
