@@ -1,5 +1,4 @@
-import React from "react";
-import { ImageSourcePropType, View } from "react-native";
+import {StyleSheet, ImageSourcePropType, View } from "react-native";
 import Swiper from "react-native-deck-swiper";
 import vilaromana1 from "../../assets/img/vlromana.jpg"
 import vilaromana2 from "../../assets/img/vlromana2.jpg"
@@ -23,14 +22,14 @@ const imagensHospital: hospitalImagemProps[] = [
 export const InfoHospitalScreen = () => {
     return(
         <>
-            <View>  
+            <View style={styles.backgroundInfo}>  
                 <Swiper 
                     cards={imagensHospital}
                     cardIndex={0}
                     renderCard={(card) => {
-                        {
-                            card ? card : <View />;
-                        }
+                       if(!card) {
+                        return "Não há nada aqui por enquanto"
+                       }
                         return(
                             <ComponenteCard
                                 id={card.id}
@@ -43,3 +42,10 @@ export const InfoHospitalScreen = () => {
         </>
     )
 }
+
+const styles = StyleSheet.create({
+    backgroundInfo: {
+        width: 10,
+        backgroundColor: "#ff0000ff"
+    }
+})

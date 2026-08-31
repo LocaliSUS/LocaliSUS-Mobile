@@ -18,7 +18,7 @@ type hospitalCard = {
     descricao: string,
     img?: ImageSourcePropType,
     style?: StyleProp<ViewStyle>;
-    infoHospital?: keyof RootStackParamList
+    infoHospital: keyof RootStackParamList
 }
 
 type BotaoHome = {

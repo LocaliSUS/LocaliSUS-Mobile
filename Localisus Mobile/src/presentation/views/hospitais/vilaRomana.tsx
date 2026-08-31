@@ -4,9 +4,7 @@ import { InfoHospitalScreen } from "../../components/InfoHospital";
 export const VilaRomanaInfoScreen = () => {
 
     return(
-        <>
-         <InfoHospitalScreen></InfoHospitalScreen>
-        </>
+       <InfoHospitalScreen/>
     )
     
 }

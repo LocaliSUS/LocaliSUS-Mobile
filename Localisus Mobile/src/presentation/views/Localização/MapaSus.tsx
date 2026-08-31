@@ -30,7 +30,7 @@ export const MapaSus = () => {
 
         <View style={styles.searchContainer}>
           <TextInput
-            placeholder="UBS Vila Romana"
+            placeholder="Buscar por uma unidade hospitalar"
             placeholderTextColor="#4B4B6A"
             style={styles.searchInput}
           />

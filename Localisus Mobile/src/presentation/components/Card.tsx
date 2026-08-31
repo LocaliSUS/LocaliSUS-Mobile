@@ -66,12 +66,14 @@ export function ComponenteCard({
   style,
   img,
   descricao,
+  onPress,
   children,
   ...rest
 }: CardProps) {
   return (
       <TouchableOpacity
         activeOpacity={0.6}
+        onPress={onPress}
       >
 
     <View style={[styles.cardsContainer, { backgroundColor: cor }, style]}>
