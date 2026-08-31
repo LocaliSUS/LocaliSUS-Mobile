@@ -19,6 +19,7 @@ export interface CardProps {
   style?: StyleProp<ViewStyle>;
   children?: ReactNode;
   img?: ImageSourcePropType;
+  imgs?: ImageSourcePropType[];
   onPress?: () => void; 
 }
 

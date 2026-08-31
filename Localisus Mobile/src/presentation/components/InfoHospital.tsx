@@ -15,7 +15,7 @@ const imagensHospital: hospitalImagemProps[] = [
         img: vilaromana1
     },
 
-    { id: 2, img: vilaromana2 }
+ 
 ]
 
 
@@ -45,7 +45,10 @@ export const InfoHospitalScreen = () => {
 
 const styles = StyleSheet.create({
     backgroundInfo: {
+        display: 'flex',
+        alignItems: 'center',
         width: 10,
+        height: 200,
         backgroundColor: "#ff0000ff"
     }
 })
