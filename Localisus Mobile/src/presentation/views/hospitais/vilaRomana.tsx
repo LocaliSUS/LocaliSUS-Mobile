@@ -2,6 +2,7 @@ import React from "react";
 import { FlatList, Text } from "react-native";
 import { BotaoInfoHospital, InfoHospitalScreen,  } from "../../components/InfoHospital";
 import { RootStackParamList } from "../../../../App";
+import { ComponenteCard } from "../../components/Card";
 
 const vilaRomanaButtons: BotaoInfoHospital[] = [
     {
@@ -20,11 +21,19 @@ const vilaRomanaButtons: BotaoInfoHospital[] = [
 export const VilaRomanaInfoScreen = () => {
 
     return(
-       <>
-            <InfoHospitalScreen/>
-            <FlatList
+       <>    <FlatList
                 data={vilaRomanaButtons}
+                keyExtractor={(item) => item.botaoId.toString()}
+                renderItem={({item}) => (
+                    <ComponenteCard
+                        id={item.botaoId}
+                        titulo={item.texto}
+                        cor={item.cor}
+                    />
+                )}
             />
+            <InfoHospitalScreen/>
+        
        </>
        
     )

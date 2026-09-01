@@ -1,4 +1,4 @@
-import { StyleSheet, ImageSourcePropType, View, Image, Text, FlatList } from "react-native";
+import { StyleSheet, ImageSourcePropType, View, Image, Text } from "react-native";
 import Swiper from "react-native-deck-swiper";
 import vilaromana1 from "../../assets/img/vlromana.jpg"
 import vilaromana2 from "../../assets/img/vlromana2.jpg"
