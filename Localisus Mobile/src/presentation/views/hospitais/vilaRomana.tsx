@@ -3,7 +3,7 @@ import { FlatList, Text } from "react-native";
 import { BotaoInfoHospital, InfoHospitalScreen,  } from "../../components/InfoHospital";
 import { RootStackParamList } from "../../../../App";
 
-const vilaRomanaButtons: BotaoInfoHospital = [
+const vilaRomanaButtons: BotaoInfoHospital[] = [
     {
         botaoId: 1, 
         texto: "Ver Estoque",
