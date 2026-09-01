@@ -79,7 +79,7 @@ export function ComponenteCard({
 
     <View style={[styles.cardsContainer, { backgroundColor: cor }, style]}>
       <Text style={styles.txtTitulo}>{titulo}</Text>
-      {img && (
+      {img  && (
         <Image
           source={img}
           style={{
@@ -92,6 +92,8 @@ export function ComponenteCard({
           resizeMode="cover"
         />
       )}
+
+   
       <Text style={styles.txtDescricao}>{descricao} </Text>
       {children}
     </View>
