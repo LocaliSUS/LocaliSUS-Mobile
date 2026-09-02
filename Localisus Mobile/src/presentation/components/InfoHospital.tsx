@@ -36,24 +36,13 @@ export const InfoHospitalScreen = () => {
                         )
                     }}
                 />
-                 <Text style={styles.textosTelaInfoHospital}> UBS - Vila Romana </Text> {/* depois será necessário realizar uma modificação para o nome do hospital na tela em específico, fazer o mesmo para rua e também a descrição do hospital */}
-                 <Text> Rua Vespasiano, 679 - Vila Romana</Text>
-                 <Text> Descrição do hospital</Text>
+              
             </View>
         </>
     )
 }
 
 const styles = StyleSheet.create({
-    backgroundInfoHospital: {
-        display: 'flex',
-        alignItems: 'center',
-        width: "100%",
-        height: "100%",
-        backgroundColor: "#ff0000ff",
-        borderRadius: 10
-    },
-
     cardHospitalImagemInfo: {
         width: 285,
         height: 200,
@@ -61,11 +50,12 @@ const styles = StyleSheet.create({
         marginLeft: 35,
         marginTop: 15
     },
-    textosTelaInfoHospital: {
+    backgroundInfoHospital: {
         display: 'flex',
-        justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 325, //realizar a centralização de forma correta
-        zIndex: 2
+        width: "100%",
+        height: "100%",
+        backgroundColor: "#ff0000ff",
+        borderRadius: 10
     }
 })
