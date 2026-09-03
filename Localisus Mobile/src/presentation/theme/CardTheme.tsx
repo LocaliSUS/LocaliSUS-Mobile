@@ -23,11 +23,9 @@ export const styles = StyleSheet.create({
   cardsContainer: {
     height: 175,
     borderRadius: 10,
-    minWidth: 270,
+    minWidth: 250,
     justifyContent: "center",
     alignItems: "center",
 
-  },
-  swiperContainer: {
   },
 });

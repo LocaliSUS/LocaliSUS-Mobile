@@ -32,7 +32,7 @@ const cardsHospitais: hospitalCard[] = [
     { id: 1, titulo: "AME - Dr. Geraldo Paulo Bourrol", descricao: "R. Martins Fontes, 208 - Centro Histórico de São Paulo",  img: amegeraldopaulo, infoHospital: "VilaRomanaScreen" },
     { id: 2, titulo: "Hospital Municipal Sorocabana", descricao: "R. Faustolo, 1633 - Lapa", img: hospitalsorocabana, infoHospital: "VilaRomanaScreen" }
 ]
-    
+
 
 const botoesRodapeHome: BotaoHome[] = [
     { botaoId: 1, texto: "Remédios", cor: "#ffc4c4", tela: "MedicamentoScreen" },
@@ -46,7 +46,6 @@ export const HomeScreen = () => {
 const navigation = useNavigation<NavigationProp<RootStackParamList>>();
     return (
         <>
-
             <CabecalhoHome></CabecalhoHome>
             <View style={styles.visualizacaoTela}>
                 <CardsSwipper></CardsSwipper> 
@@ -76,7 +75,7 @@ const navigation = useNavigation<NavigationProp<RootStackParamList>>();
               <FlatList
                     data={botoesRodapeHome}
                     keyExtractor={(item) => item.botaoId.toString()}
-                    showsVerticalScrollIndicator={true}
+                    showsVerticalScrollIndicator={false}
                     numColumns={2}
                     horizontal={false}
                     columnWrapperStyle={{ justifyContent: 'space-evenly', width: '100%', marginBottom: 15}}
