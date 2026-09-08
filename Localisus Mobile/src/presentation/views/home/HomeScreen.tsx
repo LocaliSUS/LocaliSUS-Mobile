@@ -30,7 +30,7 @@ type BotaoHome = {
 
 const cardsHospitais: hospitalCard[] = [
     { id: 1, titulo: "AME - Dr. Geraldo Paulo Bourrol", descricao: "R. Martins Fontes, 208 - Centro Histórico de São Paulo",  img: amegeraldopaulo, infoHospital: "VilaRomanaScreen"  },
-    { id: 2, titulo: "Hospital Municipal Sorocabana", descricao: "R. Faustolo, 1633 - Lapa", img: hospitalsorocabana, infoHospital: "VilaRomanaScreen", }
+    { id: 2, titulo: "Hospital Municipal Sorocabana", descricao: "R. Faustolo, 1633 - Lapa", img: hospitalsorocabana, infoHospital: "VilaRomanaScreen" }
 ]
 
 
