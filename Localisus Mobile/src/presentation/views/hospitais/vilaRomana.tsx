@@ -7,10 +7,6 @@ export const VilaRomanaInfoScreen = () => {
     return (
         <>
             <InfoHospitalScreen />
-
-      
-     
-
         </>
 
     )

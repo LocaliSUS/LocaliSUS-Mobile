@@ -1,14 +1,15 @@
-import { StyleSheet, ImageSourcePropType, View, Image, Text, FlatList } from "react-native";
+import { StyleSheet, ImageSourcePropType, DimensionValue, View, Image, Text, FlatList } from "react-native";
 import Swiper from "react-native-deck-swiper";
 import vilaromana1 from "../../assets/img/vlromana.jpg"
 import vilaromana2 from "../../assets/img/vlromana2.jpg"
 import { RootStackParamList } from "../../../App";
 import { ComponenteCard } from "./Card";
-
 export type BotaoInfoHospital = {
     botaoId: number,
     texto: string,
     cor: string,
+    height: DimensionValue,
+    flex: number,
     tela?: keyof RootStackParamList
 }
 
@@ -18,12 +19,16 @@ const infoHospitalButtons: BotaoInfoHospital[] = [
     {
         botaoId: 1,
         texto: "Ver Estoque",
-        cor: "#ffc4c4"
+        cor: "#fe9191ff",
+        flex: 1,
+        height: 150
     },
     {
         botaoId: 2,
         texto: "Ver Trajeto",
-        cor: "#d8ffc4ff"
+        cor: "#bbff99ff",
+        flex: 2,
+        height: 150
     }
 
 ]
@@ -35,60 +40,55 @@ const imagensHospital: ImageSourcePropType[] = [
 
 
 export const InfoHospitalScreen = () => {
-    return (
-        <>
-        <View style={{ backgroundColor: "#ffff"}}>
-            
-                {/* <Swiper
-                    cardStyle={styles.cardHospitalImagemInfo}
-                    cards={imagensHospital}
-                    infinite={true}
-                    cardIndex={0}
-                    renderCard={(imagem) => {
-                        return (
-                            <Image
-                                source={imagem}
-                                style={styles.cardHospitalImagemInfo}
-                            />
-                        )
-                    }}
-                /> */}
-                {/*<Text> UBS - Vila Romana </Text>  depois será necessário realizar uma modificação para o nome do hospital na tela em específico, fazer o mesmo para rua e também a descrição do hospital 
-            <Text> Rua Vespasiano, 679 - Vila Romana</Text>
-            <Text> Descrição do hospital</Text>*/}
-
-                <FlatList
-                    data={infoHospitalButtons}
-                    numColumns={2}
-                    columnWrapperStyle={{ justifyContent: 'space-evenly', width: 10 }}
-                    keyExtractor={(item) => item.botaoId.toString()}
-                    renderItem={({ item }) => (
-                        <ComponenteCard
-                            style={styles.botoesInfoHospital}
-                            id={item.botaoId}
-                            titulo={item.texto}
-                            cor={item.cor}
-                        />
-                    )}
-                />
-        </View>
-        </>
+     return (
+         <><Swiper
+             cards={imagensHospital}
+             infinite={true}
+             cardIndex={0}
+             renderCard={(imagem) => {
+                 if (!imagem) {
+                     return <View />;
+                 }
+                 return (
+                     <Image
+                         source={imagem}
+                         style={{
+                             width: 300,
+                             height: 200
+                         }} />
+                 );
+             } } /><View style={styles.linhaBotoes}>
+                 {infoHospitalButtons.map((item) => (
+                     <ComponenteCard
+                         key={item.botaoId}
+                         style={{ flex: item.flex, height: item.height }}
+                         id={item.botaoId}
+                         titulo={item.texto}
+                         cor={item.cor} />
+                 ))}
+             </View></>
     )
 }
 
 const styles = StyleSheet.create({
-    cardHospitalImagemInfo: {
-        width: 285,
-        height: 200,
-        borderRadius: 15,
-        marginLeft: 35,
-        marginTop: 15
+    linhaBotoes: {
+        flexDirection: 'row',
+        width: '100%',
+        zIndex: 20,
+        backgroundColor: "rgba(255, 255, 0, 1)"
     },
-    botoesInfoHospital: {
-        marginTop: 725,
-        height:120,
-        width: 10
-    }
+});
+// const styles = StyleSheet.create({
+//     cardHospitalImagemInfo: {
+//         width: 285,
+//         height: 200,
+//         borderRadius: 15,
+//         marginLeft: 35,
+//         marginTop: 15
+//     },
+//     botoesInfoHospital: {
+//         marginTop: 100,
+//     }
 
 
-})
+// })

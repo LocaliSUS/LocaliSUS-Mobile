@@ -4,6 +4,7 @@ import {
   Text,
   ViewStyle,
   StyleProp,
+  ImageStyle,
   ImageSourcePropType,
   Image,
   TouchableOpacity,
@@ -17,6 +18,7 @@ export interface CardProps {
   descricao?: string;
   cor?: string;
   style?: StyleProp<ViewStyle>;
+  imageStyle?: StyleProp<ImageStyle>;
   children?: ReactNode;
   img?: ImageSourcePropType;
   imgs?: ImageSourcePropType[];
@@ -65,6 +67,7 @@ export function ComponenteCard({
   titulo,
   cor,
   style,
+  imageStyle,
   img,
   descricao,
   onPress,
@@ -73,6 +76,7 @@ export function ComponenteCard({
 }: CardProps) {
   return (
       <TouchableOpacity
+      style={style}
         activeOpacity={0.6}
         onPress={onPress}
       >
@@ -82,13 +86,15 @@ export function ComponenteCard({
       {img  && (
         <Image
           source={img}
-          style={{
+          style={[
+            {
             width: 265,
             height: 150,
             borderRadius: 5,
             position: "absolute",
             zIndex: -1,
-                  }}
+            },
+              imageStyle]}
           resizeMode="cover"
         />
       )}
@@ -124,6 +130,7 @@ export const CardsSwipper = () => {
                   titulo={card.titulo}
                   descricao={card.descricao}
                   cor={card.cor}
+                  imageStyle={card.imageStyle}
                 />
               );
             }}
