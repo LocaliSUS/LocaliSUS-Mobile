@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 325, //realizar a centralização de forma correta
+        marginTop: 325, 
     },
 
 })

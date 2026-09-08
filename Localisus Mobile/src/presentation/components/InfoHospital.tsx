@@ -8,7 +8,6 @@ export type BotaoInfoHospital = {
     botaoId: number,
     texto: string,
     cor: string,
-    flex: number,
     tela?: keyof RootStackParamList
 }
 
@@ -18,14 +17,12 @@ const infoHospitalButtons: BotaoInfoHospital[] = [
     {
         botaoId: 1,
         texto: "Ver Estoque",
-        cor: "#fe9191ff",
-        flex: 1,
+        cor: "#fe9191ff"
     },
     {
         botaoId: 2,
         texto: "Ver Trajeto",
-        cor: "#bbff99ff",
-        flex: 1
+        cor: "#bbff99ff"
     }
 
 ]
@@ -36,67 +33,10 @@ const imagensHospital: ImageSourcePropType[] = [
 ]
 
 
-// export const InfoHospitalScreen = () => {
-//     return (
-//         <>
-//             <View style={{ flex: 1 }}>
-//                 <Swiper
-//                     backgroundColor="transparent"
-//                     cardStyle={styles.estiloImagens}
-//                     cards={imagensHospital}
-//                     infinite={true}
-//                     cardIndex={0}
-//                     renderCard={(imagem) => {
-//                         if (!imagem) {
-//                             return <View />;
-//                         }
-//                         return (
-//                             <Image
-//                                 source={imagem}
-//                                 style={{
-//                                     width: 300,
-//                                     height: 225
-//                                 }} />
-//                         );
-//                     }} />
-//                 <View style={styles.linhaBotoes}>
-//                     {infoHospitalButtons.map((item) => (
-//                         <ComponenteCard
-//                             key={item.botaoId}
-//                             style={{ flex: item.flex }}
-//                             id={item.botaoId}
-//                             titulo={item.texto}
-//                             cor={item.cor} />
-//                     ))}
-//                 </View>
-//             </View>
-//         </>
-//     )
-// }
-
-// const styles = StyleSheet.create({
-//     estiloImagens: {
-//         marginTop: 50,
-//         display: 'flex',
-//         alignItems: 'center',
-//         borderRadius: 20
-//     },
-//     linhaBotoes: {
-//         flexDirection: 'row',
-//         justifyContent: 'space-evenly',
-//         alignItems: 'center',
-//         width: '100%',
-//         height: '10%',
-//         backgroundColor: '#ff0011ff',
-//         zIndex: 2
-
-//     },
-// });
-
 export const InfoHospitalScreen = () => {
     return (
         <View style={{ flex: 1 }}>
-            <View style={styles.containerSwiper}>
+             <View style={styles.containerSwiper}>
                 <Swiper
                     backgroundColor="transparent"
                     cardStyle={styles.estiloImagens}
@@ -117,8 +57,8 @@ export const InfoHospitalScreen = () => {
             <View style={styles.linhaBotoes}>
                 {infoHospitalButtons.map((item) => (
                     <ComponenteCard
+                    style={{width: "100%", height: 35}}
                         key={item.botaoId}
-                        style={{ flex: item.flex }}
                         id={item.botaoId}
                         titulo={item.texto}
                         cor={item.cor}
@@ -137,9 +77,11 @@ const styles = StyleSheet.create({
         borderRadius: 20,
     },
     linhaBotoes: {
+        alignItems: 'center',
+        padding: 10,
+        gap: 20,
+        width: "50%",
         flexDirection: 'row',
-        justifyContent: 'space-evenly',
-        paddingBottom: 20,
-        gap: 20, height: 75
+        flex: 1
     },
 });

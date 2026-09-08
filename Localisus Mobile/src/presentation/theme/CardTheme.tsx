@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
   cardsContainer: {
     height: 175,
     borderRadius: 10,
-    minWidth: 250,
+    minWidth: 20,
     justifyContent: "center",
     alignItems: "center",
 
