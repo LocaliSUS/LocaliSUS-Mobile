@@ -16,17 +16,18 @@ export const styles = StyleSheet.create({
   },
   swiperWrapper: {
     marginRight: 400,
-    marginTop: 5,
     marginBottom: 65,
     height: 220,
   },
   cardsContainer: {
-    height: 175,
-    borderRadius: 10,
+    height: 160,
+    borderRadius: 20,
     minWidth: 50,
     flex: 1,
-    justifyContent: "center",
+    justifyContent: 'space-evenly',
+    padding: 5, //gambiarra suprema, ao modificarmos o padding desse elemento estamos realizando alterações no espaçamento das letras dentro dos cards superiores coloridos da tela homeScreen
+    //os elementos presentes em unidades próxima por sua vez sofrem alterações em relação ao espaçamento entre os cards
+    //mas também realiza alterações nos botõea da tela de informações hospital
     alignItems: "center",
-
   },
 });

@@ -22,7 +22,12 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   unidadesProximasCard: {
-    marginTop: 20,
+    marginBottom: "7.5%",
+    width: "100%",
+    zIndex: 3,
+    flex: 1,
+    alignContent: 'space-between',
+    flexDirection: 'row'
   },
   botoesRodapeHome: {
     alignContent: 'center',
@@ -30,5 +35,8 @@ export const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "center",
     alignItems: "center",
+  },
+  cardsImagemHospital: {
+    flex: 1,
   }
 });

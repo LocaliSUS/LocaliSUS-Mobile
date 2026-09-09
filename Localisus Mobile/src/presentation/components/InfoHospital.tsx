@@ -82,6 +82,7 @@ const styles = StyleSheet.create({
         gap: 20,
         width: "50%",
         flexDirection: 'row',
-        flex: 1
+        flex: 1,
+        zIndex: 20
     },
 });

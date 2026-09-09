@@ -10,7 +10,7 @@ import hospitalsorocabana from '../../imagens/sorocab.png'
 import { HorizontalDivider } from "../../components/Divider";
 import { CabecalhoHome } from "../../../assets/componentestelas/elementoshome/cabecalho/CabecalhoHome";
 import { RodapeHome } from "../../../assets/componentestelas/elementoshome/rodape/RodapeHome";
-import {  BotoesApp } from "../../components/BotoesApp";
+import { BotoesApp } from "../../components/BotoesApp";
 
 type hospitalCard = {
     id: number,
@@ -22,39 +22,43 @@ type hospitalCard = {
 }
 
 type BotaoHome = {
-    botaoId: number, 
+    botaoId: number,
     texto: string,
     cor: string,
     tela?: keyof RootStackParamList
 }
 
 const cardsHospitais: hospitalCard[] = [
-    { id: 1, titulo: "AME - Dr. Geraldo Paulo Bourrol", descricao: "R. Martins Fontes, 208 - Centro Histórico de São Paulo",  img: amegeraldopaulo, infoHospital: "VilaRomanaScreen"  },
-    { id: 2, titulo: "Hospital Municipal Sorocabana", descricao: "R. Faustolo, 1633 - Lapa", img: hospitalsorocabana, infoHospital: "VilaRomanaScreen" }
+    { id: 1, titulo: "AME - Dr. Geraldo Paulo Bourrol", descricao: "Há 5 minutos de distância", img: amegeraldopaulo, infoHospital: "VilaRomanaScreen" },
+    { id: 2, titulo: "Hospital Municipal Sorocabana", descricao: "Há 10 minutos de distância", img: hospitalsorocabana, infoHospital: "VilaRomanaScreen" },
+    { id: 3, titulo: "Hospital Municipal Sorocabana", descricao: "Há 10 minutos de distância", img: hospitalsorocabana, infoHospital: "VilaRomanaScreen" }
 ]
 
 
 const botoesRodapeHome: BotaoHome[] = [
     { botaoId: 1, texto: "Remédios", cor: "#ffc4c4", tela: "MedicamentoScreen" },
-    { botaoId: 2, texto: "Localização", cor: "#fffdc4", tela: "LocalizacaoScreen"},
+    { botaoId: 2, texto: "Localização", cor: "#fffdc4", tela: "LocalizacaoScreen" },
     { botaoId: 3, texto: "Lembretes", cor: "#d8ffc4ff", tela: "PasswordForget" },
     { botaoId: 4, texto: "Ajuda", cor: "#ffffffff", tela: "Tela" },
 
 ]
 
 export const HomeScreen = () => {
-const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+    const navigation = useNavigation<NavigationProp<RootStackParamList>>();
     return (
         <>
             <CabecalhoHome></CabecalhoHome>
             <View style={styles.visualizacaoTela}>
-                <CardsSwipper></CardsSwipper> 
+                <CardsSwipper></CardsSwipper>
                 <HorizontalDivider></HorizontalDivider>
                 <Text style={styles.txtTelaHome}> Unidades Próximas
                 </Text>
                 <View style={styles.unidadesProximasCard}>
                     <FlatList
+                        style={styles.cardsImagemHospital}
                         data={cardsHospitais}
+                        contentContainerStyle={{
+                            flex: 1, gap: 85, marginLeft: 25,}}
                         keyExtractor={(item) => item.id.toString()}
                         showsHorizontalScrollIndicator={false}
                         horizontal={true}
@@ -72,13 +76,13 @@ const navigation = useNavigation<NavigationProp<RootStackParamList>>();
                 </View>
             </View>
             <RodapeHome>
-              <FlatList
+                <FlatList
                     data={botoesRodapeHome}
                     keyExtractor={(item) => item.botaoId.toString()}
                     showsVerticalScrollIndicator={false}
                     numColumns={2}
                     horizontal={false}
-                    columnWrapperStyle={{ justifyContent: 'space-evenly', width: '100%', marginBottom: 15}}
+                    columnWrapperStyle={{ justifyContent: 'space-evenly', width: '100%', marginBottom: 15 }}
                     contentContainerStyle={styles.botoesRodapeHome}
                     renderItem={({ item }) => (
                         <BotoesApp
@@ -87,9 +91,9 @@ const navigation = useNavigation<NavigationProp<RootStackParamList>>();
                             cor={item.cor}
                             onPress={() => navigation.navigate(item.tela)}
                         />
-                    )}  
-              />
-              
+                    )}
+                />
+
             </RodapeHome>
         </>
     )
