@@ -9,7 +9,7 @@ import { COLORS } from "../../theme/AppTheme";
 import { RoundedButton } from "../../components/RoudedButton";
 import { CustomTextInput } from "../../components/CustomTextInput";
 //views models
-import SenhaEsquecidaViewModel from './ViewModel';
+import SenhaEsquecidaViewModel from '../../../assets/services/senha/SenhaViewModel';
 
 
 export const SenhaEsquecidaScreen = () => {
