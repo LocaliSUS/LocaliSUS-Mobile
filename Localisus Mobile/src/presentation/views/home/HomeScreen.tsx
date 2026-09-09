@@ -7,6 +7,7 @@ import { useNavigation, NavigationProp } from "@react-navigation/native";
 import { styles } from './HomeScreenTheme'
 import amegeraldopaulo from '../../imagens/amegeraldopaulo.jpg'
 import hospitalsorocabana from '../../imagens/sorocab.png'
+import ubsvilaromana from '../../imagens/vilaromanaubs.jpg'
 import { HorizontalDivider } from "../../components/Divider";
 import { CabecalhoHome } from "../../../assets/componentestelas/elementoshome/cabecalho/CabecalhoHome";
 import { RodapeHome } from "../../../assets/componentestelas/elementoshome/rodape/RodapeHome";
@@ -18,7 +19,7 @@ type hospitalCard = {
     descricao: string,
     img?: ImageSourcePropType,
     style?: StyleProp<ViewStyle>;
-    infoHospital: keyof RootStackParamList
+    infoHospital?: keyof RootStackParamList
 }
 
 type BotaoHome = {
@@ -29,16 +30,17 @@ type BotaoHome = {
 }
 
 const cardsHospitais: hospitalCard[] = [
-    { id: 1, titulo: "AME - Dr. Geraldo Paulo Bourrol", descricao: "Há 5 minutos de distância", img: amegeraldopaulo, infoHospital: "VilaRomanaScreen" },
+    { id: 1, titulo: "UBS Vila Romana", descricao: "Há 5 minutos de distância", img: ubsvilaromana, infoHospital: "VilaRomanaScreen" },
     { id: 2, titulo: "Hospital Municipal Sorocabana", descricao: "Há 10 minutos de distância", img: hospitalsorocabana, infoHospital: "VilaRomanaScreen" },
-    { id: 3, titulo: "Hospital Municipal Sorocabana", descricao: "Há 10 minutos de distância", img: hospitalsorocabana, infoHospital: "VilaRomanaScreen" }
-]
-
+    { id: 3, titulo: "AME - Dr. Geraldo Paulo Bourrol", descricao: "Há 10 minutos de distância", img: amegeraldopaulo, infoHospital: "VilaRomanaScreen" },
+    { id: 4, titulo: "Por enquanto é só isso", descricao: "Deseja buscar por mais hospitais?" }
+ ]
+ 
 
 const botoesRodapeHome: BotaoHome[] = [
     { botaoId: 1, texto: "Remédios", cor: "#ffc4c4", tela: "MedicamentoScreen" },
-    { botaoId: 2, texto: "Localização", cor: "#fffdc4", tela: "LocalizacaoScreen" },
-    { botaoId: 3, texto: "Lembretes", cor: "#d8ffc4ff", tela: "PasswordForget" },
+    { botaoId: 2, texto: "Localização", cor: "#d8ffc4ff", tela: "LocalizacaoScreen" },
+    { botaoId: 3, texto: "Lembretes", cor: "#fffdc4", tela: "PasswordForget" },
     { botaoId: 4, texto: "Ajuda", cor: "#ffffffff", tela: "Tela" },
 
 ]
@@ -57,8 +59,7 @@ export const HomeScreen = () => {
                     <FlatList
                         style={styles.cardsImagemHospital}
                         data={cardsHospitais}
-                        contentContainerStyle={{
-                            flex: 1, gap: 85, marginLeft: 25,}}
+                        contentContainerStyle={{ gap: 96, marginLeft: 75, zIndex: 50 }} //as alterações de estilo dentro de contentcontainerstyle realiza modificações para os cards de unidades próximas, a distância entre o AME Geraldo Paul e o Hospital Sorocabana deve ser analisada 
                         keyExtractor={(item) => item.id.toString()}
                         showsHorizontalScrollIndicator={false}
                         horizontal={true}
@@ -82,7 +83,7 @@ export const HomeScreen = () => {
                     showsVerticalScrollIndicator={false}
                     numColumns={2}
                     horizontal={false}
-                    columnWrapperStyle={{ justifyContent: 'space-evenly', width: '100%', marginBottom: 15 }}
+                    columnWrapperStyle={{ justifyContent: 'space-evenly', width: '100%', marginBottom: 15}}
                     contentContainerStyle={styles.botoesRodapeHome}
                     renderItem={({ item }) => (
                         <BotoesApp

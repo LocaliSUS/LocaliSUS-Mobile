@@ -48,7 +48,7 @@ export const InfoHospitalScreen = () => {
                         return (
                             <Image
                                 source={imagem}
-                                style={{ width: 300, height: 225 }}
+                                style={{ width: 300, height: 225, borderRadius: 10 }}
                             />
                         );
                     }}
