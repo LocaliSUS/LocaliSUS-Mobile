@@ -1,3 +1,5 @@
+import { Medicamento, mockMedicamentos } from "../../mocks/medicamento/medicamentosMock";
+
 export function buscarMedicamentosService() {
     return {
         async search(query) {
@@ -6,11 +8,15 @@ export function buscarMedicamentosService() {
             const termo = query.toLowerCase().trim();
             if (!termo) return []; 
 
-            return mockMedicamentosData.filter((med) => 
-                med.naome.toLowerCase().includes(termo) ||
+            return mockMedicamentos.filter((med) => 
+                med.nomeComum.toLowerCase().includes(termo) ||
                 med.receitaMedicamento?.toLowerCase().includes(termo)
             );
         },
     };
 }
 
+
+export interface buscarMedicamentoInterface {
+    search(query: string): Promise<Medicamento[]>
+}

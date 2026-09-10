@@ -1,8 +1,10 @@
-export interface Medicamento {
+import { TipoMedicamento } from "../tipoMedicamento/tipoMedicamento";
+
+export type Medicamento = {
     id: string;
     nomeComum: string;
     nomeTecnico?: string; 
-    tipoMedicamento: 
+    tipoMedicamento: TipoMedicamento
 }
 
 export const mockMedicamentos = [
