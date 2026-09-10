@@ -14,6 +14,3 @@ export const mockMedicamentos = [
     { id: '4', nomeComum: 'Ibuprofeno', nomeTecnico: 'Ibuprofeno', tipoMedicamento: 'Anti-inflamatório', receitaMedicamento: 'Ibuprofeno' },
 
 ]
-//precisa ser implementada a tipagem para trazer robustez aos dados que forem pertencer a esse mock futuramente, tipo amanhã
-//implementar também a dosagem dos medicamentos de forma personalizada, mas que vai fazer isso futuramente (muito futuramente) é o médico
-//também atribuir isso ao usuário
