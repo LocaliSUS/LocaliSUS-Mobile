@@ -77,7 +77,7 @@ export const HomeScreen = () => {
                 </View>
             </View>
             <RodapeHome>
-                <FlatList
+                {/* <FlatList
                     data={botoesRodapeHome}
                     keyExtractor={(item) => item.botaoId.toString()}
                     showsVerticalScrollIndicator={false}
@@ -93,7 +93,7 @@ export const HomeScreen = () => {
                             onPress={() => navigation.navigate(item.tela)}
                         />
                     )}
-                />
+                /> */}
 
             </RodapeHome>
         </>
