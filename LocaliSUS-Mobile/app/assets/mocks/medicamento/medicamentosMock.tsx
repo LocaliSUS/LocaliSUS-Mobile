@@ -1,8 +1,8 @@
 export interface Medicamento {
     id: string;
     nomeComum: string;
-    nomeTecnico?: string; 
-    tipoMedicamento: 
+    nomeTecnico?: string;
+    tipoMedicamento: string;
 }
 
 export const mockMedicamentos = [

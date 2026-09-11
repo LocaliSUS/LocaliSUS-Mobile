@@ -1,44 +1,46 @@
 import React, { useState } from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  Button,
-} from "react-native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "../../../../App";
+import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
-//componentes
 import { COLORS } from "../../theme/AppTheme";
-import { RoundedButton } from "../../components/RoudedButton";
 import { CustomTextInput } from "../../components/CustomTextInput";
-//views models
-import cadastroViewModel from "./ViewModel";
+import { useRouter } from "expo-router";
 
-export const CadastroSusScreen = () => {
-  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+export const LoginScreen = () => {
+  const [form, setForm] = useState({
+    cpf: "",
+    senha: "",
+  });
 
-  const { userPassword, userEmail, userPhone, onChange } = cadastroViewModel();
+  const router = useRouter()
+
+  const handleChange = (property: string | undefined, value: any) => {
+    if (!property) return;
+
+    setForm({
+      ...form,
+      [property]: value,
+    });
+  };
 
   return (
     <View style={styles.container}>
-      {/* FUNDO PRINCIPAL */}
+      {/* Fundo */}
       <Image
         source={require("../../../assets/img/tela-fundo.png")}
-        style={styles.FundoImage}
+        style={styles.backgroundImage}
       />
 
-      {/* Card/image */}
+      {/* Curvas */}
       <Image
         source={require("../../../assets/img/curva-superior.png")}
-        style={styles.Cardtop}
+        style={styles.topDetail}
       />
+
       <Image
         source={require("../../../assets/img/curva-inferior.png")}
-        style={styles.cardDow}
+        style={styles.bottomDetail}
       />
 
       {/* Header */}
@@ -47,52 +49,49 @@ export const CadastroSusScreen = () => {
           style={styles.imageLogo}
           source={require("../../../assets/img/LocaliSUS-Logo-Fundo.png")}
         />
-        <Text style={styles.textlogo}>LOCALISUS</Text>
+
+        <Text style={styles.logo}>LOCALISUS</Text>
       </View>
 
-      {/* Escrita */}
+      {/* Formulário */}
       <View style={styles.footer}>
-        <Text style={styles.title}>cadastro</Text>
+        <Text style={styles.title}>Entrar</Text>
 
         <CustomTextInput
           image={require("../../../assets/img/icon-cpf.png")}
           placeholder="Insira seu CPF..."
-          keyboardType="default"
-          secureTextEntry={false}
-          property="userEmail"
-          onChangeText={onChange}
-          value={userEmail}
-        />
-        <CustomTextInput
-          image={require("../../../assets/img/icone-numero.png")}
-          placeholder="Insira seu Numero de Telefone..."
-          keyboardType="default"
-          secureTextEntry={false}
-          property="userPhone"
-          onChangeText={onChange}
-          value={userPhone}
-        />
-        <CustomTextInput
-          image={require("../../../assets/img/icon-senha.png")}
-          placeholder="Insira seu Senha..."
-          keyboardType="default"
-          secureTextEntry={true}
-          property="userPassword"
-          onChangeText={onChange}
-          value={userPassword}
+          value={form.cpf}
+          keyboardType="numeric"
+          property="cpf"
+          onChangeText={handleChange}
         />
 
-        <RoundedButton>
-          <Text>Cadastrar</Text>
-        </RoundedButton>
+        <CustomTextInput
+          image={require("../../../assets/img/icon-senha.png")}
+          placeholder="Insira sua Senha..."
+          value={form.senha}
+          secureTextEntry={true}
+          property="senha"
+          onChangeText={handleChange}
+        />
+
+        <TouchableOpacity onPress={() => router.push("PasswordForget")}>
+          <Text style={styles.forgotPassword}>Esqueci minha senha</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.loginButton}
+          onPress={() => router.push("HomeScreen")}
+        >
+          <Text style={styles.loginText}>Entrar</Text>
+        </TouchableOpacity>
+
+        {/* Voltar + Ajuda */}
         <View style={styles.bottomIcons}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate("Inicio")}
-            style={styles.voltarButton}
-          >
+          <TouchableOpacity onPress={() => router.push("Inicio")}>
             <Image
-              style={styles.voltarLogo}
               source={require("../../../assets/img/icon-voltar.png")}
+              style={styles.bottomBack}
             />
           </TouchableOpacity>
 
@@ -111,69 +110,63 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.darkBlue,
   },
 
-  FundoImage: {
+  backgroundImage: {
     position: "absolute",
     width: "100%",
     height: "100%",
     resizeMode: "cover",
   },
 
-  Cardtop: {
+  topDetail: {
     position: "absolute",
     width: 500,
-    height: 300,
-    top: -20,
+    height: 279,
+    top: -5,
     left: -49,
     resizeMode: "contain",
   },
 
-  cardDow: {
+  bottomDetail: {
     position: "absolute",
     width: 750,
-    height: 610,
+    height: 590,
     bottom: -200,
     left: -172,
     resizeMode: "contain",
   },
-
   header: {
     flex: 1.4,
     justifyContent: "center",
     alignItems: "center",
-    paddingBottom: 240,
+    paddingBottom: 300,
   },
-
   imageLogo: {
     width: 110,
     height: 110,
     resizeMode: "contain",
   },
-
-  textlogo: {
-    color: "#FFFFFF",
+  logo: {
+    color: "#FFF",
     fontSize: 26,
     fontWeight: "bold",
-    marginTop: 10,
+    marginTop: 8,
   },
-
   footer: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    paddingTop: -10,
-    gap: 12,
+    paddingBottom: 90,
+    gap: 5,
   },
-
   title: {
-    marginTop: -120,
-    height: 45,
-    color: "#FFFFFF",
-    fontSize: 38,
+    color: "#FFF",
+    fontSize: 28,
     fontWeight: "bold",
+    marginBottom: 29,
   },
 
-  cadastroButton: {
-    backgroundColor: COLORS.goldenYellow,
+  loginButton: {
+    backgroundColor: COLORS.mintGreen,
     width: 150,
     height: 25,
     borderRadius: 22,
@@ -181,34 +174,44 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 10,
     shadowColor: "#000",
-    shadowOffset: { width: 0, height: 3 },
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
     shadowOpacity: 0.3,
     shadowRadius: 4,
     elevation: 5,
-    marginTop: 20,
+  },
+
+  loginText: {
+    color: COLORS.darkBlue,
+    fontWeight: "bold",
+    fontSize: 15,
   },
 
   help: {
     color: "#FFFFFF",
-    fontSize: 25,
+    fontSize: 18,
     marginTop: 5,
-    marginRight: 8,
   },
-  forgotPassword: {},
+
+  forgotPassword: {
+    color: "#FFF",
+    fontSize: 14,
+    borderBottomColor: "#FFF",
+    borderBottomWidth: 1,
+  },
+
   bottomIcons: {
-    marginTop: 5,
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "space-between",
     alignItems: "center",
-    gap: 8,
-    paddingRight: 125,
+    width: "100%",
+    paddingRight: 140,
   },
-  voltarLogo: {
-    width: 43,
-    height: 47,
-  },
-  voltarButton: {
-    marginLeft: 6,
-    paddingRight: 70,
+  bottomBack: {
+    height: 55,
+    paddingTop: 30,
+    resizeMode: "contain",
   },
 });

@@ -9,7 +9,6 @@ import {
   TextInput,
 } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "../../../../App";
 import { useNavigation } from "@react-navigation/native";
 
 //componentes
@@ -17,10 +16,11 @@ import { COLORS } from "../../theme/AppTheme";
 import { RoundedButton } from "../../components/RoudedButton";
 import { CustomTextInput } from "../../components/CustomTextInput";
 //views models
-import CodigoViewModel from "./ViewModel";
+import CodigoViewModel from "./ViewModels/CodigoViewModel";
+import { useRouter } from "expo-router";
 
 export const CodigoScreen = () => {
-  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+  const router = useRouter()
 
   const { userPhone, onChange } = CodigoViewModel();
 
@@ -107,14 +107,14 @@ export const CodigoScreen = () => {
 
         <TouchableOpacity
           style={styles.confirmarButton}
-          onPress={() => navigation.navigate("Inicio")}
+          onPress={() => router.push("Inicio")}
         >
           <Text style={styles.CadastroText}>Confirmar</Text>
         </TouchableOpacity>
 
         <View style={styles.bottomIcons}>
           <TouchableOpacity
-            onPress={() => navigation.navigate("Inicio")}
+            onPress={() => router.push("Inicio")}
             style={styles.voltarButton}
           >
             <Image

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Text, Image, TouchableOpacity, Button } from "react-native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "../../../../App";
-import { useNavigation } from "@react-navigation/native";
+import { StyleSheet, View, Text, Image, TouchableOpacity, Button, Pressable } from "react-native";
+
+import { useRouter } from "expo-router";
 
 //componentes
 import { COLORS } from "../../theme/AppTheme";
@@ -13,7 +12,7 @@ import SenhaEsquecidaViewModel from '../../../assets/services/senha/SenhaViewMod
 
 
 export const SenhaEsquecidaScreen = () => {
-    const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+    const router = useRouter();
 
     const { userPhone, onChange, } = SenhaEsquecidaViewModel();
 
@@ -67,24 +66,24 @@ export const SenhaEsquecidaScreen = () => {
 
                 />
 
-                <TouchableOpacity style={styles.cadastroButton}
-                    onPress={() => navigation.navigate("CodigoScreen")}
+                <Pressable style={styles.cadastroButton}
+                    onPress={() => router.push("CodigoScreen")}
                 >
                     <Text style={styles.CadastroText}>Enviar Codigo</Text>
-                </TouchableOpacity>
+                </Pressable>
 
                 <View style={styles.bottomIcons}>
 
-                    <TouchableOpacity onPress={() => navigation.navigate('Inicio')} style={styles.voltarButton}>
+                    <Pressable onPress={() => router.push('Inicio')} style={styles.voltarButton}>
                         <Image
                             style={styles.voltarLogo}
                             source={require("../../../assets/img/icon-voltar.png")}
                         />
-                    </TouchableOpacity>
+                    </Pressable>
 
-                    <TouchableOpacity>
+                    <Pressable>
                         <Text style={styles.help}>ⓘ Ajuda</Text>
-                    </TouchableOpacity>
+                    </Pressable>
 
                 </View>
             </View>
@@ -158,8 +157,8 @@ const styles = StyleSheet.create({
         color: "#FFFFFF",
         fontSize: 38,
         fontWeight: "bold",
-        bottom:40
-        
+        bottom: 40
+
     },
 
     cadastroButton: {
@@ -175,15 +174,15 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.3,
         shadowRadius: 4,
         elevation: 5,
-        marginTop:180,
-        bottom:80
+        marginTop: 180,
+        bottom: 80
     },
-    CadastroText:{
+    CadastroText: {
         height: 30,
         color: "#000000ff",
         fontSize: 21,
         fontWeight: "bold",
-        
+
     },
     help: {
         color: "#FFFFFF",
@@ -192,7 +191,7 @@ const styles = StyleSheet.create({
         marginRight: 8,
     },
     forgotPassword: {
-        
+
 
     },
     bottomIcons: {
@@ -202,12 +201,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         gap: 8,
         paddingRight: 125,
-        bottom:80
+        bottom: 80
     },
     voltarLogo: {
         width: 43,
         height: 47,
-        
+
 
     },
     voltarButton: {

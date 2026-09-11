@@ -1,30 +1,26 @@
-import React from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "../../../../App";
-import { COLORS } from "../../theme/AppTheme";
+import { useRouter } from "expo-router";
+import { COLORS } from "./presentation/theme/AppTheme";
 
 export const Inicio = () => {
-  const navigation =
-    useNavigation<StackNavigationProp<RootStackParamList>>();
+  const router = useRouter()
 
   return (
     <View style={styles.container}>
 
       <Image
-        source={require("../../../assets/img/tela-fundo.png")}
+        source={require("./assets/img/tela-fundo.png")}
         style={styles.imageFundo}
       />
 
       {/* FUNDOS CURVADOS */}
       <Image
-        source={require("../../../assets/img/curva-superior.png")}
+        source={require("./assets/img/curva-superior.png")}
         style={styles.topDetail}
       />
 
       <Image
-        source={require("../../../assets/img/curva-inferior.png")}
+        source={require("./assets/img/curva-inferior.png")}
         style={styles.bottomDetail}
       />
 
@@ -32,7 +28,7 @@ export const Inicio = () => {
       <View style={styles.header}>
         <Image
           style={styles.imageLogo}
-          source={require("../../../assets/img/LocaliSUS-Logo-Fundo.png")}
+          source={require("./assets/img/LocaliSUS-Logo-Fundo.png")}
         />
         <Text style={styles.logo}>LOCALISUS</Text>
       </View>
@@ -44,13 +40,13 @@ export const Inicio = () => {
 
         <TouchableOpacity
           style={styles.loginButton}
-          onPress={() => navigation.navigate("LoginScreen")}
+          onPress={() => router.push("LoginScreen")}
         >
           <Text style={styles.loginText}>Já tem uma conta?</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.registerButton}
-        onPress={() => navigation.navigate("CadastroSusScreen")}
+          onPress={() => router.push("CadastroSusScreen")}
         >
           <Text style={styles.registerText}>Cadastre-se!</Text>
         </TouchableOpacity>
