@@ -11,7 +11,7 @@ import { FONTS } from "./src/assets/fontes/Fontes";
 import { useFonts } from "expo-font";
 import { HomeScreen } from "./src/presentation/views/home/HomeScreen";
 import { CodigoScreen } from "./src/presentation/views/codigo/CodigoVerificacao";
-import { MapaSus } from "./src/presentation/views/Localização/MapaSus";
+import { LocalizacaoScreen } from "./src/presentation/views/localização/localizacao/localizacaoScreen"
 import { VilaRomanaInfoScreen } from "./src/presentation/views/hospitais/vilaRomana";
 
 export type RootStackParamList = {
@@ -50,7 +50,7 @@ export default function App() {
 
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
 
-        <Stack.Screen name="LocalizacaoScreen" component={MapaSus}/>
+        <Stack.Screen name="LocalizacaoScreen" component={LocalizacaoScreen}/>
 
         <Stack.Screen name="VilaRomanaScreen" component={VilaRomanaInfoScreen}/>
 

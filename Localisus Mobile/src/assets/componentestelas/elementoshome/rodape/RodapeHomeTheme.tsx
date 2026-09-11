@@ -5,6 +5,8 @@ import { COLORS } from '../../../../presentation/theme/AppTheme'
 export const styles = StyleSheet.create({
     rodape: {
         height: 150,
+        position: 'absolute', //através do position absolute podemos fazer bottom: 0
+        bottom: 0,
         borderTopRightRadius: 35,
         borderTopLeftRadius: 35,
         width: "100%",
