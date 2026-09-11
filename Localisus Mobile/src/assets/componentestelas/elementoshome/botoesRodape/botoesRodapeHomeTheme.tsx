@@ -4,7 +4,8 @@ export const styles = StyleSheet.create ({
     
   botoesRodapeHome: {
     alignContent: 'center',
-    flex: 1,
+    
+    marginBottom: 0,
     width: "100%",
     justifyContent: "center",
     alignItems: "center",

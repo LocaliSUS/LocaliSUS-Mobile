@@ -10,6 +10,8 @@ import {
 import iconevoltar from "../../../assets/img/icon-voltar.png";
 import iconeajuda from "../../../assets/img/icon-ajuda.png";
 import { COLORS } from "../../theme/AppTheme";
+import { RodapeHome } from "../../../assets/componentestelas/elementoshome/rodape/RodapeHome";
+import { BotoesRodape } from "../../../assets/componentestelas/elementoshome/botoesRodape/botoesRodapeHome";
 
 export const MapaSus = () => {
   return (
@@ -17,11 +19,12 @@ export const MapaSus = () => {
       {/* HEADER */}
       <View style={styles.header}>
         <View style={styles.headerTop}>
+          {/*}>
           <TouchableOpacity style={styles.circleButton}>
             <Text style={styles.icon}>☰</Text>
-          </TouchableOpacity>
-
-          <Text style={styles.title}>Pesquisar por Unidades</Text>
+          </TouchableOpacity> */}
+{/* 
+          <Text style={styles.title}>Pesquisar por Unidades</Text> */}
 
           <TouchableOpacity style={styles.circleButton}>
             <Image source={iconevoltar} style={styles.backIcon} />
@@ -38,12 +41,20 @@ export const MapaSus = () => {
         </View>
       </View>
 
-      {/* MAP AREA */}
+      {/* MAP AREA
       <View style={styles.mapArea}>
         <Text style={styles.mapText}>Mapa será exibido aqui</Text>
       </View>
+      <View style={{zIndex: 1000}}> */}
+    <RodapeHome>
+      <BotoesRodape />
+    </RodapeHome>
+    </View>
+  );
 
-      {/* FOOTER */}
+};
+
+{/* FOOTER
       <View style={styles.footer}>
         <View style={styles.row}>
           <TouchableOpacity style={styles.remediosButton}>
@@ -67,15 +78,9 @@ export const MapaSus = () => {
               <Text style={styles.buttonText}>Ajuda</Text>
             </View>
           </TouchableOpacity>
-        </View>
-      </View>
-    </View>
-  );
-};
-
+        </View> */}
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: COLORS.darkBlue,
   },
 
@@ -144,7 +149,6 @@ const styles = StyleSheet.create({
   },
 
   mapArea: {
-    flex: 1,
     backgroundColor: "#bdbdbdff",
     justifyContent: "center",
     alignItems: "center",
