@@ -22,5 +22,17 @@ export const styles = StyleSheet.create({
   },
   cardsImagemHospital: {
     flex: 1,
-  }
+  } ,
+  
+  titulo: {
+        color: "white",
+        marginTop: 8,
+        fontSize: 17,
+        fontWeight: 'bold'
+    },
+    nomeUsuario: {
+        color: "white",
+        fontSize: 20,
+        fontWeight: 'bold'
+    }
 });

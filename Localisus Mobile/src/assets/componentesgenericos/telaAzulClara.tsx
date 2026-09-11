@@ -13,7 +13,7 @@ export const TelaAzulClara = ({children}: PropsWithChildren) => {
 
 export const styles = StyleSheet.create({
      visualizacaoTela: {
-    zIndex: 50,
+    zIndex: 2,
     flex: 1,
     marginTop: -25,
     borderTopStartRadius: 25,

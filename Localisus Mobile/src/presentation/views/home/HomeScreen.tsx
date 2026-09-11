@@ -11,6 +11,8 @@ import { CabecalhoHome } from "../../../assets/componentestelas/elementoshome/ca
 import { RodapeHome } from "../../../assets/componentestelas/elementoshome/rodape/RodapeHome";
 import { BotoesRodape } from "../../../assets/componentestelas/elementoshome/botoesRodape/botoesRodapeHome";
 import { TelaAzulClara } from "../../../assets/componentesgenericos/telaAzulClara";
+import BuscaMedicamento from "../testeBuscaMedicamento/testeBuscaMedicamento";
+import { buscarMedicamentosService } from '../../../assets/services/medicamentos/buscarMedicamentoService'
 
 type hospitalCard = {
     id: number,
@@ -31,9 +33,14 @@ const cardsHospitais: hospitalCard[] = [
  
 export const HomeScreen = () => {
     const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+    const serviceBusca = buscarMedicamentosService();
     return (
         <>
-            <CabecalhoHome></CabecalhoHome>
+            <CabecalhoHome>
+                    <Text style={styles.titulo}> BOAS - VINDAS</Text>
+                    <Text style={styles.nomeUsuario}>Senhor Maurício dos Santos</Text>
+                    <BuscaMedicamento buscaService={serviceBusca}/>
+            </CabecalhoHome>
             <TelaAzulClara>
                 <CardsSwipper></CardsSwipper>
                 <HorizontalDivider></HorizontalDivider>

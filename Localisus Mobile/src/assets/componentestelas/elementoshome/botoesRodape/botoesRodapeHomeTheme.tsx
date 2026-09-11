@@ -1,7 +1,6 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create ({
-    
   botoesRodapeHome: {
     alignContent: 'center',
     display:'flex',

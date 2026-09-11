@@ -4,58 +4,78 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../../../App";
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from 'expo-linear-gradient';
-
 import { COLORS } from "../../theme/AppTheme";
+import { TelaAzulClara } from "../../../assets/componentesgenericos/telaAzulClara";
+import { CabecalhoHome } from "../../../assets/componentestelas/elementoshome/cabecalho/CabecalhoHome";
+import BuscaMedicamento from "../testeBuscaMedicamento/testeBuscaMedicamento";
+import { buscarMedicamentosService } from "../../../assets/services/medicamentos/buscarMedicamentoService";
+import { BotoesRodape } from "../../../assets/componentestelas/elementoshome/botoesRodape/botoesRodapeHome";
+import { RodapeHome } from "../../../assets/componentestelas/elementoshome/rodape/RodapeHome";
 
 export const MedicamentoScreen = () => {
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+    const serviceBusca = buscarMedicamentosService();
 
     return (
-        <View style={styles.container}>
-            <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')} style={styles.bntMenuCont}>
-                <Image
-                    style={styles.bntMenu}
-                    source={require("../../../assets/img/Menu.png")}
-                />
-            </TouchableOpacity>
+        <>
+            <CabecalhoHome>
+                <Text> Pesquisar por Remédios </Text>
+                <BuscaMedicamento buscaService={serviceBusca} />
+            </CabecalhoHome>
+            <TelaAzulClara>
+                <Text> Medicamentos Populares</Text>
+                <RodapeHome>
+                    <BotoesRodape/>
+                </RodapeHome>
+            </TelaAzulClara>
 
-            <Text style={styles.txtTitulo}>Pesquisar por Remedios</Text>
-
-            <View style={styles.inputContainer}>
-                <TextInput
-                    placeholder="Buscar por algum medicamento..."
-                    style={styles.textInput}
-                />
-                <Image
-                    source={require("../../../assets/img/icon-lupa.png")}
-                    style={styles.imgLupa}
-                />
-            </View>
-
-            <View style={styles.bottomIcons}>
-                <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')} style={styles.voltarButton}>
-                    <Image
-                        style={styles.voltarLogo}
-                        source={require("../../../assets/img/icon-voltar.png")}
-                    />
-                </TouchableOpacity>
-            </View> <Image 
-                        source={require("../../../assets/img/Dipirona.png")}
-                        style={styles.imgDipirona} 
-                    />
-
-                    <Text style={styles.txtDipirona}> Dipirona </Text>
-
-                    <Text style={styles.txtinfor}>
-                        dipirona, é um remédio analgésico e antitérmico, que age reduzindo a produção de substâncias no corpo responsáveis por causar dor ou febre
-                    </Text>
-                </View>   );
+        </>
+    );
 };
 
 
-                    <Text style={{ fontSize: 30, zIndex: 100}}> Medicamentos Populares</Text>
 
-         
+
+// <View style={styles.container}>
+//     <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')} style={styles.bntMenuCont}>
+//         <Image
+//             style={styles.bntMenu}
+//             source={require("../../../assets/img/Menu.png")}
+//         />
+//     </TouchableOpacity>
+
+//     <Text style={styles.txtTitulo}>Pesquisar por Remedios</Text>
+
+//     <View style={styles.inputContainer}>
+//         <TextInput
+//             placeholder="Buscar por algum medicamento..."
+//             style={styles.textInput}
+//         />
+//         <Image
+//             source={require("../../../assets/img/icon-lupa.png")}
+//             style={styles.imgLupa}
+//         />
+//     </View>
+
+//     <View style={styles.bottomIcons}>
+//         <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')} style={styles.voltarButton}>
+//             <Image
+//                 style={styles.voltarLogo}
+//                 source={require("../../../assets/img/icon-voltar.png")}
+//             />
+//         </TouchableOpacity>
+//     </View> <Image 
+//                 source={require("../../../assets/img/Dipirona.png")}
+//                 style={styles.imgDipirona} 
+//             />
+
+//             <Text style={styles.txtDipirona}> Dipirona </Text>
+
+//             <Text style={styles.txtinfor}>
+//                 dipirona, é um remédio analgésico e antitérmico, que age reduzindo a produção de substâncias no corpo responsáveis por causar dor ou febre
+//             </Text>
+//         </View>   
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,

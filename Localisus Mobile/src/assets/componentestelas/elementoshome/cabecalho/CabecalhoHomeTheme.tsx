@@ -11,15 +11,4 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     },
-    titulo: {
-        color: "white",
-        marginTop: 8,
-        fontSize: 17,
-        fontWeight: 'bold'
-    },
-    nomeUsuario: {
-        color: "white",
-        fontSize: 20,
-        fontWeight: 'bold'
-    }
 })
