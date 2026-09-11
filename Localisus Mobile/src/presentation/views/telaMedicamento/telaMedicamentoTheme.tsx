@@ -1,3 +1,13 @@
+import {StyleSheet} from 'react-native'
+
+export const styles = StyleSheet.create({
+    pesquisaMedicamentoText: {
+        fontSize: 20,
+        marginBottom: '5%'
+    }
+})
+
+
 {/* 
             <View style={styles.frm}>
                 <View style={{ right: 150 }}> */}

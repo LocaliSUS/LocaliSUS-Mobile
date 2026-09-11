@@ -4,6 +4,7 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../../../App";
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from 'expo-linear-gradient';
+import {styles} from './telaMedicamentoTheme'
 import { COLORS } from "../../theme/AppTheme";
 import { TelaAzulClara } from "../../../assets/componentesgenericos/telaAzulClara";
 import { CabecalhoHome } from "../../../assets/componentestelas/elementoshome/cabecalho/CabecalhoHome";
@@ -19,7 +20,7 @@ export const MedicamentoScreen = () => {
     return (
         <>
             <CabecalhoHome>
-                <Text> Pesquisar por Remédios </Text>
+                <Text style={styles.pesquisaMedicamentoText}> Pesquisar por Remédios </Text>
                 <BuscaMedicamento buscaService={serviceBusca} />
             </CabecalhoHome>
             <TelaAzulClara>
