@@ -10,6 +10,7 @@ import { HorizontalDivider } from "../../components/Divider";
 import { CabecalhoHome } from "../../../assets/componentestelas/elementoshome/cabecalho/CabecalhoHome";
 import { RodapeHome } from "../../../assets/componentestelas/elementoshome/rodape/RodapeHome";
 import { BotoesRodape } from "../../../assets/componentestelas/elementoshome/botoesRodape/botoesRodapeHome";
+import { TelaAzulClara } from "../../../assets/componentesgenericos/telaAzulClara";
 
 type hospitalCard = {
     id: number,
@@ -33,7 +34,7 @@ export const HomeScreen = () => {
     return (
         <>
             <CabecalhoHome></CabecalhoHome>
-            <View style={styles.visualizacaoTela}>
+            <TelaAzulClara>
                 <CardsSwipper></CardsSwipper>
                 <HorizontalDivider></HorizontalDivider>
                 <Text style={styles.txtTelaHome}> Unidades Próximas
@@ -58,7 +59,7 @@ export const HomeScreen = () => {
                         )}
                     />
                 </View>
-            </View>
+            </TelaAzulClara>
             <RodapeHome>    
                     <BotoesRodape></BotoesRodape>
             </RodapeHome>
