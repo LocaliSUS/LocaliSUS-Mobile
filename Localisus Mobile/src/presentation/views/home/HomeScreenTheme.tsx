@@ -29,13 +29,6 @@ export const styles = StyleSheet.create({
     alignContent: 'space-between',
     flexDirection: 'row'
   },
-  botoesRodapeHome: {
-    alignContent: 'center',
-    flex: 1,
-    width: "100%",
-    justifyContent: "center",
-    alignItems: "center",
-  },
   cardsImagemHospital: {
     flex: 1,
   }
