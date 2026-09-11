@@ -9,7 +9,7 @@ import {
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack'
-
+import {styles} from './testeBuscaMedicamentoTheme'
 import type { Medicamento} from '../../../assets/mocks/medicamento/medicamentosMock'
 import type { buscarMedicamentoInterface } from '../../../assets/services/medicamentos/buscarMedicamentoService'
 
@@ -82,12 +82,13 @@ export default function BuscaMedicamento({
     }
 }
 return (
-    <View>
-      <TextInput
+    <View style={styles.barraPesquisaMedicamentos}>
+      <TextInput 
+        style={styles.labelPesquisaMedicamento} 
         value={query}
         onChangeText={handleChangeText}
         onSubmitEditing={handleSubmit}
-        placeholder="Buscar medicamento..."
+        placeholder="Buscar por algum medicamento..."
         returnKeyType="search"
         autoCorrect={false}
       />
