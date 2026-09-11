@@ -41,11 +41,23 @@ export const MedicamentoScreen = () => {
                         source={require("../../../assets/img/icon-voltar.png")}
                     />
                 </TouchableOpacity>
-            </View>
+            </View> <Image 
+                        source={require("../../../assets/img/Dipirona.png")}
+                        style={styles.imgDipirona} 
+                    />
 
+                    <Text style={styles.txtDipirona}> Dipirona </Text>
+
+                    <Text style={styles.txtinfor}>
+                        dipirona, é um remédio analgésico e antitérmico, que age reduzindo a produção de substâncias no corpo responsáveis por causar dor ou febre
+                    </Text>
+                </View>   );
+};
+
+{/* 
             <View style={styles.frm}>
-                <View style={{ right: 150 }}>
-                    <View style={{ flexDirection: 'row', left: 10, gap: 10, bottom: 4 }}>
+                <View style={{ right: 150 }}> */}
+                    {/* <View style={{ flexDirection: 'row', left: 10, gap: 10, bottom: 4 }}>
                         <RoundedButton onPress={() => navigation.navigate('MedicamentoScreen')} width={82} height={22} backgroundColor="#7be6b4ff">
                             <Text style={styles.txtAnalgesico}> Analgesico </Text>
                         </RoundedButton>
@@ -68,9 +80,14 @@ export const MedicamentoScreen = () => {
                             <Text style={styles.txtAnalgesico}> Estatinas </Text>
                         </RoundedButton>
                     </View>
-                </View>
+                    
+                    TODOS OS ELEMENTOS AQUI VÃO SER TROCADOS PELO COMPONENTE DE BOTÃO
+                        
+                    */}
+                {/* </View> */}
+                    <Text style={{ fontSize: 30, zIndex: 100}}> Medicamentos Populares</Text>
 
-                {/* CAIXA DIPIRONA - Imagem alterada aqui */}
+                {/* CAIXA DIPIRONA - Imagem alterada aqui 
                 <View style={styles.caixaDipirona}>
                     <View style={{ left: 228, top: 100 }}>
                         <RoundedButton onPress={() => navigation.navigate('MedicamentoScreen')} width={113} height={31} backgroundColor="#FFC4C4">
@@ -79,6 +96,7 @@ export const MedicamentoScreen = () => {
                         </RoundedButton>
                     </View>
 
+
                     <View style={{ left: 187, top: 70 }}>
                         <RoundedButton onPress={() => navigation.navigate('MedicamentoScreen')} width={30} height={30}>
                             <Image source={require("../../../assets/img/star.png")} style={styles.imgStar} />
@@ -86,19 +104,9 @@ export const MedicamentoScreen = () => {
                     </View>
 
                     {/* Mudado de styles.imgDipirona para styles.imgDipironaComTransparencia */}
-                    <Image 
-                        source={require("../../../assets/img/Dipirona.png")}
-                        style={styles.imgDipirona} 
-                    />
-
-                    <Text style={styles.txtDipirona}> Dipirona </Text>
-
-                    <Text style={styles.txtinfor}>
-                        dipirona, é um remédio analgésico e antitérmico, que age reduzindo a produção de substâncias no corpo responsáveis por causar dor ou febre
-                    </Text>
-                </View>
-
-                {/* CAIXA IBUPROFENO */}
+                   
+{
+                /* CAIXA IBUPROFENO *
                 <View style={styles.caixaIbuprofeno}>
                     <View style={{ left: 228, top: 100 }}>
                         <RoundedButton onPress={() => navigation.navigate('MedicamentoScreen')} width={113} height={31} backgroundColor="#FFC4C4">
@@ -119,8 +127,9 @@ export const MedicamentoScreen = () => {
                         dipirona, é um remédio analgésico e antitérmico, que age reduzindo a produção de substâncias no corpo responsáveis por causar dor ou febre
                     </Text>
                 </View>
+                */
 
-                {/* CAIXA CAPTOPRIL */}
+                /* CAIXA CAPTOPRIL 
                 <View style={styles.caixaCaptopril}>
                     <View style={{ left: 228, top: 100 }}>
                         <RoundedButton onPress={() => navigation.navigate('MedicamentoScreen')} width={113} height={31} backgroundColor="#FFC4C4">
@@ -147,10 +156,10 @@ export const MedicamentoScreen = () => {
                     <Text style={styles.txtinfor}>
                         dipirona, é um remédio analgésico e antitérmico, que age reduzindo a produção de substâncias no corpo responsáveis por causar dor ou febre
                     </Text>
-                </View>
-            </View>
+                </View>*/}
+ 
 
-            {/* BOTÕES DE NAVEGAÇÃO INFERIOR */}
+            {/* BOTÕES DE NAVEGAÇÃO INFERIOR 
             <View style={styles.bntcont}>
                 <View style={styles.bntRemedios}>
                     <RoundedButton onPress={() => navigation.navigate('MedicamentoScreen')} width={191} height={53} backgroundColor="#FFC4C4">
@@ -179,11 +188,9 @@ export const MedicamentoScreen = () => {
                         <Text style={styles.txtAjuda}> Ajuda </Text>
                     </RoundedButton>
                 </View>
+                
             </View>
-        </View>
-    );
-};
-
+*/}       
 const styles = StyleSheet.create({
     container: {
         flex: 1,
