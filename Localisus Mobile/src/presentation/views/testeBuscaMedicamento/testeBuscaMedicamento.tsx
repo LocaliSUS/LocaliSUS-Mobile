@@ -81,7 +81,7 @@ export default function BuscaMedicamento({
       handleSelect(results[0]);
     }
 }
-} return (
+return (
     <View>
       <TextInput
         value={query}

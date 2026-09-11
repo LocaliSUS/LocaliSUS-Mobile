@@ -1,9 +1,11 @@
-export type TipoMedicamento = {
-    tiposMedicamentos: string[];
-}
+export type TipoMedicamento = 
+    | 'Analgesico' 
+  | 'Antibiotico' 
+  | 'Anti-hipertensivo' 
+  | 'Anti-inflamatório';
 
-const tiposMedicamentos: TipoMedicamento = {
- tiposMedicamentos: [
-    "Analgésico"
-]  
-} 
+
+// const tiposMedicamentos: TipoMedicamento = {
+//  tiposMedicamentos: [
+//     "Analgésico"
+// ]  
