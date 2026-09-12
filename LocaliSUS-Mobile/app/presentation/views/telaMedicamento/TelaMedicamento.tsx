@@ -1,20 +1,19 @@
 import React from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity, TextInput } from "react-native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "../../../../App";
-import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from 'expo-linear-gradient';
+
+import { useRouter } from "expo-router";
 
 //componentes
 import { COLORS } from "../../theme/AppTheme";
 import { RoundedButton } from "../../components/RoudedButton";
 
-export const MedicamentoScreen = () => {
-    const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+const MedicamentoScreen = () => {
+    const router = useRouter();
 
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')} style={styles.bntMenuCont}>
+            <TouchableOpacity onPress={() => router.push('HomeScreen')} style={styles.bntMenuCont}>
                 <Image
                     style={styles.bntMenu}
                     source={require("../../../assets/img/Menu.png")}
@@ -35,7 +34,7 @@ export const MedicamentoScreen = () => {
             </View>
 
             <View style={styles.bottomIcons}>
-                <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')} style={styles.voltarButton}>
+                <TouchableOpacity onPress={() => router.push('HomeScreen')} style={styles.voltarButton}>
                     <Image
                         style={styles.voltarLogo}
                         source={require("../../../assets/img/icon-voltar.png")}
@@ -46,25 +45,25 @@ export const MedicamentoScreen = () => {
             <View style={styles.frm}>
                 <View style={{ right: 150 }}>
                     <View style={{ flexDirection: 'row', left: 10, gap: 10, bottom: 4 }}>
-                        <RoundedButton onPress={() => navigation.navigate('MedicamentoScreen')} width={82} height={22} backgroundColor="#7be6b4ff">
+                        <RoundedButton onPress={() => router.push('MedicamentoScreen')} width={82} height={22} backgroundColor="#7be6b4ff">
                             <Text style={styles.txtAnalgesico}> Analgesico </Text>
                         </RoundedButton>
                     </View>
 
                     <View style={{ flexDirection: 'row', left: 105, gap: 10, bottom: 26 }}>
-                        <RoundedButton onPress={() => navigation.navigate('MedicamentoScreen')} width={87} height={22} backgroundColor="#FFFDC4">
+                        <RoundedButton onPress={() => router.push('MedicamentoScreen')} width={87} height={22} backgroundColor="#FFFDC4">
                             <Text style={styles.txtAnalgesico}> Antibioticos </Text>
                         </RoundedButton>
                     </View>
 
                     <View style={{ flexDirection: 'row', left: 200, gap: 10, bottom: 48 }}>
-                        <RoundedButton onPress={() => navigation.navigate('MedicamentoScreen')} width={82} height={22} backgroundColor="#D9D9D9">
+                        <RoundedButton onPress={() => router.push('MedicamentoScreen')} width={82} height={22} backgroundColor="#D9D9D9">
                             <Text style={styles.txtAnalgesico}> Diuréticos </Text>
                         </RoundedButton>
                     </View>
 
                     <View style={{ flexDirection: 'row', left: 290, gap: 10, bottom: 70 }}>
-                        <RoundedButton onPress={() => navigation.navigate('MedicamentoScreen')} width={82} height={22} backgroundColor="#FFC4C4">
+                        <RoundedButton onPress={() => router.push('MedicamentoScreen')} width={82} height={22} backgroundColor="#FFC4C4">
                             <Text style={styles.txtAnalgesico}> Estatinas </Text>
                         </RoundedButton>
                     </View>
@@ -73,14 +72,14 @@ export const MedicamentoScreen = () => {
                 {/* CAIXA DIPIRONA - Imagem alterada aqui */}
                 <View style={styles.caixaDipirona}>
                     <View style={{ left: 228, top: 100 }}>
-                        <RoundedButton onPress={() => navigation.navigate('MedicamentoScreen')} width={113} height={31} backgroundColor="#FFC4C4">
+                        <RoundedButton onPress={() => router.push('MedicamentoScreen')} width={113} height={31} backgroundColor="#FFC4C4">
                             <Image source={require("../../../assets/img/capsula.png")} style={styles.imgcapsula} />
                             <Text style={styles.txtEncontrar}> Encontrar </Text>
                         </RoundedButton>
                     </View>
 
                     <View style={{ left: 187, top: 70 }}>
-                        <RoundedButton onPress={() => navigation.navigate('MedicamentoScreen')} width={30} height={30}>
+                        <RoundedButton onPress={() => router.push('MedicamentoScreen')} width={30} height={30}>
                             <Image source={require("../../../assets/img/star.png")} style={styles.imgStar} />
                         </RoundedButton>
                     </View>
@@ -101,14 +100,14 @@ export const MedicamentoScreen = () => {
                 {/* CAIXA IBUPROFENO */}
                 <View style={styles.caixaIbuprofeno}>
                     <View style={{ left: 228, top: 100 }}>
-                        <RoundedButton onPress={() => navigation.navigate('MedicamentoScreen')} width={113} height={31} backgroundColor="#FFC4C4">
+                        <RoundedButton onPress={() => router.push('MedicamentoScreen')} width={113} height={31} backgroundColor="#FFC4C4">
                             <Image source={require("../../../assets/img/capsula.png")} style={styles.imgcapsula} />
                             <Text style={styles.txtEncontrar}> Encontrar </Text>
                         </RoundedButton>
                     </View>
 
                     <View style={{ left: 187, top: 70 }}>
-                        <RoundedButton onPress={() => navigation.navigate('MedicamentoScreen')} width={30} height={30}>
+                        <RoundedButton onPress={() => router.push('MedicamentoScreen')} width={30} height={30}>
                             <Image source={require("../../../assets/img/star.png")} style={styles.imgStar} />
                         </RoundedButton>
                     </View>
@@ -123,14 +122,14 @@ export const MedicamentoScreen = () => {
                 {/* CAIXA CAPTOPRIL */}
                 <View style={styles.caixaCaptopril}>
                     <View style={{ left: 228, top: 100 }}>
-                        <RoundedButton onPress={() => navigation.navigate('MedicamentoScreen')} width={113} height={31} backgroundColor="#FFC4C4">
+                        <RoundedButton onPress={() => router.push('MedicamentoScreen')} width={113} height={31} backgroundColor="#FFC4C4">
                             <Image source={require("../../../assets/img/capsula.png")} style={styles.imgcapsula} />
                             <Text style={styles.txtEncontrar}> Encontrar </Text>
                         </RoundedButton>
                     </View>
 
                     <View style={{ left: 187, top: 70 }}>
-                        <RoundedButton onPress={() => navigation.navigate('MedicamentoScreen')} width={30} height={30}>
+                        <RoundedButton onPress={() => router.push('MedicamentoScreen')} width={30} height={30}>
                             <Image source={require("../../../assets/img/star.png")} style={styles.imgStar} />
                         </RoundedButton>
                     </View>
@@ -153,28 +152,28 @@ export const MedicamentoScreen = () => {
             {/* BOTÕES DE NAVEGAÇÃO INFERIOR */}
             <View style={styles.bntcont}>
                 <View style={styles.bntRemedios}>
-                    <RoundedButton onPress={() => navigation.navigate('MedicamentoScreen')} width={191} height={53} backgroundColor="#FFC4C4">
+                    <RoundedButton onPress={() => router.push('MedicamentoScreen')} width={191} height={53} backgroundColor="#FFC4C4">
                         <Image source={require("../../../assets/img/capsula.png")} style={styles.imgcapsularemedios} />
                         <Text style={styles.txtRemedios}> Remédios </Text>
                     </RoundedButton>
                 </View>
 
                 <View style={styles.bntLembretes}>
-                    <RoundedButton onPress={() => navigation.navigate('MedicamentoScreen')} width={191} height={53} backgroundColor="#FFFDC4">
+                    <RoundedButton onPress={() => router.push('MedicamentoScreen')} width={191} height={53} backgroundColor="#FFFDC4">
                         <Image source={require("../../../assets/img/Relogio.png")} style={styles.imgRelogio} />
                         <Text style={styles.txtLembretes}> Lembretes </Text>
                     </RoundedButton>
                 </View>
 
                 <View style={styles.bntLocalizacao}>
-                    <RoundedButton onPress={() => navigation.navigate('MedicamentoScreen')} width={191} height={53} backgroundColor="#C4FFE3">
+                    <RoundedButton onPress={() => router.push('MedicamentoScreen')} width={191} height={53} backgroundColor="#C4FFE3">
                         <Image source={require("../../../assets/img/Mapa.png")} style={styles.imgMap} />
                         <Text style={styles.txtLocalizacao}> Localização </Text>
                     </RoundedButton>
                 </View>
 
                 <View style={styles.bntAjuda}>
-                    <RoundedButton onPress={() => navigation.navigate('MedicamentoScreen')} width={191} height={53} backgroundColor="#EBF9FF">
+                    <RoundedButton onPress={() => router.push('MedicamentoScreen')} width={191} height={53} backgroundColor="#EBF9FF">
                         <Image source={require("../../../assets/img/icon-ajuda.png")} style={styles.imgponto} />
                         <Text style={styles.txtAjuda}> Ajuda </Text>
                     </RoundedButton>
@@ -183,6 +182,8 @@ export const MedicamentoScreen = () => {
         </View>
     );
 };
+
+export default MedicamentoScreen;
 
 const styles = StyleSheet.create({
     container: {

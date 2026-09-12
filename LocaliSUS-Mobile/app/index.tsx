@@ -2,7 +2,7 @@ import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { useRouter } from "expo-router";
 import { COLORS } from "./presentation/theme/AppTheme";
 
-export const Inicio = () => {
+const Inicio = () => {
   const router = useRouter()
 
   return (
@@ -57,8 +57,9 @@ export const Inicio = () => {
       </View>
     </View>
   );
-
 };
+
+export default Inicio;
 
 const styles = StyleSheet.create({
   container: {

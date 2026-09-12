@@ -1,9 +1,9 @@
 import { CardsSwipper, ComponenteCard } from "../../components/Card";
 import { Text, View, FlatList, StyleProp, ViewStyle, ImageSourcePropType } from "react-native";
 import { styles } from './HomeScreenTheme'
-import amegeraldopaulo from '../../imagens'
-import hospitalsorocabana from '../../imagens/sorocab.png'
-import ubsvilaromana from '../../imagens/vilaromanaubs.jpg'
+import amegeraldopaulo from './imagens/amegeraldopaulo.jpg'
+import hospitalsorocabana from './imagens/sorocab.png'
+import ubsvilaromana from './imagens/vilaromanaubs.jpg'
 import { HorizontalDivider } from "../../components/Divider";
 import { CabecalhoHome } from "../../../assets/componentestelas/elementoshome/cabecalho/CabecalhoHome";
 import { RodapeHome } from "../../../assets/componentestelas/elementoshome/rodape/RodapeHome";
