@@ -1,6 +1,6 @@
 import { View, StyleSheet, FlatList, Text } from "react-native";
-import { BotaoInfoHospital, InfoHospitalScreen, } from "../../components/InfoHospital";
-import { ComponenteCard } from "../../components/Card";
+import { BotaoInfoHospital, InfoHospitalScreen, } from "../../presentation/components/InfoHospital";
+import { ComponenteCard } from "../../presentation/components/Card";
 
 const VilaRomanaInfoScreen = () => {
 

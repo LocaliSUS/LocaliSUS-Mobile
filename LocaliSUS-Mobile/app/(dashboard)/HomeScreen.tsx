@@ -1,13 +1,13 @@
-import { CardsSwipper, ComponenteCard } from "../../components/Card";
+import { CardsSwipper, ComponenteCard } from "@/presentation/components/Card";
 import { Text, View, FlatList, StyleProp, ViewStyle, ImageSourcePropType } from "react-native";
-import { styles } from './HomeScreenTheme'
-import amegeraldopaulo from './imagens/amegeraldopaulo.jpg'
-import hospitalsorocabana from './imagens/sorocab.png'
-import ubsvilaromana from './imagens/vilaromanaubs.jpg'
-import { HorizontalDivider } from "../../components/Divider";
-import { CabecalhoHome } from "../../../assets/componentestelas/elementoshome/cabecalho/CabecalhoHome";
-import { RodapeHome } from "../../../assets/componentestelas/elementoshome/rodape/RodapeHome";
-import { BotoesApp } from "../../components/BotoesApp";
+import { styles } from '@/presentation/theme/HomeScreenTheme'
+import amegeraldopaulo from '@/assets/img/hospitaisImg/amegeraldopaulo.jpg'
+import hospitalsorocabana from '@/assets/img/hospitaisImg/sorocab.png'
+import ubsvilaromana from '@/assets/img/hospitaisImg/vilaromanaubs.jpg'
+import { HorizontalDivider } from "@/presentation/components/Divider";
+import { CabecalhoHome } from "@/assets/componentestelas/elementoshome/cabecalho/CabecalhoHome";
+import { RodapeHome } from "@/assets/componentestelas/elementoshome/rodape/RodapeHome";
+import { BotoesApp } from "@/presentation/components/BotoesApp";
 import { Href, useRouter } from "expo-router";
 
 type hospitalCard = {

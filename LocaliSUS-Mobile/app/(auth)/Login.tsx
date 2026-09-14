@@ -3,8 +3,8 @@ import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
-import { COLORS } from "../../theme/AppTheme";
-import { CustomTextInput } from "../../components/CustomTextInput";
+import { COLORS } from "../../presentation/theme/AppTheme";
+import { CustomTextInput } from "../../presentation/components/CustomTextInput";
 import { useRouter } from "expo-router";
 import HomeScreen from "./SenhaEsquecidaService";
 
@@ -29,18 +29,18 @@ const LoginScreen = () => {
     <View style={styles.container}>
       {/* Fundo */}
       <Image
-        source={require("../../../assets/img/tela-fundo.png")}
+        source={require("@/assets/img/tela-fundo.png")}
         style={styles.backgroundImage}
       />
 
       {/* Curvas */}
       <Image
-        source={require("../../../assets/img/curva-superior.png")}
+        source={require("@/assets/img/curva-superior.png")}
         style={styles.topDetail}
       />
 
       <Image
-        source={require("../../../assets/img/curva-inferior.png")}
+        source={require("@/assets/img/curva-inferior.png")}
         style={styles.bottomDetail}
       />
 
@@ -48,7 +48,7 @@ const LoginScreen = () => {
       <View style={styles.header}>
         <Image
           style={styles.imageLogo}
-          source={require("../../../assets/img/LocaliSUS-Logo-Fundo.png")}
+          source={require("@/assets/img/LocaliSUS-Logo-Fundo.png")}
         />
 
         <Text style={styles.logo}>LOCALISUS</Text>
@@ -59,7 +59,7 @@ const LoginScreen = () => {
         <Text style={styles.title}>Entrar</Text>
 
         <CustomTextInput
-          image={require("../../../assets/img/icon-cpf.png")}
+          image={require("@/assets/img/icon-cpf.png")}
           placeholder="Insira seu CPF..."
           value={form.cpf}
           keyboardType="numeric"
@@ -68,7 +68,7 @@ const LoginScreen = () => {
         />
 
         <CustomTextInput
-          image={require("../../../assets/img/icon-senha.png")}
+          image={require("@/assets/img/icon-senha.png")}
           placeholder="Insira sua Senha..."
           value={form.senha}
           secureTextEntry={true}
@@ -91,7 +91,7 @@ const LoginScreen = () => {
         <View style={styles.bottomIcons}>
           <TouchableOpacity onPress={() => router.push("Inicio")}>
             <Image
-              source={require("../../../assets/img/icon-voltar.png")}
+              source={require("@/assets/img/icon-voltar.png")}
               style={styles.bottomBack}
             />
           </TouchableOpacity>

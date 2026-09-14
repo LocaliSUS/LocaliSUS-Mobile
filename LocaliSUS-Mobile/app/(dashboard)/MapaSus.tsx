@@ -7,9 +7,9 @@ import {
   TextInput,
   Image,
 } from "react-native";
-import iconevoltar from "../../../assets/img/icon-voltar.png";
-import iconeajuda from "../../../assets/img/icon-ajuda.png";
-import { COLORS } from "../../theme/AppTheme";
+import iconevoltar from "@/assets/img/icon-voltar.png";
+import iconeajuda from "@/assets/img/icon-ajuda.png";
+import { COLORS } from "@/presentation/theme/AppTheme"
 
 const MapaSus = () => {
   return (

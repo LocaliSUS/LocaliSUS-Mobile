@@ -1,11 +1,11 @@
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 
 //componentes
-import { COLORS } from "../../theme/AppTheme";
-import { RoundedButton } from "../../components/RoudedButton";
-import { CustomTextInput } from "../../components/CustomTextInput";
+import { COLORS } from "../../presentation/theme/AppTheme";
+import { RoundedButton } from "../../presentation/components/RoudedButton";
+import { CustomTextInput } from "../../presentation/components/CustomTextInput";
 //views models
-import cadastroViewModel from "../(auth)/ViewModels/CadastroViewModel";
+import cadastroViewModel from "./ViewModels/CadastroViewModel";
 import { useRouter } from "expo-router";
 
 const CadastroSusScreen = () => {
@@ -17,17 +17,17 @@ const CadastroSusScreen = () => {
     <View style={styles.container}>
       {/* FUNDO PRINCIPAL */}
       <Image
-        source={require("../../../assets/img/tela-fundo.png")}
+        source={require("@/assets/img/tela-fundo.png")}
         style={styles.FundoImage}
       />
 
       {/* Card/image */}
       <Image
-        source={require("../../../assets/img/curva-superior.png")}
+        source={require("@/assets/img/tela-fundo.png")}
         style={styles.Cardtop}
       />
       <Image
-        source={require("../../../assets/img/curva-inferior.png")}
+        source={require("@/assets/img/curva-inferior.png")}
         style={styles.cardDow}
       />
 
@@ -35,7 +35,7 @@ const CadastroSusScreen = () => {
       <View style={styles.header}>
         <Image
           style={styles.imageLogo}
-          source={require("../../../assets/img/LocaliSUS-Logo-Fundo.png")}
+          source={require("@/assets/img/LocaliSUS-Logo-Fundo.png")}
         />
         <Text style={styles.textlogo}>LOCALISUS</Text>
       </View>
@@ -45,7 +45,7 @@ const CadastroSusScreen = () => {
         <Text style={styles.title}>cadastro</Text>
 
         <CustomTextInput
-          image={require("../../../assets/img/icon-cpf.png")}
+          image={require("@/assets/img/icon-cpf.png")}
           placeholder="Insira seu CPF..."
           keyboardType="default"
           secureTextEntry={false}
@@ -54,7 +54,7 @@ const CadastroSusScreen = () => {
           value={userEmail}
         />
         <CustomTextInput
-          image={require("../../../assets/img/icone-numero.png")}
+          image={require("@/assets/img/icone-numero.png")}
           placeholder="Insira seu Numero de Telefone..."
           keyboardType="default"
           secureTextEntry={false}
@@ -63,7 +63,7 @@ const CadastroSusScreen = () => {
           value={userPhone}
         />
         <CustomTextInput
-          image={require("../../../assets/img/icon-senha.png")}
+          image={require("@/assets/img/icon-senha.png")}
           placeholder="Insira seu Senha..."
           keyboardType="default"
           secureTextEntry={true}
@@ -82,7 +82,7 @@ const CadastroSusScreen = () => {
           >
             <Image
               style={styles.voltarLogo}
-              source={require("../../../assets/img/icon-voltar.png")}
+              source={require("@/assets/img/icon-voltar.png")}
             />
           </TouchableOpacity>
 

@@ -1,20 +1,15 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import {
   StyleSheet,
   View,
   Text,
   Image,
   TouchableOpacity,
-  Button,
   TextInput,
 } from "react-native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { useNavigation } from "@react-navigation/native";
 
 //componentes
-import { COLORS } from "../../theme/AppTheme";
-import { RoundedButton } from "../../components/RoudedButton";
-import { CustomTextInput } from "../../components/CustomTextInput";
+import { COLORS } from "@/presentation/theme/AppTheme";
 //views models
 import CodigoViewModel from "./ViewModels/CodigoViewModel";
 import { useRouter } from "expo-router";
@@ -55,17 +50,17 @@ const CodigoScreen = () => {
     <View style={styles.container}>
       {/* FUNDO PRINCIPAL */}
       <Image
-        source={require("../../../assets/img/tela-fundo.png")}
+        source={require("@/assets/img/tela-fundo.png")}
         style={styles.FundoImage}
       />
 
       {/* Card/image */}
       <Image
-        source={require("../../../assets/img/curva-superior.png")}
+        source={require("@/assets/img/curva-superior.png")}
         style={styles.Cardtop}
       />
       <Image
-        source={require("../../../assets/img/curva-inferior.png")}
+        source={require("@/assets/img/curva-inferior.png")}
         style={styles.cardDow}
       />
 
@@ -73,7 +68,7 @@ const CodigoScreen = () => {
       <View style={styles.header}>
         <Image
           style={styles.imageLogo}
-          source={require("../../../assets/img/LocaliSUS-Logo-Fundo.png")}
+          source={require("@/assets/img/LocaliSUS-Logo-Fundo.png")}
         />
         <Text style={styles.textlogo}>LOCALISUS</Text>
       </View>
@@ -119,7 +114,7 @@ const CodigoScreen = () => {
           >
             <Image
               style={styles.voltarLogo}
-              source={require("../../../assets/img/icon-voltar.png")}
+              source={require("@/assets/img/icon-voltar.png")}
             />
           </TouchableOpacity>
 
