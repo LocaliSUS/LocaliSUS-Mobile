@@ -1,4 +1,4 @@
-import { FlatList } from "react-native"
+import { DimensionValue, FlatList } from "react-native"
 import { RootStackParamList } from "../../../../../App"
 import { BotoesApp } from "../../../../presentation/components/BotoesApp"
 import { NavigationProp, useNavigation } from "@react-navigation/native"

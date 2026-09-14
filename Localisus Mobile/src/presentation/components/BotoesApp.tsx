@@ -35,7 +35,7 @@ export const BotoesApp = ({
             backgroundColor: cor,
             width: '45%',
             borderRadius:18,
-            height:45,
+            minHeight:45,
             justifyContent: 'center',
             alignItems: 'center',
            
