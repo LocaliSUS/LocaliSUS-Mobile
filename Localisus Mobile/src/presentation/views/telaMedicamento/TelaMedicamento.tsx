@@ -1,9 +1,9 @@
 import React from "react";
-import { StyleSheet, View, Text, Image, TouchableOpacity, TextInput } from "react-native";
+import { StyleSheet, View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../../../App";
 import { useNavigation } from "@react-navigation/native";
-import {styles} from './telaMedicamentoTheme'
+import { styles } from './telaMedicamentoTheme'
 import { COLORS } from "../../theme/AppTheme";
 import { TelaAzulClara } from "../../../assets/componentesgenericos/telaAzulClara";
 import { CabecalhoHome } from "../../../assets/componentestelas/elementoshome/cabecalho/CabecalhoHome";
@@ -11,6 +11,8 @@ import BuscaMedicamento from "../testeBuscaMedicamento/testeBuscaMedicamento";
 import { buscarMedicamentosService } from "../../../assets/services/medicamentos/buscarMedicamentoService";
 import { BotoesRodape } from "../../../assets/componentestelas/elementoshome/botoesRodape/botoesRodapeHome";
 import { RodapeHome } from "../../../assets/componentestelas/elementoshome/rodape/RodapeHome";
+import { LabelMedicamento } from "../../../assets/componentestelas/elementosmedicamentoscreen/labelmedicamento/labelMedicamento";
+
 
 export const MedicamentoScreen = () => {
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
@@ -23,9 +25,10 @@ export const MedicamentoScreen = () => {
                 <BuscaMedicamento buscaService={serviceBusca} />
             </CabecalhoHome>
             <TelaAzulClara>
-                <Text> Medicamentos Populares</Text>
+                    <Text> Medicamentos Populares</Text>
+                    <LabelMedicamento/>
                 <RodapeHome>
-                    <BotoesRodape/>
+                    <BotoesRodape />
                 </RodapeHome>
             </TelaAzulClara>
 
@@ -64,9 +67,9 @@ export const MedicamentoScreen = () => {
 //                 source={require("../../../assets/img/icon-voltar.png")}
 //             />
 //         </TouchableOpacity>
-//     </View> <Image 
+//     </View> <Image
 //                 source={require("../../../assets/img/Dipirona.png")}
-//                 style={styles.imgDipirona} 
+//                 style={styles.imgDipirona}
 //             />
 
 //             <Text style={styles.txtDipirona}> Dipirona </Text>
