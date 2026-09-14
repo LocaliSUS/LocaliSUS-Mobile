@@ -36,7 +36,7 @@ const cardsHospitais: hospitalCard[] = [
 
 const botoesRodapeHome: BotaoHome[] = [
     { botaoId: 1, texto: "Remédios", cor: "#ffc4c4", tela: "MedicamentoScreen" },
-    { botaoId: 2, texto: "Localização", cor: "#d8ffc4ff", tela: "LocalizacaoScreen" },
+    { botaoId: 2, texto: "Localização", cor: "#d8ffc4ff", tela: "MapaSus" },
     { botaoId: 3, texto: "Lembretes", cor: "#fffdc4", tela: "PasswordForget" },
     { botaoId: 4, texto: "Ajuda", cor: "#ffffffff", tela: "Tela" },
 

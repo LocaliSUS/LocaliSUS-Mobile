@@ -72,12 +72,12 @@ const CadastroSusScreen = () => {
           value={userPassword}
         />
 
-        <RoundedButton>
+        <RoundedButton onPress={() => router.push("/")}>
           <Text>Cadastrar</Text>
         </RoundedButton>
         <View style={styles.bottomIcons}>
           <TouchableOpacity
-            onPress={() => router.push("Inicio")}
+            onPress={() => router.push("/")}
             style={styles.voltarButton}
           >
             <Image

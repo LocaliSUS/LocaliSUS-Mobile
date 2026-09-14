@@ -102,14 +102,14 @@ const CodigoScreen = () => {
 
         <TouchableOpacity
           style={styles.confirmarButton}
-          onPress={() => router.push("Inicio")}
+          onPress={() => router.push("/")}
         >
           <Text style={styles.CadastroText}>Confirmar</Text>
         </TouchableOpacity>
 
         <View style={styles.bottomIcons}>
           <TouchableOpacity
-            onPress={() => router.push("Inicio")}
+            onPress={() => router.push("/")}
             style={styles.voltarButton}
           >
             <Image

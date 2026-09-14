@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native'
 
 const AuthLayout = () => {
     return (
-        <Stack>
+        <Stack screenOptions={{ headerShown: false }}>
             <Stack.Screen name='Login' />
             <Stack.Screen name='CadastroSus' />
             <Stack.Screen name='CodigoVerificacao' />

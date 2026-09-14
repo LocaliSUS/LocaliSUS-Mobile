@@ -40,13 +40,13 @@ const Inicio = () => {
 
         <TouchableOpacity
           style={styles.loginButton}
-          onPress={() => router.push("LoginScreen")}
+          onPress={() => router.push("Login")}
         >
           <Text style={styles.loginText}>Já tem uma conta?</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.registerButton}
-          onPress={() => router.push("CadastroSusScreen")}
+          onPress={() => router.push("CadastroSus")}
         >
           <Text style={styles.registerText}>Cadastre-se!</Text>
         </TouchableOpacity>

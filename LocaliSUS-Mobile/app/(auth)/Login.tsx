@@ -76,7 +76,7 @@ const LoginScreen = () => {
           onChangeText={handleChange}
         />
 
-        <TouchableOpacity onPress={() => router.push("PasswordForget")}>
+        <TouchableOpacity onPress={() => router.push("SenhaEsquecidaService")}>
           <Text style={styles.forgotPassword}>Esqueci minha senha</Text>
         </TouchableOpacity>
 
@@ -89,7 +89,7 @@ const LoginScreen = () => {
 
         {/* Voltar + Ajuda */}
         <View style={styles.bottomIcons}>
-          <TouchableOpacity onPress={() => router.push("Inicio")}>
+          <TouchableOpacity onPress={() => router.push("/")}>
             <Image
               source={require("@/assets/img/icon-voltar.png")}
               style={styles.bottomBack}
@@ -105,7 +105,7 @@ const LoginScreen = () => {
   );
 };
 
-export default HomeScreen
+export default LoginScreen
 
 const styles = StyleSheet.create({
   container: {

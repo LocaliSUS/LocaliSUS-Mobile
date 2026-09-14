@@ -1,15 +1,12 @@
-import React, { useState } from "react";
-import { StyleSheet, View, Text, Image, TouchableOpacity, Button, Pressable } from "react-native";
-
+import { useState } from "react";
+import { StyleSheet, View, Text, Image, Pressable } from "react-native";
 import { useRouter } from "expo-router";
 
 //componentes
 import { COLORS } from "../../presentation/theme/AppTheme";
-import { RoundedButton } from "../../presentation/components/RoudedButton";
 import { CustomTextInput } from "../../presentation/components/CustomTextInput";
 //views models
 import SenhaEsquecidaViewModel from '../../assets/services/senha/SenhaViewModel';
-import HomeScreen from "../(dashboard)/HomeScreen";
 
 
 const SenhaEsquecidaScreen = () => {
@@ -68,7 +65,7 @@ const SenhaEsquecidaScreen = () => {
                 />
 
                 <Pressable style={styles.cadastroButton}
-                    onPress={() => router.push("CodigoScreen")}
+                    onPress={() => router.push("CodigoVerificacao")}
                 >
                     <Text style={styles.CadastroText}>Enviar Codigo</Text>
                 </Pressable>
@@ -92,7 +89,7 @@ const SenhaEsquecidaScreen = () => {
     );
 };
 
-export default HomeScreen
+export default SenhaEsquecidaScreen
 
 
 const styles = StyleSheet.create({

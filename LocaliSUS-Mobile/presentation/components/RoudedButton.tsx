@@ -1,7 +1,7 @@
 //Cria um arquivo para componente de botões
 //local: src/components/RoundedButton.tsx
 import React from "react";
-import { TouchableOpacity, Text, StyleSheet } from "react-native";
+import { TouchableOpacity, Text, StyleSheet, Pressable } from "react-native";
 import { COLORS } from "../theme/AppTheme";
 
 interface Props {
@@ -22,12 +22,12 @@ export const RoundedButton = ({
     height = 50,
 }: Props) => {
     return (
-        <TouchableOpacity
+        <Pressable
             onPress={onPress}
             style={[styles.btn, { backgroundColor, width, height }]}
         >
             {children}
-        </TouchableOpacity>
+        </Pressable>
     );
 };
 
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
 
     },
-    txtBnt:{
+    txtBnt: {
         color: COLORS.lightBlue,
         fontWeight: 'bold',
         fontSize: 16,
