@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center'
  },
  labelPesquisaMedicamento: {
-    fontSize: 14.5,
+    fontSize: 13.5,
     fontWeight: '600',
     marginLeft: '3.5%'
  }
