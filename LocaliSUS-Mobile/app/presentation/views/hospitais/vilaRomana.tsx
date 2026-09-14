@@ -2,7 +2,7 @@ import { View, StyleSheet, FlatList, Text } from "react-native";
 import { BotaoInfoHospital, InfoHospitalScreen, } from "../../components/InfoHospital";
 import { ComponenteCard } from "../../components/Card";
 
-export const VilaRomanaInfoScreen = () => {
+const VilaRomanaInfoScreen = () => {
 
     return (
         <>
@@ -10,15 +10,16 @@ export const VilaRomanaInfoScreen = () => {
         </>
 
     )
-
 }
+
+export default VilaRomanaInfoScreen
 
 const styles = StyleSheet.create({
     textosTelaInfoHospital: {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 325, 
+        marginTop: 325,
     },
 
 })

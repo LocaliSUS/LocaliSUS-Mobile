@@ -1,15 +1,4 @@
-import React, { useState } from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  Button,
-} from "react-native";
-import { StackNavigationProp } from "@react-navigation/stack";
-
-import { useNavigation } from "@react-navigation/native";
+import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 
 //componentes
 import { COLORS } from "../../theme/AppTheme";
@@ -19,7 +8,7 @@ import { CustomTextInput } from "../../components/CustomTextInput";
 import cadastroViewModel from "../(auth)/ViewModels/CadastroViewModel";
 import { useRouter } from "expo-router";
 
-export const CadastroSusScreen = () => {
+const CadastroSusScreen = () => {
   const router = useRouter()
 
   const { userPassword, userEmail, userPhone, onChange } = cadastroViewModel();
@@ -105,6 +94,8 @@ export const CadastroSusScreen = () => {
     </View>
   );
 };
+
+export default CadastroSusScreen;
 
 const styles = StyleSheet.create({
   container: {

@@ -19,7 +19,7 @@ import { CustomTextInput } from "../../components/CustomTextInput";
 import CodigoViewModel from "./ViewModels/CodigoViewModel";
 import { useRouter } from "expo-router";
 
-export const CodigoScreen = () => {
+const CodigoScreen = () => {
   const router = useRouter()
 
   const { userPhone, onChange } = CodigoViewModel();
@@ -131,6 +131,8 @@ export const CodigoScreen = () => {
     </View>
   );
 };
+
+export default CodigoScreen
 
 const styles = StyleSheet.create({
   container: {

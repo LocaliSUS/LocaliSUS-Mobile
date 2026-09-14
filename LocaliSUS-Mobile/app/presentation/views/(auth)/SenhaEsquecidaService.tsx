@@ -9,9 +9,10 @@ import { RoundedButton } from "../../components/RoudedButton";
 import { CustomTextInput } from "../../components/CustomTextInput";
 //views models
 import SenhaEsquecidaViewModel from '../../../assets/services/senha/SenhaViewModel';
+import HomeScreen from "../home/HomeScreen";
 
 
-export const SenhaEsquecidaScreen = () => {
+const SenhaEsquecidaScreen = () => {
     const router = useRouter();
 
     const { userPhone, onChange, } = SenhaEsquecidaViewModel();
@@ -90,6 +91,8 @@ export const SenhaEsquecidaScreen = () => {
         </View>
     );
 };
+
+export default HomeScreen
 
 
 const styles = StyleSheet.create({

@@ -42,7 +42,7 @@ const botoesRodapeHome: BotaoHome[] = [
 
 ]
 
-export const HomeScreen = () => {
+const HomeScreen = () => {
     const router = useRouter()
     return (
         <>
@@ -96,4 +96,6 @@ export const HomeScreen = () => {
         </>
     )
 }
+
+export default HomeScreen
 

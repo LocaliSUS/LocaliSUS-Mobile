@@ -6,8 +6,9 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { COLORS } from "../../theme/AppTheme";
 import { CustomTextInput } from "../../components/CustomTextInput";
 import { useRouter } from "expo-router";
+import HomeScreen from "./SenhaEsquecidaService";
 
-export const LoginScreen = () => {
+const LoginScreen = () => {
   const [form, setForm] = useState({
     cpf: "",
     senha: "",
@@ -103,6 +104,8 @@ export const LoginScreen = () => {
     </View>
   );
 };
+
+export default HomeScreen
 
 const styles = StyleSheet.create({
   container: {

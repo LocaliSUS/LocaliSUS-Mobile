@@ -11,7 +11,7 @@ import iconevoltar from "../../../assets/img/icon-voltar.png";
 import iconeajuda from "../../../assets/img/icon-ajuda.png";
 import { COLORS } from "../../theme/AppTheme";
 
-export const MapaSus = () => {
+const MapaSus = () => {
   return (
     <View style={styles.container}>
       {/* HEADER */}
@@ -63,7 +63,7 @@ export const MapaSus = () => {
           <TouchableOpacity style={styles.ajudaButton}>
             <View style={styles.buttonContent}>
               <Image source={iconeajuda}
-               style={styles.helpIcon} />
+                style={styles.helpIcon} />
               <Text style={styles.buttonText}>Ajuda</Text>
             </View>
           </TouchableOpacity>
@@ -72,6 +72,8 @@ export const MapaSus = () => {
     </View>
   );
 };
+
+export default MapaSus;
 
 const styles = StyleSheet.create({
   container: {
