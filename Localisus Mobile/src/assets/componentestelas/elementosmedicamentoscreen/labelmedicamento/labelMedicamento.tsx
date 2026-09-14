@@ -1,20 +1,34 @@
 import { PropsWithChildren } from "react"
-import { View, Text, ImageSourcePropType } from "react-native"
+import { View, Text, ImageSourcePropType, Image } from "react-native"
 import {styles} from './labelMedicamentoTheme'
 import { BotoesApp } from "../../../../presentation/components/BotoesApp"
 import { RootStackParamList } from "../../../../../App"
 
-export interface LabelProps{
+export type LabelMedicamentoProps = {
     nomeRemedio: string,
-    rotaRemedio?: RootStackParamList,
+    rotaRemedio?: keyof RootStackParamList,
     imagemRemedio?: ImageSourcePropType
 }
 
-export const LabelMedicamento = ({children}: PropsWithChildren) => {
+
+export const LabelMedicamento = ({
+    nomeRemedio,
+    rotaRemedio,
+    imagemRemedio
+}: LabelMedicamentoProps) => {
+
+    
     return(
         <>
             <View style={styles.labelMedicamentoStyle}>
-                {children}
+                {
+                    imagemRemedio && (
+                        <Image
+                            source={imagemRemedio}
+                        />
+                    )
+                }
+                <Text>{nomeRemedio}</Text>
                 <BotoesApp style={styles.tamanhoBotaoLabel}
                     cor="#f9af"
                     texto="Encontrar"

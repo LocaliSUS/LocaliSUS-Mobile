@@ -19,8 +19,8 @@ export function ComponenteBotao({
     cor,
  }: BotaoProps) {
     return (
-        <View style={[{ backgroundColor: cor }]}>
-            <Text>{texto}</Text>
+        <View style={[{ backgroundColor: cor,}]}>
+            <Text >{texto}</Text>
         </View>
     )
 }
@@ -44,7 +44,7 @@ export const BotoesApp = ({
         activeOpacity={0.6}
         
         >
-            <Text>{texto}</Text>
+            <Text style={{fontSize: 18, fontWeight: 500}}>{texto}</Text>
         </TouchableOpacity>
     )
 }

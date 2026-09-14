@@ -36,7 +36,7 @@ const imagensHospital: ImageSourcePropType[] = [
 export const InfoHospitalScreen = () => {
     return (
         <View style={{ flex: 1 }}>
-             <View style={styles.containerSwiper}>
+            <View style={styles.containerSwiper}>
                 <Swiper
                     backgroundColor="transparent"
                     cardStyle={styles.estiloImagens}
@@ -57,7 +57,7 @@ export const InfoHospitalScreen = () => {
             <View style={styles.linhaBotoes}>
                 {infoHospitalButtons.map((item) => (
                     <ComponenteCard
-                    style={{width: "100%", height: 35}}
+                        style={{ width: "100%", height: 35 }}
                         key={item.botaoId}
                         id={item.botaoId}
                         titulo={item.texto}
