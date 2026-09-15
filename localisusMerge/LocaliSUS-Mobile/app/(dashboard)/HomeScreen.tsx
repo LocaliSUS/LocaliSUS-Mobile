@@ -26,10 +26,10 @@ type BotaoHome = {
     tela?: Href
 }
 
-const cardsHospitais: hospitalCard[] = [
-    { id: 1, titulo: "UBS Vila Romana", descricao: "Há 5 minutos de distância", img: ubsvilaromana, infoHospital: "VilaRomanaScreen" },
+    const cardsHospitais: hospitalCard[] = [
+        { id: 1, titulo: "UBS Vila Romana", descricao: "Há 5 minutos de distância", img: ubsvilaromana, infoHospital: "/hospitais/vilaRomana" },
     { id: 2, titulo: "Hospital Municipal Sorocabana", descricao: "Há 10 minutos de distância", img: hospitalsorocabana, infoHospital: "VilaRomanaScreen" },
-    { id: 3, titulo: "AME - Dr. Geraldo Paulo Bourrol", descricao: "Há 10 minutos de distância", img: amegeraldopaulo, infoHospital: "VilaRomanaScreen" },
+    { id: 3, titulo: "AME - Dr. Geraldo Paulo Bourrol", descricao: "Há 10 minutos de distância", img: amegeraldopaulo, infoHospital: "/hospitais/ameGeraldo" },
     { id: 4, titulo: "Por enquanto é só isso", descricao: "Deseja buscar por mais hospitais?" }
 ]
 

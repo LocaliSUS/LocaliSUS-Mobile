@@ -2,11 +2,9 @@ import React, { ReactNode } from "react";
 import { View, Text, TouchableOpacity } from 'react-native'
 import { ImageSourcePropType } from "react-native";
 import { TouchableOpacityProps } from "react-native";
-import { VoidExpression } from "typescript";
-import { RootStackParamList } from "../../App";
 
 export interface BotaoProps extends TouchableOpacityProps {
-    botaoId?: number //nome foi alterado devido à um conflito existente entre a palavra reservada id para touchable opacity props;
+    botaoId?: number
     texto: string
     cor?: string
     onPress?: () => void
@@ -35,7 +33,7 @@ export const BotoesApp = ({
             backgroundColor: cor,
             width: '45%',
             borderRadius: 18,
-            height: 45,
+            height: 48,
             justifyContent: 'center',
             alignItems: 'center',
 
