@@ -35,9 +35,9 @@ const cardsHospitais: hospitalCard[] = [
 
 
 const botoesRodapeHome: BotaoHome[] = [
-    { botaoId: 1, texto: "Remédios", cor: "#ffc4c4", tela: "MedicamentoScreen" },
-    { botaoId: 2, texto: "Localização", cor: "#d8ffc4ff", tela: "MapaSus" },
-    { botaoId: 3, texto: "Lembretes", cor: "#fffdc4", tela: "PasswordForget" },
+    { botaoId: 1, texto: "Remédios", cor: "#ffc4c4", tela: "/Medicamentos/TelaMedicamento" },
+    { botaoId: 2, texto: "Localização", cor: "#d8ffc4ff", tela: "/Mapa/MapaSus" },
+    { botaoId: 3, texto: "Lembretes", cor: "#fffdc4", tela: "/Lembretes/LembretesScreen" },
     { botaoId: 4, texto: "Ajuda", cor: "#ffffffff", tela: "Tela" },
 
 ]
@@ -56,7 +56,7 @@ const HomeScreen = () => {
                     <FlatList
                         style={styles.cardsImagemHospital}
                         data={cardsHospitais}
-                        contentContainerStyle={{ gap: 96, marginLeft: 75, zIndex: 50 }} //as alterações de estilo dentro de contentcontainerstyle realiza modificações para os cards de unidades próximas, a distância entre o AME Geraldo Paul e o Hospital Sorocabana deve ser analisada 
+                        contentContainerStyle={{ gap: 96, marginLeft: 75, zIndex: 50 }} 
                         keyExtractor={(item) => item.id.toString()}
                         showsHorizontalScrollIndicator={false}
                         horizontal={true}

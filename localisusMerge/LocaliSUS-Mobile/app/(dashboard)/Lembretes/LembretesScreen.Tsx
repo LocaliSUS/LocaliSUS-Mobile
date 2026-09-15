@@ -9,5 +9,3 @@ const LembretesScreen = () => {
 }
 
 export default LembretesScreen
-
-const styles = StyleSheet.create({})
