@@ -2,15 +2,14 @@ import { StyleSheet, ImageSourcePropType, DimensionValue, View, Image, Text, Fla
 import Swiper from "react-native-deck-swiper";
 import vilaromana1 from "../../assets/img/vlromana.jpg"
 import vilaromana2 from "../../assets/img/vlromana2.jpg"
-import { RootStackParamList } from "../../App";
 import { ComponenteCard } from "./Card";
+import { Href } from "expo-router";
 export type BotaoInfoHospital = {
     botaoId: number,
     texto: string,
     cor: string,
-    tela?: keyof RootStackParamList
+    tela?: keyof Href
 }
-
 
 
 const infoHospitalButtons: BotaoInfoHospital[] = [

@@ -10,6 +10,7 @@ import { RodapeHome } from "@/assets/componentestelas/elementoshome/rodape/Rodap
 import { BotoesApp } from "@/presentation/components/BotoesApp";
 import { Href, useRouter } from "expo-router";
 import { BotaoMenu } from "@/assets/componentesgenericos/botaoMenu/botaoMenu";
+import BuscaMedicamento, { buscarMedicamentoService } from "@/assets/services/medicamentos/buscarMedicamentoService";
 
 type hospitalCard = {
     id: number,
@@ -44,11 +45,13 @@ const botoesRodapeHome: BotaoHome[] = [
 ]
 
 const HomeScreen = () => {
+    const serviceBusca = buscarMedicamentoService();
     const router = useRouter()
     return (
         <>
             <CabecalhoHome>
                 <BotaoMenu/>
+                <BuscaMedicamento buscaService={serviceBusca}/>
             </CabecalhoHome>
             <View style={styles.visualizacaoTela}>
                 <CardsSwipper></CardsSwipper>

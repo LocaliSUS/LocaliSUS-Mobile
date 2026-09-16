@@ -1,30 +1,46 @@
-import React, { useRef, useState} from 'react';
-import { 
-    ActivityIndicator,
-    FlatList,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View
+import React, { useRef, useState } from 'react';
+import {
+  ActivityIndicator,
+  FlatList,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View
 } from 'react-native'
-import { Medicamento } from '@/assets/mocks/medicamento/medicamentosMock';
-import {styles} from './buscarMedicamentoServiceTheme'
+import { Medicamento, mockMedicamentos } from '@/assets/mocks/medicamento/medicamentosMock';
+import { styles } from './buscarMedicamentoServiceTheme'
 import { useRouter } from 'expo-router';
 
 export interface buscarMedicamentoInterface {
-    search(query: string): Promise<Medicamento[]>
+  search(query: string): Promise<Medicamento[]>
 }
 
-interface BuscaMedicamentoProps { 
-    buscaService: buscarMedicamentoInterface;
-    intervalo?: number    
+interface BuscaMedicamentoProps {
+  buscaService: buscarMedicamentoInterface;
+  intervalo?: number
+}
+
+export function buscarMedicamentoService() {
+  return {
+    async search(query) {
+      await new Promise((resolve) => setTimeout(resolve, 500)); //implementando o tempo de busca assíncrono para intercalar com a conexão do backend
+
+      const termo = query.toLowerCase().trim();
+      if (!termo) return [];
+
+      return mockMedicamentos.filter((med) =>
+        med.nomeComum.toLowerCase().includes(termo) ||
+        med.receitaMedicamento?.toLowerCase().includes(termo)
+      );
+    },
+  }
 }
 
 export default function BuscaMedicamento({
-    buscaService,
-    intervalo = 150
+  buscaService,
+  intervalo = 150
 }: BuscaMedicamentoProps): React.JSX.Element {
-    const [query, setQuery] = useState<string>('');
+  const [query, setQuery] = useState<string>('');
   const [results, setResults] = useState<Medicamento[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -73,11 +89,11 @@ export default function BuscaMedicamento({
     if (results.length === 1) {
       handleSelect(results[0]);
     }
-}
-return (
+  }
+  return (
     <View style={styles.barraPesquisaMedicamentos}>
-      <TextInput 
-        style={styles.labelPesquisaMedicamento} 
+      <TextInput
+        style={styles.labelPesquisaMedicamento}
         value={query}
         onChangeText={handleChangeText}
         onSubmitEditing={handleSubmit}
