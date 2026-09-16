@@ -4,23 +4,22 @@ import { useRouter } from "expo-router";
 
 //componentes
 import { COLORS } from "@/presentation/theme/AppTheme";
+import { BotaoMenu } from "@/assets/componentesgenericos/botaoMenu/botaoMenu";
 
-export default function MedicamentoScreen(){
+const MedicamentoScreen = () => {
     const router = useRouter();
 
     return (
         <>
         <View style={styles.container}>
             <TouchableOpacity onPress={() => router.push('/medicamentos')} style={styles.bntMenuCont}>
-                <Image
-                    style={styles.bntMenu}
-                    source={require("@/assets/img/Menu.png")}
-                />
-            </TouchableOpacity>
+            </TouchableOpacity>            
+            <BotaoMenu/>
         </View>
         </>
     )
 }
+export default MedicamentoScreen;
 
 const styles = StyleSheet.create({
     container: {
@@ -32,9 +31,5 @@ const styles = StyleSheet.create({
     bntMenuCont: {
         marginRight: 336,
         top: 60,
-    },
-    bntMenu: {
-        width: 75,
-        height: 55,
-    },
+    }
 });

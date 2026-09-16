@@ -1,5 +1,5 @@
 import {View, StyleSheet} from 'react-native'
-import {COLORS} from '../../../../presentation/theme/AppTheme'
+import {COLORS} from '../../../presentation/theme/AppTheme'
 
 export const styles = StyleSheet.create({ 
     cabecalho: {

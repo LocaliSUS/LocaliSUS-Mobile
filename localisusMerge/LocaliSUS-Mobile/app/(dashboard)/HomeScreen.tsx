@@ -5,7 +5,7 @@ import amegeraldopaulo from '@/assets/img/hospitaisImg/amegeraldopaulo.jpg'
 import hospitalsorocabana from '@/assets/img/hospitaisImg/sorocab.png'
 import ubsvilaromana from '@/assets/img/hospitaisImg/vilaromanaubs.jpg'
 import { HorizontalDivider } from "@/presentation/components/Divider";
-import { CabecalhoHome } from "@/assets/componentestelas/elementoshome/cabecalho/CabecalhoHome";
+import { CabecalhoHome } from "@/assets/componentesgenericos/cabecalho/CabecalhoHome";
 import { RodapeHome } from "@/assets/componentestelas/elementoshome/rodape/RodapeHome";
 import { BotoesApp } from "@/presentation/components/BotoesApp";
 import { Href, useRouter } from "expo-router";
