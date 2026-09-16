@@ -1,4 +1,4 @@
-import { Image } from "react-native";
+import { Image, TouchableOpacity } from "react-native";
 import { styles } from './botaoMenuTheme'
 import { PropsWithChildren } from "react";
 

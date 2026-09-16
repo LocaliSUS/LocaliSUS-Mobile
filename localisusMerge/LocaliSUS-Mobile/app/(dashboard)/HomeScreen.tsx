@@ -9,6 +9,7 @@ import { CabecalhoHome } from "@/assets/componentesgenericos/cabecalho/Cabecalho
 import { RodapeHome } from "@/assets/componentestelas/elementoshome/rodape/RodapeHome";
 import { BotoesApp } from "@/presentation/components/BotoesApp";
 import { Href, useRouter } from "expo-router";
+import { BotaoMenu } from "@/assets/componentesgenericos/botaoMenu/botaoMenu";
 
 type hospitalCard = {
     id: number,
@@ -46,7 +47,9 @@ const HomeScreen = () => {
     const router = useRouter()
     return (
         <>
-            <CabecalhoHome></CabecalhoHome>
+            <CabecalhoHome>
+                <BotaoMenu/>
+            </CabecalhoHome>
             <View style={styles.visualizacaoTela}>
                 <CardsSwipper></CardsSwipper>
                 <HorizontalDivider></HorizontalDivider>
