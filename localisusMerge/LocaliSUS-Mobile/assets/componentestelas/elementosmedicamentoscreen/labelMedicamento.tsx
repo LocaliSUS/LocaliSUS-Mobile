@@ -1,38 +1,29 @@
 import { PropsWithChildren } from "react"
-import { View, Text, ImageSourcePropType, Image } from "react-native"
-import {styles} from './labelMedicamentoTheme'
-import { BotoesApp } from "@/presentation/components/BotoesApp";
+import { View, Text, ImageSourcePropType, Image, TouchableOpacity } from "react-native"
 import { Href } from "expo-router";
+import { styles } from './labelMedicamentoTheme'
 
-export type LabelMedicamentoProps = {
-    nomeRemedio: string,
-    rotaRemedio?: Href,
-    imagemRemedio?: ImageSourcePropType
-}
 
+export type LabelMedicamentoProps = PropsWithChildren<{
+    nomeRemedio?: string;
+    rotaRemedio?: Href;
+    imagemRemedio?: ImageSourcePropType;
+}>;
 
 export const LabelMedicamento = ({
     nomeRemedio,
-    rotaRemedio,
-    imagemRemedio
+    imagemRemedio,
+    children
 }: LabelMedicamentoProps) => {
 
-    
-    return(
+    return (
         <>
             <View style={styles.labelMedicamentoStyle}>
-                {
-                    imagemRemedio && (
-                        <Image
-                            source={imagemRemedio}
-                        />
-                    )
-                }
+                <Image
+                style={styles.styleImg}
+                    source={imagemRemedio}
+                />
                 <Text>{nomeRemedio}</Text>
-                <BotoesApp style={styles.tamanhoBotaoLabel}
-                    cor="#f9af"
-                    texto="Encontrar"
-                    />
             </View>
         </>
     )
