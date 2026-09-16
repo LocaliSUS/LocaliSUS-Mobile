@@ -8,9 +8,13 @@ export const styles = StyleSheet.create({
         paddingVertical: 10,
     },
     chip: {
-        paddingVertical: 8,
-        paddingHorizontal: 16,
+        paddingVertical: 2,
+        paddingHorizontal: 1,
         borderRadius: 20,
+        height: 35,
+        width: 85,
+        alignItems: 'center',
+        justifyContent: 'center',
         backgroundColor: '#e8e8e8',
     },
     chipAtivo: {
