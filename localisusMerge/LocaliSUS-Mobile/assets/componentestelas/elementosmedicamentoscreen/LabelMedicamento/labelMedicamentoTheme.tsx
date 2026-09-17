@@ -8,22 +8,16 @@ export const styles = StyleSheet.create({
         borderColor: '#86868699',
         borderWidth: 1,
         boxShadow: ' 1.25px 3.5px 10px 2px #838383ff',
-        borderRadius: 15,
-        padding: 15,
         alignItems: 'flex-end',
         justifyContent: 'flex-end',
     },
     tamanhoBotaoLabel: {
-        height: 40,
-        width: 125,
-        // color: '#fafafa',
         borderRadius: 20,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#ff0000ff'
     },
     styleImg: {
-        width: 75,
+        width: 80,
         height: 130,
         resizeMode:'contain'
     }
