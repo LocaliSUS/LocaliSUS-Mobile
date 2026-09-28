@@ -54,14 +54,14 @@ const SenhaEsquecidaScreen = () => {
                 <Text style={styles.title}>Recuperar Senha</Text>
 
                 <CustomTextInput
+                    style={{ position: 'absolute', top: -1 }}
                     image={require("@/assets/img/icone-numero.png")}
-                    placeholder="Insira seu Numero de Telefone..."
+                    placeholder="Insira seu Numero de Telefone"
                     keyboardType="default"
                     secureTextEntry={false}
                     property="userPhone"
                     onChangeText={onChange}
                     value={userPhone}
-
                 />
 
                 <Pressable style={styles.cadastroButton}
@@ -72,7 +72,7 @@ const SenhaEsquecidaScreen = () => {
 
                 <View style={styles.bottomIcons}>
 
-                    <Pressable onPress={() => router.push('Inicio')} style={styles.voltarButton}>
+                    <Pressable onPress={() => router.push('/')} style={styles.voltarButton}>
                         <Image
                             style={styles.voltarLogo}
                             source={require("@/assets/img/icon-voltar.png")}
@@ -91,20 +91,17 @@ const SenhaEsquecidaScreen = () => {
 
 export default SenhaEsquecidaScreen
 
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: COLORS.darkBlue,
     },
-
     FundoImage: {
         position: "absolute",
         width: "100%",
         height: "100%",
         resizeMode: "cover",
     },
-
     Cardtop: {
         position: "absolute",
         width: 500,
@@ -113,36 +110,31 @@ const styles = StyleSheet.create({
         left: -49,
         resizeMode: "contain",
     },
-
     cardDow: {
         position: "absolute",
         width: 750,
         height: 610,
-        top: 430,
+        top: 530,
         right: -170,
         resizeMode: "contain",
     },
-
     header: {
         flex: 1.4,
         justifyContent: "center",
         alignItems: "center",
         paddingBottom: 240,
     },
-
     imageLogo: {
         width: 110,
         height: 110,
         resizeMode: "contain",
     },
-
     textlogo: {
         color: "#FFFFFF",
         fontSize: 26,
         fontWeight: "bold",
         marginBottom: 125
     },
-
     footer: {
         flex: 1,
         justifyContent: "center",
@@ -150,21 +142,17 @@ const styles = StyleSheet.create({
         paddingBottom: 30,
         gap: 1,
     },
-
     title: {
-        marginBottom: 60,
+        marginBottom: 40,
         height: 45,
         color: "#FFFFFF",
-        fontSize: 38,
+        fontSize: 30,
         fontWeight: "bold",
-        bottom: 40
-
     },
-
     cadastroButton: {
         backgroundColor: COLORS.mintGreen,
         width: 235,
-        height: 30,
+        height: 45,
         borderRadius: 22,
         justifyContent: "center",
         alignItems: "center",
@@ -182,17 +170,12 @@ const styles = StyleSheet.create({
         color: "#000000ff",
         fontSize: 21,
         fontWeight: "bold",
-
     },
     help: {
         color: "#FFFFFF",
         fontSize: 25,
         margin: 5,
         marginRight: 8,
-    },
-    forgotPassword: {
-
-
     },
     bottomIcons: {
         marginTop: 5,
@@ -206,8 +189,6 @@ const styles = StyleSheet.create({
     voltarLogo: {
         width: 43,
         height: 47,
-
-
     },
     voltarButton: {
         marginLeft: 6,

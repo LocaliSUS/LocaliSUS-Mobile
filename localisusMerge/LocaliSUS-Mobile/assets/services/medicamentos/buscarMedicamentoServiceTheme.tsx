@@ -1,19 +1,21 @@
-import { StyleSheet } from "react-native"
+import { StyleSheet } from "react-native";
+import { COLORS } from "@/presentation/theme/AppTheme";
 
-export const styles = StyleSheet.create({   
- barraPesquisaMedicamentos: {
-    backgroundColor: "#EBF9FF",
-    marginTop: '4.75%',
-    width: '88.25%',
-    color: '#fafafa',
-    height: 38,
-    borderRadius: 20,
-    display: 'flex',
-    justifyContent: 'center'
- },
- labelPesquisaMedicamento: {
-    fontSize: 14.5,
-    fontWeight: '600',
-    marginLeft: '3.5%'
- }
-})
+export const styles = StyleSheet.create({
+  searchBarContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#E6F0FA",
+    width: 350,
+    borderRadius: 25,
+    paddingHorizontal: 10,
+    height: 45,
+    boxShadow: "0px 3.5px 0px 0px #201533",
+  },
+  searchInput: {
+    flex: 1,
+    fontSize: 16,
+    color: COLORS.deepPurple,
+    fontWeight: "500",
+  },
+});

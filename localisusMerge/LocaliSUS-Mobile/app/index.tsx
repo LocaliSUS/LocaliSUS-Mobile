@@ -1,110 +1,43 @@
-import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
+
+
+import { useEffect } from "react";
+import { View, Image, StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
 import { COLORS } from "@/presentation/theme/AppTheme";
 
-const Inicio = () => {
-  const router = useRouter()
+export default function SplashScreen() {
+  const router = useRouter();
+
+  useEffect(() => {
+      const timer = setTimeout(() => {
+      router.replace("/(auth)/inicio");
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <View style={styles.container}>
-
       <Image
-        source={require("@/assets/img/tela-fundo.png")}
-        style={styles.imageFundo}
+        source={require("@/assets/img/LocaliSUS-Logo-Fundo.png")}
+        style={styles.logo}
+        resizeMode="contain"
       />
-
-      {/* FUNDOS CURVADOS */}
-      <Image
-        source={require("@/assets/img/curva-superior.png")}
-        style={styles.topDetail}
-      />
-
-      <Image
-        source={require("@/assets/img/curva-inferior.png")}
-        style={styles.bottomDetail}
-      />
-
-      {/* cabeçalho */}
-      <View style={styles.header}>
-        <Image
-          style={styles.imageLogo}
-          source={require("@/assets/img/LocaliSUS-Logo-Fundo.png")}
-        />
-        <Text style={styles.logo}>LOCALISUS</Text>
-      </View>
-
-
-
-      <View style={styles.footer}>
-        <Text style={styles.title}>Acesso</Text>
-
-        <TouchableOpacity
-          style={styles.loginButton}
-          onPress={() => router.push("Login")}
-        >
-          <Text style={styles.loginText}>Já tem uma conta?</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.registerButton}
-          onPress={() => router.push("CadastroSus")}
-        >
-          <Text style={styles.registerText}>Cadastre-se!</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity>
-          <Text style={styles.help}>ⓘ Ajuda</Text>
-        </TouchableOpacity>
-      </View>
     </View>
   );
-};
-
-export default Inicio;
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.darkBlue,
-  },
-
-  topDetail: {
-    position: "absolute",
-    width: 500,
-    height: 279,
-    top: -5,
-    left: -49,
-    resizeMode: "contain",
-  },
-
-  bottomDetail: {
-    position: "absolute",
-    width: 750,
-    height: 500,
-    bottom: -200,
-    left: -172,
-    resizeMode: "contain",
-  },
-
-  header: {
-    flex: 1.4,
     justifyContent: "center",
     alignItems: "center",
-    paddingBottom: 320
   },
-
-  imageLogo: {
-    width: 110,
-    height: 110,
-    resizeMode: "contain",
-  },
-
   logo: {
-    color: "#FFFFFF",
-    fontSize: 26,
-    fontWeight: "bold",
-    marginTop: 10,
+    width: 180,
+    height: 180,
   },
-
   content: {
     flex: 1.2,
     justifyContent: "center",
@@ -131,13 +64,13 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     fontSize: 28,
     fontWeight: "bold",
-    marginBottom: 55,
+    marginBottom: 35,
   },
 
   loginButton: {
     backgroundColor: COLORS.mintGreen,
-    width: 150,
-    height: 25,
+    width: 180,
+    height: 45,
     borderRadius: 22,
     fontWeight: "bold",
     justifyContent: "center",
@@ -158,8 +91,8 @@ const styles = StyleSheet.create({
 
   registerButton: {
     backgroundColor: COLORS.goldenYellow,
-    width: 110,
-    height: 30,
+    width: 160,
+    height: 45,
     fontWeight: "bold",
     borderRadius: 22,
     justifyContent: "center",

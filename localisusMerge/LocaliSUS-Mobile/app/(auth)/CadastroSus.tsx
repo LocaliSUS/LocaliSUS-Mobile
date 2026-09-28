@@ -1,206 +1,177 @@
-import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+  ScrollView,
+  Platform,
+} from "react-native";
 
-//componentes
-import { COLORS } from "../../presentation/theme/AppTheme";
+import { styles } from "@/presentation/theme/CadastroSusTheme";
+
+// componentes
 import { RoundedButton } from "../../presentation/components/RoudedButton";
 import { CustomTextInput } from "../../presentation/components/CustomTextInput";
-//views models
-import cadastroViewModel from "./ViewModels/CadastroViewModel";
+
+// view model
+import cadastroViewModel from "./ViewModels/cadastro/CadastroViewModel";
 import { useRouter } from "expo-router";
 
 const CadastroSusScreen = () => {
-  const router = useRouter()
+  const router = useRouter();
 
-  const { userPassword, userEmail, userPhone, onChange } = cadastroViewModel();
+  const {
+    userNome,
+    userEmail,
+    userCPF,
+    userPassword,
+    onChange,
+    cadastrar,
+    carregando,
+    erro,
+  } = cadastroViewModel();
+
+  const handleCadastro = async () => {
+    const sucesso = await cadastrar();
+
+    if (sucesso) {
+      router.push("/");
+    }
+  };
 
   return (
-    <View style={styles.container}>
-      {/* FUNDO PRINCIPAL */}
-      <Image
-        source={require("@/assets/img/tela-fundo.png")}
-        style={styles.FundoImage}
-      />
+    <KeyboardAvoidingView
+      style={{ flex: 1 }}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+    >
+      <ScrollView
+        contentContainerStyle={{ flexGrow: 1 }}
+        keyboardShouldPersistTaps="handled"
+        showsVerticalScrollIndicator={false}
+      >
+        <View style={styles.container}>
 
-      {/* Card/image */}
-      <Image
-        source={require("@/assets/img/tela-fundo.png")}
-        style={styles.Cardtop}
-      />
-      <Image
-        source={require("@/assets/img/curva-inferior.png")}
-        style={styles.cardDow}
-      />
+          {/* FUNDO PRINCIPAL */}
+          <Image
+            source={require("@/assets/img/tela-fundo.png")}
+            style={styles.FundoImage}
+          />
 
-      {/* Header */}
-      <View style={styles.header}>
-        <Image
-          style={styles.imageLogo}
-          source={require("@/assets/img/LocaliSUS-Logo-Fundo.png")}
-        />
-        <Text style={styles.textlogo}>LOCALISUS</Text>
-      </View>
+          {/* Card/image */}
+          <Image
+            source={require("@/assets/img/tela-fundo.png")}
+            style={styles.Cardtop}
+          />
 
-      {/* Escrita */}
-      <View style={styles.footer}>
-        <Text style={styles.title}>cadastro</Text>
+          <Image
+            source={require("@/assets/img/curva-inferior.png")}
+            style={styles.cardDow}
+          />
 
-        <CustomTextInput
-          image={require("@/assets/img/icon-cpf.png")}
-          placeholder="Insira seu CPF..."
-          keyboardType="default"
-          secureTextEntry={false}
-          property="userEmail"
-          onChangeText={onChange}
-          value={userEmail}
-        />
-        <CustomTextInput
-          image={require("@/assets/img/icone-numero.png")}
-          placeholder="Insira seu Numero de Telefone..."
-          keyboardType="default"
-          secureTextEntry={false}
-          property="userPhone"
-          onChangeText={onChange}
-          value={userPhone}
-        />
-        <CustomTextInput
-          image={require("@/assets/img/icon-senha.png")}
-          placeholder="Insira seu Senha..."
-          keyboardType="default"
-          secureTextEntry={true}
-          property="userPassword"
-          onChangeText={onChange}
-          value={userPassword}
-        />
+          {/* Header */}
+          <View style={styles.header}>
 
-        <RoundedButton onPress={() => router.push("/")}>
-          <Text>Cadastrar</Text>
-        </RoundedButton>
-        <View style={styles.bottomIcons}>
-          <TouchableOpacity
-            onPress={() => router.push("/")}
-            style={styles.voltarButton}
-          >
             <Image
-              style={styles.voltarLogo}
-              source={require("@/assets/img/icon-voltar.png")}
+              style={styles.imageLogo}
+              source={require("@/assets/img/LocaliSUS-Logo-Fundo.png")}
             />
-          </TouchableOpacity>
 
-          <TouchableOpacity>
-            <Text style={styles.help}>ⓘ Ajuda</Text>
-          </TouchableOpacity>
+            <Text style={styles.textlogo}>
+              LOCALISUS
+            </Text>
+
+          </View>
+
+          {/* Formulário */}
+          <View style={styles.footer}>
+
+            <Text style={styles.title}>
+              Cadastro
+            </Text>
+
+            <CustomTextInput
+              image={require("@/assets/img/signature(1).png")}
+              placeholder="Insira seu Nome..."
+              keyboardType="default"
+              secureTextEntry={false}
+              property="userNome"
+              onChangeText={onChange}
+              value={userNome}
+            />
+
+            <CustomTextInput
+              image={require("@/assets/img/icone-numero.png")}
+              placeholder="Insira seu Email..."
+              keyboardType="email-address"
+              secureTextEntry={false}
+              property="userEmail"
+              onChangeText={onChange}
+              value={userEmail}
+            />
+
+            <CustomTextInput
+              image={require("@/assets/img/icon-cpf.png")}
+              placeholder="Insira seu CPF..."
+              keyboardType="numeric"
+              secureTextEntry={false}
+              property="userCPF"
+              onChangeText={onChange}
+              value={userCPF}
+            />
+
+            <CustomTextInput
+              image={require("@/assets/img/icon-senha.png")}
+              placeholder="Insira sua Senha..."
+              keyboardType="default"
+              secureTextEntry={true}
+              property="userPassword"
+              onChangeText={onChange}
+              value={userPassword}
+            />
+
+            {erro && (
+              <Text style={styles.erroTexto}>
+                {erro}
+              </Text>
+            )}
+
+            <RoundedButton
+              style={styles.cadastroButton}
+              onPress={handleCadastro}
+            >
+              <Text>
+                {carregando ? "Cadastrando..." : "Cadastrar"}
+              </Text>
+            </RoundedButton>
+
+            {/* Voltar + Ajuda */}
+            <View style={styles.bottomIcons}>
+
+              <TouchableOpacity
+                onPress={() => router.push("/")}
+                style={styles.voltarButton}
+              >
+                <Image
+                  style={styles.voltarLogo}
+                  source={require("@/assets/img/icon-voltar.png")}
+                />
+              </TouchableOpacity>
+
+              <TouchableOpacity>
+                <Text style={styles.help}>
+                  ⓘ Ajuda
+                </Text>
+              </TouchableOpacity>
+
+            </View>
+
+          </View>
+
         </View>
-      </View>
-    </View>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 
 export default CadastroSusScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: COLORS.darkBlue,
-  },
-
-  FundoImage: {
-    position: "absolute",
-    width: "100%",
-    height: "100%",
-    resizeMode: "cover",
-  },
-
-  Cardtop: {
-    position: "absolute",
-    width: 500,
-    height: 300,
-    top: -20,
-    left: -49,
-    resizeMode: "contain",
-  },
-
-  cardDow: {
-    position: "absolute",
-    width: 750,
-    height: 610,
-    bottom: -200,
-    left: -172,
-    resizeMode: "contain",
-  },
-
-  header: {
-    flex: 1.4,
-    justifyContent: "center",
-    alignItems: "center",
-    paddingBottom: 240,
-  },
-
-  imageLogo: {
-    width: 110,
-    height: 110,
-    resizeMode: "contain",
-  },
-
-  textlogo: {
-    color: "#FFFFFF",
-    fontSize: 26,
-    fontWeight: "bold",
-    marginTop: 10,
-  },
-
-  footer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    paddingTop: -10,
-    gap: 12,
-  },
-
-  title: {
-    marginTop: -120,
-    height: 45,
-    color: "#FFFFFF",
-    fontSize: 38,
-    fontWeight: "bold",
-  },
-
-  cadastroButton: {
-    backgroundColor: COLORS.goldenYellow,
-    width: 150,
-    height: 25,
-    borderRadius: 22,
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: 10,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.3,
-    shadowRadius: 4,
-    elevation: 5,
-    marginTop: 20,
-  },
-
-  help: {
-    color: "#FFFFFF",
-    fontSize: 25,
-    marginTop: 5,
-    marginRight: 8,
-  },
-  forgotPassword: {},
-  bottomIcons: {
-    marginTop: 5,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: 8,
-    paddingRight: 125,
-  },
-  voltarLogo: {
-    width: 43,
-    height: 47,
-  },
-  voltarButton: {
-    marginLeft: 6,
-    paddingRight: 70,
-  },
-});

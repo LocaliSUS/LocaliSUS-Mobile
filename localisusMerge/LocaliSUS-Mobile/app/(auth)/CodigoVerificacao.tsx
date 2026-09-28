@@ -11,7 +11,7 @@ import {
 //componentes
 import { COLORS } from "@/presentation/theme/AppTheme";
 //views models
-import CodigoViewModel from "./ViewModels/CodigoViewModel";
+import CodigoViewModel from "./ViewModels/codigo/CodigoViewModel";
 import { useRouter } from "expo-router";
 
 const CodigoScreen = () => {

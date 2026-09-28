@@ -35,7 +35,7 @@ namespace projetointegrador.API.Controllers
 
             //buscanodo o usuário pelo CPF
             var usuario = await _authDbContext.Usuarios
-                .FirstOrDefaultAsync(u => u.CPF == loginDados.CPF);
+                .FirstOrDefaultAsync(u => u.CPF == loginDados.CPF); 
 
             //realizando a verificação de existência de um usuário
             if (usuario == null)
@@ -57,6 +57,7 @@ namespace projetointegrador.API.Controllers
             return Ok(new
             {
                 message = "Login realizado com sucesso!",
+                token = gerarToken, //adicionando o token para que a requisição possa ser compilada e autenticada a nível de usuário
                 UsuarioNome = usuario.Nome,
                 Tipo = usuario.TipoUsuario,
                 HospitalId = usuario.HospitalId
@@ -85,6 +86,7 @@ namespace projetointegrador.API.Controllers
                 Subject = new ClaimsIdentity(new[]
                 {
                     new Claim("id", usuario.Id.ToString()),
+                    new Claim(ClaimTypes.NameIdentifier, usuario.Id.ToString()), 
                     new Claim(ClaimTypes.Role, usuario.TipoUsuario.ToString()),
                     new Claim("hospitalId", usuario.HospitalId.HasValue ? usuario.HospitalId.Value.ToString() : string.Empty)
                 }),

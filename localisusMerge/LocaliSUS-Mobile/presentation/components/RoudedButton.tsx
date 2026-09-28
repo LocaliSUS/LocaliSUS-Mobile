@@ -1,7 +1,7 @@
 //Cria um arquivo para componente de botões
 //local: src/components/RoundedButton.tsx
 import React from "react";
-import { TouchableOpacity, Text, StyleSheet, Pressable } from "react-native";
+import { StyleSheet, Pressable, ViewStyle, StyleProp } from "react-native";
 import { COLORS } from "../theme/AppTheme";
 
 interface Props {
@@ -11,6 +11,7 @@ interface Props {
     textColor?: string;
     width?: number;
     height?: number;
+    style?: StyleProp<ViewStyle>;
 }
 
 export const RoundedButton = ({
@@ -20,17 +21,17 @@ export const RoundedButton = ({
     textColor = COLORS.lightBlue,
     width = 200,
     height = 50,
+    style
 }: Props) => {
     return (
         <Pressable
             onPress={onPress}
-            style={[styles.btn, { backgroundColor, width, height }]}
+            style={[styles.btn, { backgroundColor, width, height }, style]}
         >
             {children}
         </Pressable>
     );
 };
-
 
 const styles = StyleSheet.create({
     btn: {
@@ -38,7 +39,6 @@ const styles = StyleSheet.create({
         alignItems: "center",
         fontWeight: "bold",
         justifyContent: "center",
-
     },
     txtBnt: {
         color: COLORS.lightBlue,

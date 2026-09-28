@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "projetointegrador.API.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginDados",
+        "Type": "projetointegrador.API.DTO.LoginDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "projetointegrador.API.Controllers.ClientesController",
     "Method": "GetAllClientes",
     "RelativePath": "api/clientes",
@@ -78,6 +94,137 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "projetointegrador.API.Controllers.EstoqueController",
+    "Method": "GetEstoquePorHospital",
+    "RelativePath": "api/estoque",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "projetointegrador.API.Controllers.HospitalController",
+    "Method": "GetHospitals",
+    "RelativePath": "api/hospital",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "projetointegrador.API.Controllers.HospitalController",
+    "Method": "GetHospitalById",
+    "RelativePath": "api/hospital/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "projetointegrador.API.Controllers.HospitalController",
+    "Method": "CreateHospital",
+    "RelativePath": "api/hospital/CriarHospital",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "hospitaldto",
+        "Type": "projetointegrador.API.DTO.CriarHospitalDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "projetointegrador.API.Controllers.LembretesController",
+    "Method": "GetLembretes",
+    "RelativePath": "api/lembretes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "projetointegrador.API.Controllers.LembretesController",
+    "Method": "GetLembreteById",
+    "RelativePath": "api/lembretes/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "projetointegrador.API.Controllers.LembretesController",
+    "Method": "AtualizarLembrete",
+    "RelativePath": "api/lembretes/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dados",
+        "Type": "projetointegrador.API.DTO.AtualizarLembreteDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "projetointegrador.API.Controllers.LembretesController",
+    "Method": "ExcluirLembrete",
+    "RelativePath": "api/lembretes/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "projetointegrador.API.Controllers.LembretesController",
+    "Method": "CriarLembrete",
+    "RelativePath": "api/lembretes/CriarLembrete",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dados",
+        "Type": "projetointegrador.API.DTO.CriarLembreteDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "projetointegrador.API.Controllers.MedicamentosController",
     "Method": "GetAllMedicines",
     "RelativePath": "api/medicamentos",
@@ -138,5 +285,89 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "projetointegrador.API.Controllers.UsuariosController",
+    "Method": "GetAllUsuarios",
+    "RelativePath": "api/usuarios",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "projetointegrador.API.Controllers.UsuariosController",
+    "Method": "GetUsuarioById",
+    "RelativePath": "api/usuarios/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[projetointegrador.API.Models.Usuario, projetointegrador.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "projetointegrador.API.Controllers.UsuariosController",
+    "Method": "CriarUsuario",
+    "RelativePath": "api/usuarios/CriarUsuario",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dadosUsuario",
+        "Type": "projetointegrador.API.DTO.CriarUsuarioDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "projetointegrador.API.Controllers.EstoqueController",
+    "Method": "AtualizarEstoque",
+    "RelativePath": "atualizarEstoque",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dadosEstoque",
+        "Type": "projetointegrador.API.Models.ItemEstoque",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "projetointegrador.API.Controllers.EstoqueController",
+    "Method": "GetEstoquePorHospital",
+    "RelativePath": "hospital/{hospitalId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "hospitalId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

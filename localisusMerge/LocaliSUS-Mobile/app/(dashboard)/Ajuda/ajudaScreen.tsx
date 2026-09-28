@@ -1,10 +1,14 @@
 import React from "react";
-import {Text} from 'react-native'
+import { Text, View } from 'react-native'
 
-export const AjudaScreen = () => {
-    return(
+const AjudaScreen = () => {
+    return (
         <>
-        <Text> Precisa ser feito </Text>
+            <View>
+                <Text> Precisa ser feito </Text>
+            </View>
         </>
     )
 }
+
+export default AjudaScreen;

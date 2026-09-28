@@ -9,6 +9,7 @@ namespace projetointegrador.API.Models
         public string NomeMedicamento { get; set; }
         public float Dosagem { get; set; }
         public int Quantidade{ get; set; }
+        public string TipoMedicamento { get; set; } = string.Empty;
         
     }
 }

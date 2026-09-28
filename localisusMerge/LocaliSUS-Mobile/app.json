@@ -1,16 +1,24 @@
 {
   "expo": {
     "scheme": "LocaliSUS-Mobile",
-    "name": "LocaliSUS-Mobile",
+    "name": "Localisus",
     "slug": "LocaliSUS-Mobile",
+    "splash": {
+      "image": "./assets/img/img/LocaliSUS-Logo-Fundo.png",
+      "backgroundColor": "#1A2E44"
+    },
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "portrait", 
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
       "supportsTablet": true
     },
     "android": {
+      "navigationBar": {
+        "backgroundColor": "#202D6B",
+        "barStyle": "light-content"
+      } ,
       "package": "com.localisus.mobile",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
@@ -24,7 +32,8 @@
     },
     "plugins": [
       "expo-font",
-      "expo-router"
+      "expo-router",
+      "expo-splash-screen"
     ]
   }
 }

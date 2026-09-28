@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
     labelMedicamentoStyle: {
         marginTop: '5.75%',
         height: '25.25%',
-        width: '82.5%',
+        maxWidth: '82.5%',
         borderColor: '#86868699',
         borderWidth: 1,
         boxShadow: ' 1.25px 3.5px 10px 2px #838383ff',

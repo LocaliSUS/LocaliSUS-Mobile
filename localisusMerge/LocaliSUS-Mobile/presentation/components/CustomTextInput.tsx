@@ -5,6 +5,8 @@ import {
   TextInput,
   TextInputProps,
   StyleSheet,
+  StyleProp,
+  ViewStyle
 } from "react-native";
 
 interface Props {
@@ -15,6 +17,7 @@ interface Props {
   secureTextEntry?: boolean;
   property: string;
   onChangeText?: (property: string, value: any) => void;
+  style?: StyleProp<ViewStyle>;
 }
 
 export const CustomTextInput = ({
@@ -25,11 +28,12 @@ export const CustomTextInput = ({
   property,
   secureTextEntry,
   onChangeText,
+  style
 }: Props) => {
   const source = typeof image === "string" ? { uri: image } : image;
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       <View style={styles.iconContainer}>
         <Image source={source} style={styles.image} />
       </View>

@@ -7,8 +7,9 @@ export type LabelMedicamentoProps = {
     rotaRemedio?: Href;
     imagemRemedio?: ImageSourcePropType;
     descricaoRemedio?: string;
-    categoria?: 'Analgésicos' | 'Antibioticos' | 'Diuréticos' | 'Estatinas';
+    categoria?: 'Analgésicos' | 'Antibioticos' | 'Diuréticos' | 'Estatinas' | 'Anti-inflamatórios';
     favoritado?: boolean;
+    hospitalId?: number
 };
 
 export const LabelMedicamento = ({

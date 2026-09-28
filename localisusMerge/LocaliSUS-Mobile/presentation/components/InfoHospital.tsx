@@ -1,45 +1,60 @@
-import { StyleSheet, ImageSourcePropType, DimensionValue, View, Image, Text, FlatList } from "react-native";
+import { StyleSheet, ImageSourcePropType, View, Image, Text } from "react-native";
 import Swiper from "react-native-deck-swiper";
-import vilaromana1 from "../../assets/img/vlromana.jpg"
-import vilaromana2 from "../../assets/img/vlromana2.jpg"
+import { router, Href } from "expo-router";
 import { ComponenteCard } from "./Card";
-import { Href } from "expo-router";
+import { COLORS } from "../theme/AppTheme";
+
 export type BotaoInfoHospital = {
-    botaoId: number,
-    texto: string,
-    cor: string,
-    tela?: keyof Href
+    botaoId: number;
+    texto: string;
+    cor: string;
+    tela?: Href;
+};
+
+interface InfoHospitalScreenProps {
+    nomeHospital: string;
+    hospitalId: number;
+    descricao?: string;
+    imagens: ImageSourcePropType[];
 }
 
+export const InfoHospitalScreen = ({
+    nomeHospital,
+    hospitalId,
+    descricao,
+    imagens,
+}: InfoHospitalScreenProps) => {
 
-const infoHospitalButtons: BotaoInfoHospital[] = [
-    {
-        botaoId: 1,
-        texto: "Ver Estoque",
-        cor: "#fe9191ff"
-    },
-    {
-        botaoId: 2,
-        texto: "Ver Trajeto",
-        cor: "#bbff99ff"
-    }
+    const listaImagens = imagens ?? [];
 
-]
+    const infoHospitalButtons: BotaoInfoHospital[] = [
+        {
+            botaoId: 1,
+            texto: "Ver Estoque",
+            cor: "#fe9191ff",
+            tela: {
+                pathname: "/hospitais/EstoqueHospitalScreen",
+                params: { hospitalId: String(hospitalId), hospital: nomeHospital },
+            } as Href,
+        },
+        {
+            botaoId: 2,
+            texto: "Ver Trajeto",
+            cor: "#bbff99ff",
+            tela: {
+                pathname: "/MapaSus",
+                params: { hospitalId: String(hospitalId), hospital: nomeHospital },
+            } as Href,
+        },
+    ];
 
-
-const imagensHospital: ImageSourcePropType[] = [
-    vilaromana1, vilaromana2
-]
-
-
-export const InfoHospitalScreen = () => {
     return (
-        <View style={{ flex: 1 }}>
+        <View style={{ height: "100%", backgroundColor: COLORS.darkBlue}}>
             <View style={styles.containerSwiper}>
                 <Swiper
                     backgroundColor="transparent"
                     cardStyle={styles.estiloImagens}
-                    cards={imagensHospital}
+                    cards={listaImagens}
                     infinite={true}
                     cardIndex={0}
                     renderCard={(imagem) => {
@@ -51,22 +66,26 @@ export const InfoHospitalScreen = () => {
                             />
                         );
                     }}
-                /></View>
+                />
+            </View>
+
+            {descricao && <Text style={styles.descricao}>{descricao}</Text>}
 
             <View style={styles.linhaBotoes}>
                 {infoHospitalButtons.map((item) => (
                     <ComponenteCard
-                        style={{ width: "100%", height: 35 }}
+                        style={{ width: "100%", height: 35, alignItems: 'center', justifyContent: 'center' }}
                         key={item.botaoId}
                         id={item.botaoId}
                         titulo={item.texto}
                         cor={item.cor}
+                        onPress={() => item.tela && router.push(item.tela)}
                     />
                 ))}
             </View>
         </View>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     containerSwiper: { height: 250 },
@@ -74,6 +93,12 @@ const styles = StyleSheet.create({
         marginTop: 50,
         alignItems: 'center',
         borderRadius: 20,
+    },
+    descricao: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: '#ffffff',
+        fontSize: 18,
     },
     linhaBotoes: {
         alignItems: 'center',

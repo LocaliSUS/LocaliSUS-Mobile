@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("projetointegrador.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c2840dfc3159e0b6f69ac8c56295766043a8afa3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+87fb20f89799539261a53f092b7fc743d5d2fa28")]
 [assembly: System.Reflection.AssemblyProductAttribute("projetointegrador.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("projetointegrador.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

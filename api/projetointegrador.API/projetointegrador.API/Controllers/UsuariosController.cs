@@ -23,7 +23,6 @@ namespace projetointegrador.API.Controllers
         {
             List<Usuario> listaUsuarios = await _usuarioDbContext.Usuarios.Include(usuario => usuario.Enderecos).ToListAsync();
             return Ok(listaUsuarios);
-            //include está inserindo o endereço dos nossos Usuarios.
         }
 
         [HttpGet("{id}")]
@@ -35,7 +34,7 @@ namespace projetointegrador.API.Controllers
                 return NotFound(
 
                     new { Erro = true, Mensagem = $"O usuario com o id {id} não foi encontrado" });
-            }
+            } 
             return Ok(usuario);
         }
 
@@ -47,6 +46,7 @@ namespace projetointegrador.API.Controllers
             {
                 return BadRequest(ModelState);
             }
+
 
 
             //Regra de negócio para validar o tipo de usuário, caso ele seja um usuário do tipo funcionario e ele não tenha um HospitalId válido, ou seja, nulo, ele retorna uma bad request com a mensagem de erro
