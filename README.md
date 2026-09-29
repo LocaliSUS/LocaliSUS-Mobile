@@ -28,12 +28,23 @@
 
 ---
 
-### Instruções Para Execução:
+## Instruções Para Execução:
 
+### Frontend
 ```bash
 git clone https://github.com/LocaliSUS/LocaliSUS-Mobile
 
 cd localisusMerge\LocaliSUS-Mobile
 npm install
 npx expo start
+```
+
+### Backend
+
+```bash
+git clone https://github.com/LocaliSUS/LocaliSUS-Mobile
+
+dotnet ef database update
+
+dotnet run
 ```
