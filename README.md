@@ -1,6 +1,6 @@
 # LocaliSUS - Projeto Integrador (Senac)
 
-<img src="./path" alt="Home screen of the application" width="1920" />
+<img src=".\localisusMerge\LocaliSUS-Mobile\assets\img\readmeMobile.png" alt="Home screen of the application" width="1920" />
 
 ---
 
@@ -25,3 +25,15 @@
 * **SQL Server:** Banco de dados relacional para armazenamento de informações do ecossistema.
 
 * **Scalar:** Documentação interativa da API, proporcionando uma interface de testes moderna.
+
+---
+
+### Instruções Para Execução:
+
+```bash
+git clone https://github.com/LocaliSUS/LocaliSUS-Mobile
+
+cd localisusMerge\LocaliSUS-Mobile
+npm install
+npx expo start
+```
